@@ -4,7 +4,7 @@
 
 # Step 1:
 # This is your Docker ID/path
-dockerpath="olaninnovator/mydocker:v1.0.0"
+dockerpath="olaninnovator/myapp_prod:latest"
 
 # Step 2
 # Run the Docker Hub container with kubernetes

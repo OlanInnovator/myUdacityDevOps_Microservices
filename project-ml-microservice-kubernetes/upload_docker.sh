@@ -6,7 +6,7 @@
 
 # Step 1:
 # Create your on docker ID here
-dockerpath="olaninnovator/mydocker:udacityv1.0.0"
+dockerpath="olaninnovator/myapp_prod:latest"
 
 # Step 2:  
 # Authenticate & Tag
