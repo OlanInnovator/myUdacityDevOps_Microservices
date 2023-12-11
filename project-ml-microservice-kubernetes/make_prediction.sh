@@ -3,7 +3,7 @@
 PORT=80
 echo "Port: $PORT"
 
-# POST method predict
+# POST method  predict
 curl -d '{  
    "CHAS":{  
       "0":0

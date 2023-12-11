@@ -8,7 +8,7 @@ docker build -t myapp_prod .
 docker tag myapp_prod:latest
 
 # Step 2: 
-# List docker images
+# List docker  images
 docker image ls
 
 # Step 3: 

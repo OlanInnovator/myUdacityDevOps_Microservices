@@ -5,7 +5,7 @@
 # See `run_docker.sh`
 
 # Step 1:
-# Create your on docker ID here
+# Create  your on docker ID here
 dockerpath="olaninnovator/myapp_prod:latest"
 
 # Step 2:  
