@@ -68,15 +68,23 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
-          app-dir: ~/project-ml-microservice-kubernetes  # If your requirements.txt isn't in the root directory.
-          pip-dependency-file: requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
+# Download and cache dependencies
+      - restore_cache:
+          paths: [project-ml-microservice-kubernetes]
+          keys:
+            - v1-dependencies-{{ checksum "project-ml-microservice-kubernetes/requirements.txt" }}
+        # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            cd project-ml-microservice-kubernetes
+            pip install -r requirements.txt 
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command: pytest
-
+          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
