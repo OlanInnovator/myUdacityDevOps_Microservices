@@ -84,8 +84,9 @@ jobs:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command:  |
+              cd project-ml-microservice-kubernetes
               pip install -U pytest
-              python -m pytest -vv --cov=myUdacityDevOps_Microservices/project-ml-microservice-kubernetes tests/*.py
+              python -m pytest -vv tests/*.py
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
