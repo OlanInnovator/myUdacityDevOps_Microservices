@@ -213,3 +213,143 @@ Error: failed to get shared config profile, vocalabs
 (.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ eksctl create cluster --name mykubenetes --profile AROA2T2HAVOOTIVZAL76O:user2399376=4c608846-8dbc-11ed-ae98-4b060571af01 --region=us-east-1 --version 1.28 --without-nodegroup                                                                                                                                                                 
 Error: failed to get shared config profile, AROA2T2HAVOOTIVZAL76O:user2399376=4c608846-8dbc-11ed-ae98-4b060571af01
 (.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
+
+
+
+voclabs:~/environment $ cd myUdacityDevOps_Microservices
+voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cd myUdacityDevOps_Microservices
+bash: cd: myUdacityDevOps_Microservices: No such file or directory
+voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cd project-ml-microservice-kubernetes
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ eksctl create cluster --name mykubemetes --region=us-east-1
+2024-04-19 11:38:24 [ℹ]  eksctl version 0.175.0
+2024-04-19 11:38:24 [ℹ]  using region us-east-1
+2024-04-19 11:38:24 [ℹ]  setting availability zones to [us-east-1c us-east-1d]
+2024-04-19 11:38:24 [ℹ]  subnets for us-east-1c - public:192.168.0.0/19 private:192.168.64.0/19
+2024-04-19 11:38:24 [ℹ]  subnets for us-east-1d - public:192.168.32.0/19 private:192.168.96.0/19
+2024-04-19 11:38:24 [ℹ]  nodegroup "ng-cd29b2e7" will use "" [AmazonLinux2/1.29]
+2024-04-19 11:38:24 [ℹ]  using Kubernetes version 1.29
+2024-04-19 11:38:24 [ℹ]  creating EKS cluster "mykubemetes" in "us-east-1" region with managed nodes
+2024-04-19 11:38:24 [ℹ]  will create 2 separate CloudFormation stacks for cluster itself and the initial managed nodegroup
+2024-04-19 11:38:24 [ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=us-east-1 --cluster=mykubemetes'
+2024-04-19 11:38:24 [ℹ]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "mykubemetes" in "us-east-1"
+2024-04-19 11:38:24 [ℹ]  CloudWatch logging will not be enabled for cluster "mykubemetes" in "us-east-1"
+2024-04-19 11:38:24 [ℹ]  you can enable it with 'eksctl utils update-cluster-logging --enable-types={SPECIFY-YOUR-LOG-TYPES-HERE (e.g. all)} --region=us-east-1 --cluster=mykubemetes'
+2024-04-19 11:38:24 [ℹ]  
+2 sequential tasks: { create cluster control plane "mykubemetes", 
+    2 sequential sub-tasks: { 
+        wait for control plane to become ready,
+        create managed nodegroup "ng-cd29b2e7",
+    } 
+}
+2024-04-19 11:38:24 [ℹ]  building cluster stack "eksctl-mykubemetes-cluster"
+2024-04-19 11:38:24 [!]  1 error(s) occurred and cluster hasn't been created properly, you may wish to check CloudFormation console
+2024-04-19 11:38:24 [ℹ]  to cleanup resources, run 'eksctl delete cluster --region=us-east-1 --name=mykubemetes'
+2024-04-19 11:38:24 [✖]  creating CloudFormation stack "eksctl-mykubemetes-cluster": operation error CloudFormation: CreateStack, https response error StatusCode: 400, RequestID: 93ac81b3-2ba9-404f-b4df-c7130265c905, AlreadyExistsException: Stack [eksctl-mykubemetes-cluster] already exists
+Error: failed to create cluster "mykubemetes"
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ eksctl create cluster --name mykubemetes01 --region=us-east-1
+2024-04-19 11:39:15 [ℹ]  eksctl version 0.175.0
+2024-04-19 11:39:15 [ℹ]  using region us-east-1
+2024-04-19 11:39:15 [ℹ]  setting availability zones to [us-east-1e us-east-1d]
+2024-04-19 11:39:15 [ℹ]  subnets for us-east-1e - public:192.168.0.0/19 private:192.168.64.0/19
+2024-04-19 11:39:15 [ℹ]  subnets for us-east-1d - public:192.168.32.0/19 private:192.168.96.0/19
+2024-04-19 11:39:15 [ℹ]  nodegroup "ng-9110000a" will use "" [AmazonLinux2/1.29]
+2024-04-19 11:39:15 [ℹ]  using Kubernetes version 1.29
+2024-04-19 11:39:15 [ℹ]  creating EKS cluster "mykubemetes01" in "us-east-1" region with managed nodes
+2024-04-19 11:39:15 [ℹ]  will create 2 separate CloudFormation stacks for cluster itself and the initial managed nodegroup
+2024-04-19 11:39:15 [ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=us-east-1 --cluster=mykubemetes01'
+2024-04-19 11:39:15 [ℹ]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "mykubemetes01" in "us-east-1"
+2024-04-19 11:39:15 [ℹ]  CloudWatch logging will not be enabled for cluster "mykubemetes01" in "us-east-1"
+2024-04-19 11:39:15 [ℹ]  you can enable it with 'eksctl utils update-cluster-logging --enable-types={SPECIFY-YOUR-LOG-TYPES-HERE (e.g. all)} --region=us-east-1 --cluster=mykubemetes01'
+2024-04-19 11:39:15 [ℹ]  
+2 sequential tasks: { create cluster control plane "mykubemetes01", 
+    2 sequential sub-tasks: { 
+        wait for control plane to become ready,
+        create managed nodegroup "ng-9110000a",
+    } 
+}
+2024-04-19 11:39:15 [ℹ]  building cluster stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:39:15 [ℹ]  deploying stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:39:45 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:39:45 [✖]  unexpected status "ROLLBACK_IN_PROGRESS" while waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:39:45 [✖]  unexpected status "ROLLBACK_IN_PROGRESS" while waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:39:45 [ℹ]  fetching stack events in attempt to troubleshoot the root cause of the failure
+2024-04-19 11:39:45 [✖]  AWS::EC2::NatGateway/NATGateway: CREATE_FAILED – "Resource creation cancelled"
+2024-04-19 11:39:45 [✖]  AWS::EC2::Route/PublicSubnetRoute: CREATE_FAILED – "Resource creation cancelled"
+2024-04-19 11:39:45 [✖]  AWS::EKS::Cluster/ControlPlane: CREATE_FAILED – "Resource handler returned message: \"Cannot create cluster 'mykubemetes01' because EKS does not support creating control plane instances in us-east-1e, the targeted availability zone. Retry cluster creation using control plane subnets that span at least two of these availability zones: us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1f. Note, post cluster creation, you can run worker nodes in separate subnets/availability zones from control plane subnets/availability zones passed during cluster creation (Service: Eks, Status Code: 400, Request ID: 90151cb0-3976-43e7-931f-4535a281e224)\" (RequestToken: 4c600e07-35fd-611c-36ab-babac697cd2a, HandlerErrorCode: InvalidRequest)"
+2024-04-19 11:39:45 [!]  1 error(s) occurred and cluster hasn't been created properly, you may wish to check CloudFormation console
+2024-04-19 11:39:45 [ℹ]  to cleanup resources, run 'eksctl delete cluster --region=us-east-1 --name=mykubemetes01'
+2024-04-19 11:39:45 [✖]  ResourceNotReady: failed waiting for successful resource state
+Error: failed to create cluster "mykubemetes01"
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ eksctl create cluster --name mykubemetes01 --region=us-east-2
+2024-04-19 11:40:55 [ℹ]  eksctl version 0.175.0
+2024-04-19 11:40:55 [ℹ]  using region us-east-2
+2024-04-19 11:40:55 [ℹ]  setting availability zones to [us-east-2c us-east-2b us-east-2a]
+2024-04-19 11:40:55 [ℹ]  subnets for us-east-2c - public:192.168.0.0/19 private:192.168.96.0/19
+2024-04-19 11:40:55 [ℹ]  subnets for us-east-2b - public:192.168.32.0/19 private:192.168.128.0/19
+2024-04-19 11:40:55 [ℹ]  subnets for us-east-2a - public:192.168.64.0/19 private:192.168.160.0/19
+2024-04-19 11:40:55 [ℹ]  nodegroup "ng-173257f5" will use "" [AmazonLinux2/1.29]
+2024-04-19 11:40:55 [ℹ]  using Kubernetes version 1.29
+2024-04-19 11:40:55 [ℹ]  creating EKS cluster "mykubemetes01" in "us-east-2" region with managed nodes
+2024-04-19 11:40:55 [ℹ]  will create 2 separate CloudFormation stacks for cluster itself and the initial managed nodegroup
+2024-04-19 11:40:55 [ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=us-east-2 --cluster=mykubemetes01'
+2024-04-19 11:40:55 [ℹ]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "mykubemetes01" in "us-east-2"
+2024-04-19 11:40:55 [ℹ]  CloudWatch logging will not be enabled for cluster "mykubemetes01" in "us-east-2"
+2024-04-19 11:40:55 [ℹ]  you can enable it with 'eksctl utils update-cluster-logging --enable-types={SPECIFY-YOUR-LOG-TYPES-HERE (e.g. all)} --region=us-east-2 --cluster=mykubemetes01'
+2024-04-19 11:40:55 [ℹ]  
+2 sequential tasks: { create cluster control plane "mykubemetes01", 
+    2 sequential sub-tasks: { 
+        wait for control plane to become ready,
+        create managed nodegroup "ng-173257f5",
+    } 
+}
+2024-04-19 11:40:55 [ℹ]  building cluster stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:40:56 [ℹ]  deploying stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:41:26 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:41:56 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+
+2024-04-19 11:42:56 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+
+2024-04-19 11:43:56 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:44:56 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:45:56 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:46:56 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:47:56 [ℹ]  waiting for CloudFormation stack "eksctl-mykubemetes01-cluster"
+2024-04-19 11:47:57 [!]  1 error(s) occurred and cluster hasn't been created properly, you may wish to check CloudFormation console
+2024-04-19 11:47:57 [ℹ]  to cleanup resources, run 'eksctl delete cluster --region=us-east-2 --name=mykubemetes01'
+2024-04-19 11:47:57 [✖]  error creating Clientset: getting list of API resources for raw REST client: the server has asked for the client to provide credentials
+Error: failed to create cluster "mykubemetes01"
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ aws sts get-caller-identity
+{
+    "UserId": "AROA2T2HAVOOTIVZAL76O:user2399376=4c608846-8dbc-11ed-ae98-4b060571af01",
+    "Account": "729756511133",
+    "Arn": "arn:aws:sts::729756511133:assumed-role/voclabs/user2399376=4c608846-8dbc-11ed-ae98-4b060571af01"
+}
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ python3.8 -m venv ~/.devops
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ source ~/.devops/bin/activate
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_kubernetes.sh
+olaninnovator/myapp_prod:latest
+error: failed to create deployment: Post "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/apis/apps/v1/namespaces/default/deployments?fieldManager=kubectl-create&fieldValidation=Strict": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+olaninnovator/myapp_prod:latest
+E0419 12:03:52.380382   16427 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:52.382190   16427 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:52.383957   16427 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:52.385689   16427 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:52.387502   16427 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:52.390375   16427 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:52.394051   16427 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:52.395775   16427 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+Unable to connect to the server: dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:53.192444   16441 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:53.194582   16441 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:53.196408   16441 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:53.198156   16441 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:53.201823   16441 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+Unable to connect to the server: dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:53.999306   16455 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:54.001070   16455 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:54.002930   16455 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+E0419 12:03:54.004626   16455 memcache.go:265] couldn't get current server API group list: Get "https://3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com/api?timeout=32s": dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+Unable to connect to the server: dial tcp: lookup 3FA9634BC3E33AE74B5F27BB4FB341E5.gr7.us-east-1.eks.amazonaws.com on 172.31.0.2:53: no such host
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
