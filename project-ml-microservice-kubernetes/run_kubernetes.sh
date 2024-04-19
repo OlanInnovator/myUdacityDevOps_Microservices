@@ -6,6 +6,7 @@
 # This is your Docker ID/path
 dockerpath="olaninnovator/myapp_prod:latest"
 
+echo $dockerpath
 # Step 2
 # Run the Docker Hub container with kubernetes
 kubectl create deploy python-mykubemetes --image=$dockerpath

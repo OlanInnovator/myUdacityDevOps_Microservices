@@ -1,16 +1,116 @@
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
+voclabs:~/environment $ cd myUdacityDevOps_Microservices
+voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cat Dockerfilecd ..
+cat: Dockerfilecd: No such file or directory
+cat: ..: Is a directory
+voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cd ..
+voclabs:~/environment $ sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+--2024-04-19 00:37:13--  https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+Resolving github.com (github.com)... 140.82.113.4
+Connecting to github.com (github.com)|140.82.113.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/46234189/497d2080-54bd-11e9-94e5-926d35bd3e53?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240419%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240419T003713Z&X-Amz-Expires=300&X-Amz-Signature=f1f79f2beae284e90fdcaf938af2de670afcd34805633a3a69e13e7afa8c1c46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=46234189&response-content-disposition=attachment%3B%20filename%3Dhadolint-Linux-x86_64&response-content-type=application%2Foctet-stream [following]
+--2024-04-19 00:37:13--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/46234189/497d2080-54bd-11e9-94e5-926d35bd3e53?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240419%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240419T003713Z&X-Amz-Expires=300&X-Amz-Signature=f1f79f2beae284e90fdcaf938af2de670afcd34805633a3a69e13e7afa8c1c46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=46234189&response-content-disposition=attachment%3B%20filename%3Dhadolint-Linux-x86_64&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3683832 (3.5M) [application/octet-stream]
+Saving to: ‘/bin/hadolint’
+
+100%[====================================================================================================================================================================================>] 3,683,832   --.-K/s   in 0.02s   
+
+2024-04-19 00:37:13 (182 MB/s) - ‘/bin/hadolint’ saved [3683832/3683832]
+
+voclabs:~/environment $ sudo chmod +x /bin/hadolint
+voclabs:~/environment $ /bin/hadolint Dockerfile
+hadolint: Dockerfile: openBinaryFile: does not exist (No such file or directory)
+voclabs:~/environment $ hadolint --version
+Haskell Dockerfile Linter v1.16.3-0-g6a8dd04
+voclabs:~/environment $ cd myUdacityDevOps_Microservices
+voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cd project-ml-microservice-kubernetes
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ python3.7 -m venv ~/.devops
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ source ~/.devops/bin/activate
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make all
+# This should be run from inside a virtualenv
+pip install --upgrade pip &&\
+        pip install -r requirements.txt
+Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.8/site-packages (24.0)
+Requirement already satisfied: Click==7.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (7.0)
+Requirement already satisfied: Flask==1.0.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (1.0.2)
+Requirement already satisfied: itsdangerous==1.1.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (1.1.0)
+Requirement already satisfied: Jinja2==2.10.3 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (2.10.3)
+Requirement already satisfied: MarkupSafe==1.1.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (1.1.1)
+Requirement already satisfied: numpy>=1.17.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (1.22.4)
+Requirement already satisfied: pandas>=2.0.3 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (2.0.3)
+Requirement already satisfied: python-dateutil>=2.8.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 8)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 9)) (2024.1)
+Requirement already satisfied: scikit-learn==1.3.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 10)) (1.3.2)
+Requirement already satisfied: scipy==1.7.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 11)) (1.7.0)
+Requirement already satisfied: six==1.12.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 12)) (1.12.0)
+Requirement already satisfied: Werkzeug==0.16.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 13)) (0.16.0)
+Requirement already satisfied: pylint==2.4.4 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 14)) (2.4.4)
+Requirement already satisfied: joblib>=1.1.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from scikit-learn==1.3.2->-r requirements.txt (line 10)) (1.4.0)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from scikit-learn==1.3.2->-r requirements.txt (line 10)) (3.4.0)
+Requirement already satisfied: astroid<2.4,>=2.3.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (2.3.3)
+Requirement already satisfied: isort<5,>=4.2.5 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (4.3.21)
+Requirement already satisfied: mccabe<0.7,>=0.6 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (0.6.1)
+Requirement already satisfied: tzdata>=2022.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pandas>=2.0.3->-r requirements.txt (line 7)) (2024.1)
+Requirement already satisfied: lazy-object-proxy==1.4.* in /home/ec2-user/.devops/lib/python3.8/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.4.3)
+Requirement already satisfied: wrapt==1.11.* in /home/ec2-user/.devops/lib/python3.8/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.11.2)
+# See   local hadolint install instructions:   https://github.com/hadolint/hadolint
+# This is linter for Dockerfiles
+hadolint Dockerfile
+# This is a linter for Python source code linter: https://www.pylint.org/
+# This should be run from inside a virtualenv
+pylint --disable=R,C,W1203,W1202 app.py
+************* Module app
+app.py:6:0: E0611: No name 'joblib' in module 'sklearn.externals' (no-name-in-module)
+
+-----------------------------------
+Your code has been rated at 8.28/10
+
+make: *** [lint] Error 2
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make all
+# This should be run from inside a virtualenv
+pip install --upgrade pip &&\
+        pip install -r requirements.txt
+Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.8/site-packages (24.0)
+Requirement already satisfied: Click==7.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (7.0)
+Requirement already satisfied: Flask==1.0.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (1.0.2)
+Requirement already satisfied: itsdangerous==1.1.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (1.1.0)
+Requirement already satisfied: Jinja2==2.10.3 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (2.10.3)
+Requirement already satisfied: MarkupSafe==1.1.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (1.1.1)
+Requirement already satisfied: numpy>=1.17.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (1.22.4)
+Requirement already satisfied: pandas>=2.0.3 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (2.0.3)
+Requirement already satisfied: python-dateutil>=2.8.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 8)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 9)) (2024.1)
+Requirement already satisfied: scikit-learn==1.3.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 10)) (1.3.2)
+Requirement already satisfied: scipy==1.7.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 11)) (1.7.0)
+Requirement already satisfied: six==1.12.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 12)) (1.12.0)
+Requirement already satisfied: Werkzeug==0.16.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 13)) (0.16.0)
+Requirement already satisfied: pylint==2.4.4 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 14)) (2.4.4)
+Requirement already satisfied: joblib>=1.1.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from scikit-learn==1.3.2->-r requirements.txt (line 10)) (1.4.0)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from scikit-learn==1.3.2->-r requirements.txt (line 10)) (3.4.0)
+Requirement already satisfied: astroid<2.4,>=2.3.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (2.3.3)
+Requirement already satisfied: isort<5,>=4.2.5 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (4.3.21)
+Requirement already satisfied: mccabe<0.7,>=0.6 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (0.6.1)
+Requirement already satisfied: tzdata>=2022.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pandas>=2.0.3->-r requirements.txt (line 7)) (2024.1)
+Requirement already satisfied: lazy-object-proxy==1.4.* in /home/ec2-user/.devops/lib/python3.8/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.4.3)
+Requirement already satisfied: wrapt==1.11.* in /home/ec2-user/.devops/lib/python3.8/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.11.2)
+# See   local hadolint install instructions:   https://github.com/hadolint/hadolint
 # This is linter for Dockerfiles
 hadolint Dockerfile
 # This is a linter for Python source code linter: https://www.pylint.org/
 # This should be run from inside a virtualenv
 pylint --disable=R,C,W1203,W1202 app.py
 
-------------------------------------
-Your code has been rated at 10.00/10
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 8.28/10, +1.72)
 
+# Additional, optional, tests could go here
+#python -m pytest -vv --cov=myrepolib tests/*.py
+#python -m pytest --nbval notebook.ipynb
 (.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
-Sending build context to Docker daemon    790kB
+Sending build context to Docker daemon  94.52MB
 Step 1/6 : FROM python:3.7.3-stretch
 3.7.3-stretch: Pulling from library/python
 6f2f362378c5: Pull complete 
@@ -26,1195 +126,578 @@ Digest: sha256:205cafadbb7f0c48f2a6d655eb100a9675aa85e6e73958860f488406cce09779
 Status: Downloaded newer image for python:3.7.3-stretch
  ---> 34a518642c76
 Step 2/6 : WORKDIR /app
- ---> Running in 4f7e4d7e3f53
-Removing intermediate container 4f7e4d7e3f53
- ---> bc8909d1652a
+ ---> Running in e8f4d634bdf9
+Removing intermediate container e8f4d634bdf9
+ ---> 1268c95ad635
 Step 3/6 : COPY . app.py /app/
- ---> 3fe21ddd3267
-Step 4/6 : RUN pip install --upgrade pip &&    pip install --trusted-host pypi.python.org -r requirements.txt
- ---> Running in 20382a0e73e2
+ ---> df308b28d926
+Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+ ---> Running in edf7cfc71cd4
 Collecting pip
-  Downloading https://files.pythonhosted.org/packages/47/6a/453160888fab7c6a432a6e25f8afe6256d0d9f2cbd25971021da6491d899/pip-23.3.1-py3-none-any.whl (2.1MB)
+  Downloading https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl (2.1MB)
 Installing collected packages: pip
   Found existing installation: pip 19.1.1
     Uninstalling pip-19.1.1:
       Successfully uninstalled pip-19.1.1
-Successfully installed pip-23.3.1
+Successfully installed pip-24.0
 Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 kB 8.6 MB/s eta 0:00:00
+  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
 Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.4/91.4 kB 10.4 MB/s eta 0:00:00
+  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
 Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
 Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 15.9 MB/s eta 0:00:00
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
 Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl (33 kB)
-Collecting numpy==1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.3/20.3 MB 29.9 MB/s eta 0:00:00
-Collecting pandas==0.24.2 (from -r requirements.txt (line 7))
-  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.1/10.1 MB 40.1 MB/s eta 0:00:00
-Collecting python-dateutil==2.8.0 (from -r requirements.txt (line 8))
-  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.8/226.8 kB 21.5 MB/s eta 0:00:00
-Collecting pytz==2019.3 (from -r requirements.txt (line 9))
-  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 35.9 MB/s eta 0:00:00
-Collecting scikit-learn==0.20.3 (from -r requirements.txt (line 10))
-  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 53.3 MB/s eta 0:00:00
-Collecting scipy==1.3.1 (from -r requirements.txt (line 11))
-  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.2/25.2 MB 26.8 MB/s eta 0:00:00
-Collecting six==1.12.0 (from -r requirements.txt (line 12))
-  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
-Collecting Werkzeug==0.16.0 (from -r requirements.txt (line 13))
-  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 327.3/327.3 kB 28.8 MB/s eta 0:00:00
-Collecting pylint==2.4.4 (from -r requirements.txt (line 14))
-  Downloading pylint-2.4.4-py3-none-any.whl (302 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.0/303.0 kB 26.4 MB/s eta 0:00:00
-Collecting astroid<2.4,>=2.3.0 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading astroid-2.3.3-py3-none-any.whl (205 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 205.7/205.7 kB 20.6 MB/s eta 0:00:00
-Collecting isort<5,>=4.2.5 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 5.2 MB/s eta 0:00:00
-Collecting mccabe<0.7,>=0.6 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
-Collecting lazy-object-proxy==1.4.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 6.8 MB/s eta 0:00:00
-Collecting wrapt==1.11.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading wrapt-1.11.2.tar.gz (27 kB)
-  Preparing metadata (setup.py): started
-  Preparing metadata (setup.py): finished with status 'done'
-Collecting typed-ast<1.5,>=1.4.0 (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading typed_ast-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (743 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 743.4/743.4 kB 40.8 MB/s eta 0:00:00
-Building wheels for collected packages: wrapt
-  Building wheel for wrapt (setup.py): started
-  Building wheel for wrapt (setup.py): finished with status 'done'
-  Created wheel for wrapt: filename=wrapt-1.11.2-cp37-cp37m-linux_x86_64.whl size=71332 sha256=66934b052efb3828e5f9e372d645cdaa4a3f1e7177831e5ec8eeba29e3af9bbb
-  Stored in directory: /root/.cache/pip/wheels/23/5f/62/304b411f20be41821465a82bc98baabc5e68c3cdd1eb99db71
-Successfully built wrapt
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-Installing collected packages: wrapt, typed-ast, pytz, mccabe, Werkzeug, six, numpy, MarkupSafe, lazy-object-proxy, itsdangerous, isort, Click, scipy, python-dateutil, Jinja2, astroid, scikit-learn, pylint, pandas, Flask
-Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.17.2 pandas-0.24.2 pylint-2.4.4 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0 typed-ast-1.4.3 wrapt-1.11.2
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-Removing intermediate container 20382a0e73e2
- ---> f7b087644daf
-Step 5/6 : EXPOSE 80
- ---> Running in c301a46c66a0
-Removing intermediate container c301a46c66a0
- ---> 5ba289b4e030
-Step 6/6 : CMD ["python", "app.py"]
- ---> Running in 68251eb8af37
-Removing intermediate container 68251eb8af37
- ---> 01f30b88f33b
-Successfully built 01f30b88f33b
-Successfully tagged myapp_prodsu:latest
-REPOSITORY     TAG             IMAGE ID       CREATED                  SIZE
-myapp_prodsu   latest          01f30b88f33b   Less than a second ago   1.26GB
-python         3.7.3-stretch   34a518642c76   4 years ago              929MB
- * Serving Flask app "app" (lazy loading)
- * Environment: production
-   WARNING: Do not use the development server in a production environment.
-   Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 828-447-949
-[2023-12-04 03:20:08,536] INFO in app: JSON payload: 
-{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2023-12-04 03:20:08,559] INFO in app: Inference payload DataFrame: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2023-12-04 03:20:08,579] INFO in app: Scaling Payload: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-172.17.0.1 - - [04/Dec/2023 03:20:08] "POST /predict HTTP/1.1" 200 -
-^C(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
-Sending build context to Docker daemon    790kB
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl.metadata (3.2 kB)
+Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
+  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.1 kB)
+ERROR: Ignored the following versions that require a different python version: 1.22.0 Requires-Python >=3.8; 1.22.1 Requires-Python >=3.8; 1.22.2 Requires-Python >=3.8; 1.22.3 Requires-Python >=3.8; 1.22.4 Requires-Python >=3.8; 1.23.0 Requires-Python >=3.8; 1.23.0rc1 Requires-Python >=3.8; 1.23.0rc2 Requires-Python >=3.8; 1.23.0rc3 Requires-Python >=3.8; 1.23.1 Requires-Python >=3.8; 1.23.2 Requires-Python >=3.8; 1.23.3 Requires-Python >=3.8; 1.23.4 Requires-Python >=3.8; 1.23.5 Requires-Python >=3.8; 1.24.0 Requires-Python >=3.8; 1.24.0rc1 Requires-Python >=3.8; 1.24.0rc2 Requires-Python >=3.8; 1.24.1 Requires-Python >=3.8; 1.24.2 Requires-Python >=3.8; 1.24.3 Requires-Python >=3.8; 1.24.4 Requires-Python >=3.8; 1.25.0 Requires-Python >=3.9; 1.25.0rc1 Requires-Python >=3.9; 1.25.1 Requires-Python >=3.9; 1.25.2 Requires-Python >=3.9; 1.26.0 Requires-Python <3.13,>=3.9; 1.26.0b1 Requires-Python <3.13,>=3.9; 1.26.0rc1 Requires-Python <3.13,>=3.9; 1.26.1 Requires-Python <3.13,>=3.9; 1.26.2 Requires-Python >=3.9; 1.26.3 Requires-Python >=3.9; 1.26.4 Requires-Python >=3.9; 1.4.0 Requires-Python >=3.8; 1.4.0rc0 Requires-Python >=3.8; 1.4.1 Requires-Python >=3.8; 1.4.2 Requires-Python >=3.8; 1.4.3 Requires-Python >=3.8; 1.4.4 Requires-Python >=3.8; 1.5.0 Requires-Python >=3.8; 1.5.0rc0 Requires-Python >=3.8; 1.5.1 Requires-Python >=3.8; 1.5.2 Requires-Python >=3.8; 1.5.3 Requires-Python >=3.8; 2.0.0 Requires-Python >=3.8; 2.0.0b1 Requires-Python >=3.9; 2.0.0rc0 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.9; 2.0.1 Requires-Python >=3.8; 2.0.2 Requires-Python >=3.8; 2.0.3 Requires-Python >=3.8; 2.1.0 Requires-Python >=3.9; 2.1.0rc0 Requires-Python >=3.9; 2.1.1 Requires-Python >=3.9; 2.1.2 Requires-Python >=3.9; 2.1.3 Requires-Python >=3.9; 2.1.4 Requires-Python >=3.9; 2.2.0 Requires-Python >=3.8; 2.2.0 Requires-Python >=3.9; 2.2.0rc0 Requires-Python >=3.9; 2.2.1 Requires-Python >=3.9; 2.2.2 Requires-Python >=3.9; 2.3.0 Requires-Python >=3.8; 2.3.1 Requires-Python >=3.8; 2.3.2 Requires-Python >=3.8; 2.3.3 Requires-Python >=3.8; 3.0.0 Requires-Python >=3.8; 3.0.1 Requires-Python >=3.8; 3.0.2 Requires-Python >=3.8; 3.0.3 Requires-Python >=3.8
+ERROR: Could not find a version that satisfies the requirement pandas>=2.0.3 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)
+ERROR: No matching distribution found for pandas>=2.0.3
+The command '/bin/sh -c pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt' returned a non-zero code: 1
+"docker tag" requires exactly 2 arguments.
+See 'docker tag --help'.
+
+Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED         SIZE
+<none>                                                                                                      <none>                                         df308b28d926   8 seconds ago   1.02GB
+helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   2 hours ago     595MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   2 hours ago     577MB
+helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   2 hours ago     577MB
+<none>                                                                                                      <none>                                         5d66c6c24f3f   3 hours ago     595MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago     577MB
+public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   31 hours ago    574MB
+python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago     929MB
+Unable to find image 'myapp_prod:latest' locally
+docker: Error response from daemon: pull access denied for myapp_prod, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 'docker run --help'
+bash: docker run --help: command not found
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ docker run --help
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+
+Options:
+      --add-host list                  Add a custom host-to-IP mapping (host:ip)
+  -a, --attach list                    Attach to STDIN, STDOUT or STDERR
+      --blkio-weight uint16            Block IO (relative weight), between 10 and 1000, or 0 to disable (default 0)
+      --blkio-weight-device list       Block IO weight (relative device weight) (default [])
+      --cap-add list                   Add Linux capabilities
+      --cap-drop list                  Drop Linux capabilities
+      --cgroup-parent string           Optional parent cgroup for the container
+      --cgroupns string                Cgroup namespace to use (host|private)
+                                       'host':    Run the container in the Docker host's cgroup namespace
+                                       'private': Run the container in its own private cgroup namespace
+                                       '':        Use the cgroup namespace as configured by the
+                                                  default-cgroupns-mode option on the daemon (default)
+      --cidfile string                 Write the container ID to the file
+      --cpu-period int                 Limit CPU CFS (Completely Fair Scheduler) period
+      --cpu-quota int                  Limit CPU CFS (Completely Fair Scheduler) quota
+      --cpu-rt-period int              Limit CPU real-time period in microseconds
+      --cpu-rt-runtime int             Limit CPU real-time runtime in microseconds
+  -c, --cpu-shares int                 CPU shares (relative weight)
+      --cpus decimal                   Number of CPUs
+      --cpuset-cpus string             CPUs in which to allow execution (0-3, 0,1)
+      --cpuset-mems string             MEMs in which to allow execution (0-3, 0,1)
+  -d, --detach                         Run container in background and print container ID
+      --detach-keys string             Override the key sequence for detaching a container
+      --device list                    Add a host device to the container
+      --device-cgroup-rule list        Add a rule to the cgroup allowed devices list
+      --device-read-bps list           Limit read rate (bytes per second) from a device (default [])
+      --device-read-iops list          Limit read rate (IO per second) from a device (default [])
+      --device-write-bps list          Limit write rate (bytes per second) to a device (default [])
+      --device-write-iops list         Limit write rate (IO per second) to a device (default [])
+      --disable-content-trust          Skip image verification (default true)
+      --dns list                       Set custom DNS servers
+      --dns-option list                Set DNS options
+      --dns-search list                Set custom DNS search domains
+      --domainname string              Container NIS domain name
+      --entrypoint string              Overwrite the default ENTRYPOINT of the image
+  -e, --env list                       Set environment variables
+      --env-file list                  Read in a file of environment variables
+      --expose list                    Expose a port or a range of ports
+      --gpus gpu-request               GPU devices to add to the container ('all' to pass all GPUs)
+      --group-add list                 Add additional groups to join
+      --health-cmd string              Command to run to check health
+      --health-interval duration       Time between running the check (ms|s|m|h) (default 0s)
+      --health-retries int             Consecutive failures needed to report unhealthy
+      --health-start-period duration   Start period for the container to initialize before starting health-retries countdown (ms|s|m|h) (default 0s)
+      --health-timeout duration        Maximum time to allow one check to run (ms|s|m|h) (default 0s)
+      --help                           Print usage
+  -h, --hostname string                Container host name
+      --init                           Run an init inside the container that forwards signals and reaps processes
+  -i, --interactive                    Keep STDIN open even if not attached
+      --ip string                      IPv4 address (e.g., 172.30.100.104)
+      --ip6 string                     IPv6 address (e.g., 2001:db8::33)
+      --ipc string                     IPC mode to use
+      --isolation string               Container isolation technology
+      --kernel-memory bytes            Kernel memory limit
+  -l, --label list                     Set meta data on a container
+      --label-file list                Read in a line delimited file of labels
+      --link list                      Add link to another container
+      --link-local-ip list             Container IPv4/IPv6 link-local addresses
+      --log-driver string              Logging driver for the container
+      --log-opt list                   Log driver options
+      --mac-address string             Container MAC address (e.g., 92:d0:c6:0a:29:33)
+  -m, --memory bytes                   Memory limit
+      --memory-reservation bytes       Memory soft limit
+      --memory-swap bytes              Swap limit equal to memory plus swap: '-1' to enable unlimited swap
+      --memory-swappiness int          Tune container memory swappiness (0 to 100) (default -1)
+      --mount mount                    Attach a filesystem mount to the container
+      --name string                    Assign a name to the container
+      --network network                Connect a container to a network
+      --network-alias list             Add network-scoped alias for the container
+      --no-healthcheck                 Disable any container-specified HEALTHCHECK
+      --oom-kill-disable               Disable OOM Killer
+      --oom-score-adj int              Tune host's OOM preferences (-1000 to 1000)
+      --pid string                     PID namespace to use
+      --pids-limit int                 Tune container pids limit (set -1 for unlimited)
+      --platform string                Set platform if server is multi-platform capable
+      --privileged                     Give extended privileges to this container
+  -p, --publish list                   Publish a container's port(s) to the host
+  -P, --publish-all                    Publish all exposed ports to random ports
+      --pull string                    Pull image before running ("always"|"missing"|"never") (default "missing")
+      --read-only                      Mount the container's root filesystem as read only
+      --restart string                 Restart policy to apply when a container exits (default "no")
+      --rm                             Automatically remove the container when it exits
+      --runtime string                 Runtime to use for this container
+      --security-opt list              Security Options
+      --shm-size bytes                 Size of /dev/shm
+      --sig-proxy                      Proxy received signals to the process (default true)
+      --stop-signal string             Signal to stop a container (default "SIGTERM")
+      --stop-timeout int               Timeout (in seconds) to stop a container
+      --storage-opt list               Storage driver options for the container
+      --sysctl map                     Sysctl options (default map[])
+      --tmpfs list                     Mount a tmpfs directory
+  -t, --tty                            Allocate a pseudo-TTY
+      --ulimit ulimit                  Ulimit options (default [])
+  -u, --user string                    Username or UID (format: <name|uid>[:<group|gid>])
+      --userns string                  User namespace to use
+      --uts string                     UTS namespace to use
+  -v, --volume list                    Bind mount a volume
+      --volume-driver string           Optional volume driver for the container
+      --volumes-from list              Mount volumes from the specified container(s)
+  -w, --workdir string                 Working directory inside the container
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
+Docker ID and Image: olaninnovator/myapp_prod:latest
+Error response from daemon: No such image: myapp_prodsu:latest
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: olaninnovator
+Password: 
+Error response from daemon: Get "https://registry-1.docker.io/v2/": unauthorized: incorrect username or password
+The push refers to repository [docker.io/olaninnovator/myapp_prod]
+An image does not exist locally with the tag: olaninnovator/myapp_prod
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
+Docker ID and Image: olaninnovator/myapp_prod:latest
+Error response from daemon: No such image: myapp_prodsu:latest
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: olaninnovator
+Password: 
+WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+The push refers to repository [docker.io/olaninnovator/myapp_prod]
+An image does not exist locally with the tag: olaninnovator/myapp_prod
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
+Sending build context to Docker daemon  94.52MB
 Step 1/6 : FROM python:3.7.3-stretch
  ---> 34a518642c76
 Step 2/6 : WORKDIR /app
  ---> Using cache
- ---> bc8909d1652a
+ ---> 1268c95ad635
 Step 3/6 : COPY . app.py /app/
- ---> 4201a53e75a5
-Step 4/6 : RUN pip install --upgrade pip &&    pip install --trusted-host pypi.python.org -r requirements.txt
- ---> Running in 7b5719aabff6
+ ---> 1575e24e9624
+Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+ ---> Running in f8b2fb3c6a97
 Collecting pip
-  Downloading https://files.pythonhosted.org/packages/47/6a/453160888fab7c6a432a6e25f8afe6256d0d9f2cbd25971021da6491d899/pip-23.3.1-py3-none-any.whl (2.1MB)
+  Downloading https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl (2.1MB)
 Installing collected packages: pip
   Found existing installation: pip 19.1.1
     Uninstalling pip-19.1.1:
       Successfully uninstalled pip-19.1.1
-Successfully installed pip-23.3.1
+Successfully installed pip-24.0
 Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 kB 8.3 MB/s eta 0:00:00
+  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
 Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.4/91.4 kB 11.8 MB/s eta 0:00:00
+  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
 Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
 Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 14.2 MB/s eta 0:00:00
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
 Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl (33 kB)
-Collecting numpy==1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.3/20.3 MB 29.8 MB/s eta 0:00:00
-Collecting pandas==0.24.2 (from -r requirements.txt (line 7))
-  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.1/10.1 MB 40.7 MB/s eta 0:00:00
-Collecting python-dateutil==2.8.0 (from -r requirements.txt (line 8))
-  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.8/226.8 kB 24.3 MB/s eta 0:00:00
-Collecting pytz==2019.3 (from -r requirements.txt (line 9))
-  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 38.6 MB/s eta 0:00:00
-Collecting scikit-learn==0.20.3 (from -r requirements.txt (line 10))
-  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 59.4 MB/s eta 0:00:00
-Collecting scipy==1.3.1 (from -r requirements.txt (line 11))
-  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.2/25.2 MB 25.6 MB/s eta 0:00:00
-Collecting six==1.12.0 (from -r requirements.txt (line 12))
-  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
-Collecting Werkzeug==0.16.0 (from -r requirements.txt (line 13))
-  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 327.3/327.3 kB 28.9 MB/s eta 0:00:00
-Collecting pylint==2.4.4 (from -r requirements.txt (line 14))
-  Downloading pylint-2.4.4-py3-none-any.whl (302 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.0/303.0 kB 29.3 MB/s eta 0:00:00
-Collecting astroid<2.4,>=2.3.0 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading astroid-2.3.3-py3-none-any.whl (205 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 205.7/205.7 kB 22.9 MB/s eta 0:00:00
-Collecting isort<5,>=4.2.5 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 4.9 MB/s eta 0:00:00
-Collecting mccabe<0.7,>=0.6 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
-Collecting lazy-object-proxy==1.4.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 7.3 MB/s eta 0:00:00
-Collecting wrapt==1.11.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading wrapt-1.11.2.tar.gz (27 kB)
-  Preparing metadata (setup.py): started
-  Preparing metadata (setup.py): finished with status 'done'
-Collecting typed-ast<1.5,>=1.4.0 (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading typed_ast-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (743 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 743.4/743.4 kB 43.3 MB/s eta 0:00:00
-Building wheels for collected packages: wrapt
-  Building wheel for wrapt (setup.py): started
-  Building wheel for wrapt (setup.py): finished with status 'done'
-  Created wheel for wrapt: filename=wrapt-1.11.2-cp37-cp37m-linux_x86_64.whl size=71332 sha256=079484e3db57a7763164c4c8c6d2e94e92838dd92fd6f7199858d58a0476fa5b
-  Stored in directory: /root/.cache/pip/wheels/23/5f/62/304b411f20be41821465a82bc98baabc5e68c3cdd1eb99db71
-Successfully built wrapt
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-Installing collected packages: wrapt, typed-ast, pytz, mccabe, Werkzeug, six, numpy, MarkupSafe, lazy-object-proxy, itsdangerous, isort, Click, scipy, python-dateutil, Jinja2, astroid, scikit-learn, pylint, pandas, Flask
-Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.17.2 pandas-0.24.2 pylint-2.4.4 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0 typed-ast-1.4.3 wrapt-1.11.2
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-Removing intermediate container 7b5719aabff6
- ---> 7d6e3c541059
-Step 5/6 : EXPOSE 80
- ---> Running in 474f506fceb6
-Removing intermediate container 474f506fceb6
- ---> f8791933c89f
-Step 6/6 : CMD ["python", "app.py"]
- ---> Running in bcc8f9c1eb2d
-Removing intermediate container bcc8f9c1eb2d
- ---> 8460e9ce7b69
-Successfully built 8460e9ce7b69
-Successfully tagged myapp_prodsu:latest
-REPOSITORY     TAG             IMAGE ID       CREATED                  SIZE
-myapp_prodsu   latest          8460e9ce7b69   Less than a second ago   1.26GB
-<none>         <none>          01f30b88f33b   4 minutes ago            1.26GB
-python         3.7.3-stretch   34a518642c76   4 years ago              929MB
- * Serving Flask app "app" (lazy loading)
- * Environment: production
-   WARNING: Do not use the development server in a production environment.
-   Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 148-838-118
-[2023-12-04 03:23:50,887] INFO in app: JSON payload: 
-{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2023-12-04 03:23:50,903] INFO in app: Inference payload DataFrame: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2023-12-04 03:23:50,916] INFO in app: Scaling Payload: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2023-12-04 03:23:50,920] INFO in app: prediction: 
-[20.35373177134412]
-172.17.0.1 - - [04/Dec/2023 03:23:50] "POST /predict HTTP/1.1" 200 -
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl.metadata (3.2 kB)
+Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
+  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.1 kB)
+ERROR: Ignored the following versions that require a different python version: 1.22.0 Requires-Python >=3.8; 1.22.1 Requires-Python >=3.8; 1.22.2 Requires-Python >=3.8; 1.22.3 Requires-Python >=3.8; 1.22.4 Requires-Python >=3.8; 1.23.0 Requires-Python >=3.8; 1.23.0rc1 Requires-Python >=3.8; 1.23.0rc2 Requires-Python >=3.8; 1.23.0rc3 Requires-Python >=3.8; 1.23.1 Requires-Python >=3.8; 1.23.2 Requires-Python >=3.8; 1.23.3 Requires-Python >=3.8; 1.23.4 Requires-Python >=3.8; 1.23.5 Requires-Python >=3.8; 1.24.0 Requires-Python >=3.8; 1.24.0rc1 Requires-Python >=3.8; 1.24.0rc2 Requires-Python >=3.8; 1.24.1 Requires-Python >=3.8; 1.24.2 Requires-Python >=3.8; 1.24.3 Requires-Python >=3.8; 1.24.4 Requires-Python >=3.8; 1.25.0 Requires-Python >=3.9; 1.25.0rc1 Requires-Python >=3.9; 1.25.1 Requires-Python >=3.9; 1.25.2 Requires-Python >=3.9; 1.26.0 Requires-Python <3.13,>=3.9; 1.26.0b1 Requires-Python <3.13,>=3.9; 1.26.0rc1 Requires-Python <3.13,>=3.9; 1.26.1 Requires-Python <3.13,>=3.9; 1.26.2 Requires-Python >=3.9; 1.26.3 Requires-Python >=3.9; 1.26.4 Requires-Python >=3.9; 1.4.0 Requires-Python >=3.8; 1.4.0rc0 Requires-Python >=3.8; 1.4.1 Requires-Python >=3.8; 1.4.2 Requires-Python >=3.8; 1.4.3 Requires-Python >=3.8; 1.4.4 Requires-Python >=3.8; 1.5.0 Requires-Python >=3.8; 1.5.0rc0 Requires-Python >=3.8; 1.5.1 Requires-Python >=3.8; 1.5.2 Requires-Python >=3.8; 1.5.3 Requires-Python >=3.8; 2.0.0 Requires-Python >=3.8; 2.0.0b1 Requires-Python >=3.9; 2.0.0rc0 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.9; 2.0.1 Requires-Python >=3.8; 2.0.2 Requires-Python >=3.8; 2.0.3 Requires-Python >=3.8; 2.1.0 Requires-Python >=3.9; 2.1.0rc0 Requires-Python >=3.9; 2.1.1 Requires-Python >=3.9; 2.1.2 Requires-Python >=3.9; 2.1.3 Requires-Python >=3.9; 2.1.4 Requires-Python >=3.9; 2.2.0 Requires-Python >=3.8; 2.2.0 Requires-Python >=3.9; 2.2.0rc0 Requires-Python >=3.9; 2.2.1 Requires-Python >=3.9; 2.2.2 Requires-Python >=3.9; 2.3.0 Requires-Python >=3.8; 2.3.1 Requires-Python >=3.8; 2.3.2 Requires-Python >=3.8; 2.3.3 Requires-Python >=3.8; 3.0.0 Requires-Python >=3.8; 3.0.1 Requires-Python >=3.8; 3.0.2 Requires-Python >=3.8; 3.0.3 Requires-Python >=3.8
+ERROR: Could not find a version that satisfies the requirement pandas>=2.0.3 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)
+ERROR: No matching distribution found for pandas>=2.0.3
+The command '/bin/sh -c pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt' returned a non-zero code: 1
+"docker tag" requires exactly 2 arguments.
+See 'docker tag --help'.
 
+Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 
-
-
-ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ which python
-alias python='python3'
-        /usr/bin/python3
-ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ cd ..
-ec2-user:~/environment/myUdacityDevOps_Microservices (master) $ cd project-ml-microservice-kubernetes
-ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ python3.7 -m venv ~/.devops
-ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ source ~/.devops/bin/activate
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make install
-# This should be run from inside a virtualenv
-pip install --upgrade pip &&\
-        pip install -r requirements.txt
-Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.7/site-packages (22.0.4)
+Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED          SIZE
+<none>                                                                                                      <none>                                         1575e24e9624   7 seconds ago    1.02GB
+<none>                                                                                                      <none>                                         df308b28d926   15 minutes ago   1.02GB
+helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   2 hours ago      595MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   2 hours ago      577MB
+helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   2 hours ago      577MB
+<none>                                                                                                      <none>                                         5d66c6c24f3f   4 hours ago      595MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago      577MB
+public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   32 hours ago     574MB
+python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago      929MB
+Unable to find image 'myapp_prod:latest' locally
+docker: Error response from daemon: pull access denied for myapp_prod, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
+Sending build context to Docker daemon  94.52MB
+Step 1/6 : FROM python:3.7
+3.7: Pulling from library/python
+167b8a53ca45: Pull complete 
+b47a222d28fa: Pull complete 
+debce5f9f3a9: Pull complete 
+1d7ca7cd2e06: Pull complete 
+ff3119008f58: Pull complete 
+c2423a76a32b: Pull complete 
+e1c98ca4926a: Pull complete 
+3b62c8e1d79b: Pull complete 
+Digest: sha256:eedf63967cdb57d8214db38ce21f105003ed4e4d0358f02bedc057341bcf92a0
+Status: Downloaded newer image for python:3.7
+ ---> 16d93ae3411b
+Step 2/6 : WORKDIR /app
+ ---> Running in fd259965ef7f
+Removing intermediate container fd259965ef7f
+ ---> 5a2142bb8ede
+Step 3/6 : COPY . app.py /app/
+ ---> 6d1bcd63bb41
+Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+ ---> Running in 5e61b53c2b85
+Requirement already satisfied: pip in /usr/local/lib/python3.7/site-packages (23.0.1)
 Collecting pip
-  Downloading pip-23.3.1-py3-none-any.whl (2.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 10.8 MB/s eta 0:00:00
+  Downloading pip-24.0-py3-none-any.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 41.2 MB/s eta 0:00:00
 Installing collected packages: pip
   Attempting uninstall: pip
-    Found existing installation: pip 22.0.4
-    Uninstalling pip-22.0.4:
-      Successfully uninstalled pip-22.0.4
-Successfully installed pip-23.3.1
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+Successfully installed pip-24.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
 Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 kB 1.9 MB/s eta 0:00:00
+  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
 Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.4/91.4 kB 2.2 MB/s eta 0:00:00
+  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
 Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
 Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 8.9 MB/s eta 0:00:00
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
 Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl (33 kB)
-Collecting numpy==1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.3/20.3 MB 49.8 MB/s eta 0:00:00
-Collecting pandas==0.24.2 (from -r requirements.txt (line 7))
-  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.1/10.1 MB 66.5 MB/s eta 0:00:00
-Collecting python-dateutil==2.8.0 (from -r requirements.txt (line 8))
-  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.8/226.8 kB 30.5 MB/s eta 0:00:00
-Collecting pytz==2019.3 (from -r requirements.txt (line 9))
-  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 44.1 MB/s eta 0:00:00
-Collecting scikit-learn==0.20.3 (from -r requirements.txt (line 10))
-  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 77.2 MB/s eta 0:00:00
-Collecting scipy==1.3.1 (from -r requirements.txt (line 11))
-  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.2/25.2 MB 45.7 MB/s eta 0:00:00
-Collecting six==1.12.0 (from -r requirements.txt (line 12))
-  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
-Collecting Werkzeug==0.16.0 (from -r requirements.txt (line 13))
-  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 327.3/327.3 kB 22.3 MB/s eta 0:00:00
-Collecting pylint==2.4.4 (from -r requirements.txt (line 14))
-  Downloading pylint-2.4.4-py3-none-any.whl (302 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.0/303.0 kB 38.9 MB/s eta 0:00:00
-Collecting astroid<2.4,>=2.3.0 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading astroid-2.3.3-py3-none-any.whl (205 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 205.7/205.7 kB 29.9 MB/s eta 0:00:00
-Collecting isort<5,>=4.2.5 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 6.7 MB/s eta 0:00:00
-Collecting mccabe<0.7,>=0.6 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
-Collecting lazy-object-proxy==1.4.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 6.8 MB/s eta 0:00:00
-Collecting wrapt==1.11.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading wrapt-1.11.2.tar.gz (27 kB)
-  Installing build dependencies ... done
-  Getting requirements to build wheel ... done
-  Preparing metadata (pyproject.toml) ... done
-Collecting typed-ast<1.5,>=1.4.0 (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading typed_ast-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (743 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 743.4/743.4 kB 51.6 MB/s eta 0:00:00
-Building wheels for collected packages: wrapt
-  Building wheel for wrapt (pyproject.toml) ... done
-  Created wheel for wrapt: filename=wrapt-1.11.2-py3-none-any.whl size=19593 sha256=7abc1032a4760bb4818c750a8eb089da81fed30b3f5af1d639cffe0cd00199b6
-  Stored in directory: /home/ec2-user/.cache/pip/wheels/23/5f/62/304b411f20be41821465a82bc98baabc5e68c3cdd1eb99db71
-Successfully built wrapt
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-Installing collected packages: wrapt, typed-ast, pytz, mccabe, Werkzeug, six, numpy, MarkupSafe, lazy-object-proxy, itsdangerous, isort, Click, scipy, python-dateutil, Jinja2, astroid, scikit-learn, pylint, pandas, Flask
-Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.17.2 pandas-0.24.2 pylint-2.4.4 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0 typed-ast-1.4.3 wrapt-1.11.2
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ docker --version
-Docker version 20.10.25, build b82b9f3
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install hadolint
-ERROR: Could not find a version that satisfies the requirement hadolint (from versions: none)
-ERROR: No matching distribution found for hadolint
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ which hadonlint
-/usr/bin/which: no hadonlint in (/home/ec2-user/.devops/bin:/home/ec2-user/.rvm/gems/ruby-3.0.6/bin:/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/home/ec2-user/.nvm/versions/node/v18.17.1/bin:/home/ec2-user/.rvm/gems/ruby-3.0.6/bin:/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/home/ec2-user/.rvm/gems/ruby-3.0.6/bin:/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/usr/local/bin:/usr/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/usr/local/sbin:/usr/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin)
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
-/bin/hadolint: Permission denied
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
---2023-12-08 21:22:31--  https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
-Resolving github.com (github.com)... 140.82.114.3
-Connecting to github.com (github.com)|140.82.114.3|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/46234189/83435939-51d7-41af-a2c6-2400c2bb3c5c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231208T212232Z&X-Amz-Expires=300&X-Amz-Signature=f4f4e7e65f47bb1cc4a970d9ea1d6ac1e240d2398e4bef29cdfa6df5c46cbddd&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=46234189&response-content-disposition=attachment%3B%20filename%3Dhadolint-Linux-x86_64&response-content-type=application%2Foctet-stream [following]
---2023-12-08 21:22:32--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/46234189/83435939-51d7-41af-a2c6-2400c2bb3c5c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231208T212232Z&X-Amz-Expires=300&X-Amz-Signature=f4f4e7e65f47bb1cc4a970d9ea1d6ac1e240d2398e4bef29cdfa6df5c46cbddd&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=46234189&response-content-disposition=attachment%3B%20filename%3Dhadolint-Linux-x86_64&response-content-type=application%2Foctet-stream
-Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
-Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.109.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 2301804 (2.2M) [application/octet-stream]
-Saving to: ‘/bin/hadolint’
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl.metadata (3.2 kB)
+Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
+  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.1 kB)
+ERROR: Ignored the following versions that require a different python version: 1.22.0 Requires-Python >=3.8; 1.22.1 Requires-Python >=3.8; 1.22.2 Requires-Python >=3.8; 1.22.3 Requires-Python >=3.8; 1.22.4 Requires-Python >=3.8; 1.23.0 Requires-Python >=3.8; 1.23.0rc1 Requires-Python >=3.8; 1.23.0rc2 Requires-Python >=3.8; 1.23.0rc3 Requires-Python >=3.8; 1.23.1 Requires-Python >=3.8; 1.23.2 Requires-Python >=3.8; 1.23.3 Requires-Python >=3.8; 1.23.4 Requires-Python >=3.8; 1.23.5 Requires-Python >=3.8; 1.24.0 Requires-Python >=3.8; 1.24.0rc1 Requires-Python >=3.8; 1.24.0rc2 Requires-Python >=3.8; 1.24.1 Requires-Python >=3.8; 1.24.2 Requires-Python >=3.8; 1.24.3 Requires-Python >=3.8; 1.24.4 Requires-Python >=3.8; 1.25.0 Requires-Python >=3.9; 1.25.0rc1 Requires-Python >=3.9; 1.25.1 Requires-Python >=3.9; 1.25.2 Requires-Python >=3.9; 1.26.0 Requires-Python <3.13,>=3.9; 1.26.0b1 Requires-Python <3.13,>=3.9; 1.26.0rc1 Requires-Python <3.13,>=3.9; 1.26.1 Requires-Python <3.13,>=3.9; 1.26.2 Requires-Python >=3.9; 1.26.3 Requires-Python >=3.9; 1.26.4 Requires-Python >=3.9; 1.4.0 Requires-Python >=3.8; 1.4.0rc0 Requires-Python >=3.8; 1.4.1 Requires-Python >=3.8; 1.4.2 Requires-Python >=3.8; 1.4.3 Requires-Python >=3.8; 1.4.4 Requires-Python >=3.8; 1.5.0 Requires-Python >=3.8; 1.5.0rc0 Requires-Python >=3.8; 1.5.1 Requires-Python >=3.8; 1.5.2 Requires-Python >=3.8; 1.5.3 Requires-Python >=3.8; 2.0.0 Requires-Python >=3.8; 2.0.0b1 Requires-Python >=3.9; 2.0.0rc0 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.9; 2.0.1 Requires-Python >=3.8; 2.0.2 Requires-Python >=3.8; 2.0.3 Requires-Python >=3.8; 2.1.0 Requires-Python >=3.9; 2.1.0rc0 Requires-Python >=3.9; 2.1.1 Requires-Python >=3.9; 2.1.2 Requires-Python >=3.9; 2.1.3 Requires-Python >=3.9; 2.1.4 Requires-Python >=3.9; 2.2.0 Requires-Python >=3.8; 2.2.0 Requires-Python >=3.9; 2.2.0rc0 Requires-Python >=3.9; 2.2.1 Requires-Python >=3.9; 2.2.2 Requires-Python >=3.9; 2.3.0 Requires-Python >=3.8; 2.3.1 Requires-Python >=3.8; 2.3.2 Requires-Python >=3.8; 2.3.3 Requires-Python >=3.8; 3.0.0 Requires-Python >=3.8; 3.0.1 Requires-Python >=3.8; 3.0.2 Requires-Python >=3.8; 3.0.3 Requires-Python >=3.8
+ERROR: Could not find a version that satisfies the requirement pandas>=2.0.3 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)
+ERROR: No matching distribution found for pandas>=2.0.3
+The command '/bin/sh -c pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt' returned a non-zero code: 1
+"docker tag" requires exactly 2 arguments.
+See 'docker tag --help'.
 
-100%[==========================================================================================================================================================================================================>] 2,301,804   --.-K/s   in 0.02s   
+Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 
-2023-12-08 21:22:32 (110 MB/s) - ‘/bin/hadolint’ saved [2301804/2301804]
-
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ chmod +x /bin/hadolint
-chmod: changing permissions of ‘/bin/hadolint’: Operation not permitted
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo chmod +x /bin/hadolint
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install hadolint
-ERROR: Could not find a version that satisfies the requirement hadolint (from versions: none)
-ERROR: No matching distribution found for hadolint
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo pip install hadolint                                                                                                              
-WARNING: Running pip install with root privileges is generally not a good idea. Try `pip install --user` instead.
-ERROR: Could not find a version that satisfies the requirement hadolint
-ERROR: No matching distribution found for hadolint
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo +x /lusr/local/bin/hadolint
-sudo: +x: command not found
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo chmod +x /lusr/local/bin/hadolint                                                                                                 
-chmod: cannot access ‘/lusr/local/bin/hadolint’: No such file or directory
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint --help
-hadolint - Dockerfile Linter written in Haskell
-
-Usage: hadolint [-v|--version] [-c|--config FILENAME] [DOCKERFILE...] 
-                [--file-path-in-report FILEPATHINREPORT] [--no-fail] 
-                [--no-color] [-V|--verbose] [-f|--format ARG] [--error RULECODE]
-                [--warning RULECODE] [--info RULECODE] [--style RULECODE] 
-                [--ignore RULECODE] 
-                [--trusted-registry REGISTRY (e.g. docker.io)] 
-                [--require-label LABELSCHEMA (e.g. maintainer:text)] 
-                [--strict-labels] [--disable-ignore-pragma] 
-                [-t|--failure-threshold THRESHOLD]
-  Lint Dockerfile for errors and best practices
-
-Available options:
-  -h,--help                Show this help text
-  -v,--version             Show version
-  -c,--config FILENAME     Path to the configuration file
-  --file-path-in-report FILEPATHINREPORT
-                           The file path referenced in the generated report.
-                           This only applies for the 'checkstyle' format and is
-                           useful when running Hadolint with Docker to set the
-                           correct file path.
-  --no-fail                Don't exit with a failure status code when any rule
-                           is violated
-  --no-color               Don't colorize output
-  -V,--verbose             Enables verbose logging of hadolint's output to
-                           stderr
-  -f,--format ARG          The output format for the results [tty | json |
-                           checkstyle | codeclimate | gitlab_codeclimate | gnu |
-                           codacy | sonarqube | sarif] (default: tty)
-  --error RULECODE         Make the rule `RULECODE` have the level `error`
-  --warning RULECODE       Make the rule `RULECODE` have the level `warning`
-  --info RULECODE          Make the rule `RULECODE` have the level `info`
-  --style RULECODE         Make the rule `RULECODE` have the level `style`
-  --ignore RULECODE        A rule to ignore. If present, the ignore list in the
-                           config file is ignored
-  --trusted-registry REGISTRY (e.g. docker.io)
-                           A docker registry to allow to appear in FROM
-                           instructions
-  --require-label LABELSCHEMA (e.g. maintainer:text)
-                           The option --require-label=label:format makes
-                           Hadolint check that the label `label` conforms to
-                           format requirement `format`
-  --strict-labels          Do not permit labels other than specified in
-                           `label-schema`
-  --disable-ignore-pragma  Disable inline ignore pragmas `# hadolint
-                           ignore=DLxxxx`
-  -t,--failure-threshold THRESHOLD
-                           Exit with failure code only when rules with a
-                           severity equal to or above THRESHOLD are violated.
-                           Accepted values: [error | warning | info | style |
-                           ignore | none] (default: info)
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make lint                                                                                                                         
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3004 error: Do not use sudo as it leads to unpredictable behavior. Use a tool like gosu to enforce root
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint --version
-Haskell Dockerfile Linter 2.10.0
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint --version
-Haskell Dockerfile Linter 2.10.0
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint --version
-Haskell Dockerfile Linter 2.10.0
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint --help                                                                                                 
-hadolint - Dockerfile Linter written in Haskell
-
-Usage: hadolint [-v|--version] [-c|--config FILENAME] [DOCKERFILE...] 
-                [--file-path-in-report FILEPATHINREPORT] [--no-fail] 
-                [--no-color] [-V|--verbose] [-f|--format ARG] [--error RULECODE]
-                [--warning RULECODE] [--info RULECODE] [--style RULECODE] 
-                [--ignore RULECODE] 
-                [--trusted-registry REGISTRY (e.g. docker.io)] 
-                [--require-label LABELSCHEMA (e.g. maintainer:text)] 
-                [--strict-labels] [--disable-ignore-pragma] 
-                [-t|--failure-threshold THRESHOLD]
-  Lint Dockerfile for errors and best practices
-
-Available options:
-  -h,--help                Show this help text
-  -v,--version             Show version
-  -c,--config FILENAME     Path to the configuration file
-  --file-path-in-report FILEPATHINREPORT
-                           The file path referenced in the generated report.
-                           This only applies for the 'checkstyle' format and is
-                           useful when running Hadolint with Docker to set the
-                           correct file path.
-  --no-fail                Don't exit with a failure status code when any rule
-                           is violated
-  --no-color               Don't colorize output
-  -V,--verbose             Enables verbose logging of hadolint's output to
-                           stderr
-  -f,--format ARG          The output format for the results [tty | json |
-                           checkstyle | codeclimate | gitlab_codeclimate | gnu |
-                           codacy | sonarqube | sarif] (default: tty)
-  --error RULECODE         Make the rule `RULECODE` have the level `error`
-  --warning RULECODE       Make the rule `RULECODE` have the level `warning`
-  --info RULECODE          Make the rule `RULECODE` have the level `info`
-  --style RULECODE         Make the rule `RULECODE` have the level `style`
-  --ignore RULECODE        A rule to ignore. If present, the ignore list in the
-                           config file is ignored
-  --trusted-registry REGISTRY (e.g. docker.io)
-                           A docker registry to allow to appear in FROM
-                           instructions
-  --require-label LABELSCHEMA (e.g. maintainer:text)
-                           The option --require-label=label:format makes
-                           Hadolint check that the label `label` conforms to
-                           format requirement `format`
-  --strict-labels          Do not permit labels other than specified in
-                           `label-schema`
-  --disable-ignore-pragma  Disable inline ignore pragmas `# hadolint
-                           ignore=DLxxxx`
-  -t,--failure-threshold THRESHOLD
-                           Exit with failure code only when rules with a
-                           severity equal to or above THRESHOLD are violated.
-                           Accepted values: [error | warning | info | style |
-                           ignore | none] (default: info)
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 SC1072 error:  Fix any mentioned problems and try again.
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install
-ERROR: You must give at least one requirement to install (see "pip help install")
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip help install
-
-Usage:   
-  pip3 install [options] <requirement specifier> [package-index-options] ...
-  pip3 install [options] -r <requirements file> [package-index-options] ...
-  pip3 install [options] [-e] <vcs project url> ...
-  pip3 install [options] [-e] <local project path> ...
-  pip3 install [options] <archive url/path> ...
-
-Description:
-  Install packages from:
-  
-  - PyPI (and other indexes) using requirement specifiers.
-  - VCS project urls.
-  - Local project directories.
-  - Local or remote source archives.
-  
-  pip also supports installing from "requirements files", which provide
-  an easy way to specify a whole environment to be installed.
-
-Install Options:
-  -r, --requirement <file>    Install from the given requirements file. This option can be used multiple times.
-  -c, --constraint <file>     Constrain versions using the given constraints file. This option can be used multiple times.
-  --no-deps                   Don't install package dependencies.
-  --pre                       Include pre-release and development versions. By default, pip only finds stable versions.
-  -e, --editable <path/url>   Install a project in editable mode (i.e. setuptools "develop mode") from a local project path or a VCS url.
-  --dry-run                   Don't actually install anything, just print what would be. Can be used in combination with --ignore-installed to 'resolve' the requirements.
-  -t, --target <dir>          Install packages into <dir>. By default this will not replace existing files/folders in <dir>. Use --upgrade to replace existing packages in <dir> with new versions.
-  --platform <platform>       Only use wheels compatible with <platform>. Defaults to the platform of the running system. Use this option multiple times to specify multiple platforms supported by the target interpreter.
-  --python-version <python_version>
-                              The Python interpreter version to use for wheel and "Requires-Python" compatibility checks. Defaults to a version derived from the running interpreter. The version can be specified using up to three dot-separated
-                              integers (e.g. "3" for 3.0.0, "3.7" for 3.7.0, or "3.7.3"). A major-minor version can also be given as a string without dots (e.g. "37" for 3.7.0).
-  --implementation <implementation>
-                              Only use wheels compatible with Python implementation <implementation>, e.g. 'pp', 'jy', 'cp',  or 'ip'. If not specified, then the current interpreter implementation is used.  Use 'py' to force implementation-
-                              agnostic wheels.
-  --abi <abi>                 Only use wheels compatible with Python abi <abi>, e.g. 'pypy_41'. If not specified, then the current interpreter abi tag is used. Use this option multiple times to specify multiple abis supported by the target
-                              interpreter. Generally you will need to specify --implementation, --platform, and --python-version when using this option.
-  --user                      Install to the Python user install directory for your platform. Typically ~/.local/, or %APPDATA%\Python on Windows. (See the Python documentation for site.USER_BASE for full details.)
-  --root <dir>                Install everything relative to this alternate root directory.
-  --prefix <dir>              Installation prefix where lib, bin and other top-level folders are placed. Note that the resulting installation may contain scripts and other resources which reference the Python interpreter of pip, and not that
-                              of ``--prefix``. See also the ``--python`` option if the intention is to install packages into another (possibly pip-free) environment.
-  --src <dir>                 Directory to check out editable projects into. The default in a virtualenv is "<venv path>/src". The default for global installs is "<current dir>/src".
-  -U, --upgrade               Upgrade all specified packages to the newest available version. The handling of dependencies depends on the upgrade-strategy used.
-  --upgrade-strategy <upgrade_strategy>
-                              Determines how dependency upgrading should be handled [default: only-if-needed]. "eager" - dependencies are upgraded regardless of whether the currently installed version satisfies the requirements of the
-                              upgraded package(s). "only-if-needed" -  are upgraded only when they do not satisfy the requirements of the upgraded package(s).
-  --force-reinstall           Reinstall all packages even if they are already up-to-date.
-  -I, --ignore-installed      Ignore the installed packages, overwriting them. This can break your system if the existing package is of a different version or was installed with a different package manager!
-  --ignore-requires-python    Ignore the Requires-Python information.
-  --no-build-isolation        Disable isolation when building a modern source distribution. Build dependencies specified by PEP 518 must be already installed if this option is used.
-  --use-pep517                Use PEP 517 for building source distributions (use --no-use-pep517 to force legacy behaviour).
-  --check-build-dependencies  Check the build dependencies when PEP517 is used.
-  --break-system-packages     Allow pip to modify an EXTERNALLY-MANAGED Python installation
-  -C, --config-settings <settings>
-                              Configuration settings to be passed to the PEP 517 build backend. Settings take the form KEY=VALUE. Use multiple --config-settings options to pass multiple keys to the backend.
-  --global-option <options>   Extra global options to be supplied to the setup.py call before the install or bdist_wheel command.
-  --compile                   Compile Python source files to bytecode
-  --no-compile                Do not compile Python source files to bytecode
-  --no-warn-script-location   Do not warn when installing scripts outside PATH
-  --no-warn-conflicts         Do not warn about broken dependencies
-  --no-binary <format_control>
-                              Do not use binary packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either ":all:" to disable all binary packages, ":none:" to empty the set (notice the colons), or one
-                              or more package names with commas between them (no colons). Note that some packages are tricky to compile and may fail to install when this option is used on them.
-  --only-binary <format_control>
-                              Do not use source packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either ":all:" to disable all source packages, ":none:" to empty the set, or one or more package names
-                              with commas between them. Packages without binary distributions will fail to install when this option is used on them.
-  --prefer-binary             Prefer binary packages over source packages, even if the source packages are newer.
-  --require-hashes            Require a hash to check each requirement against, for repeatable installs. This option is implied when any package in a requirements file has a --hash option.
-  --progress-bar <progress_bar>
-                              Specify whether the progress bar should be used [on, off] (default: on)
-  --root-user-action <root_user_action>
-                              Action if pip is run as a root user. By default, a warning message is shown.
-  --report <file>             Generate a JSON file describing what pip did to install the provided requirements. Can be used in combination with --dry-run and --ignore-installed to 'resolve' the requirements. When - is used as file name it
-                              writes to stdout. When writing to stdout, please combine with the --quiet option to avoid mixing pip logging output with JSON output.
-  --no-clean                  Don't clean up build directories.
-
-Package Index Options:
-  -i, --index-url <url>       Base URL of the Python Package Index (default https://pypi.org/simple). This should point to a repository compliant with PEP 503 (the simple repository API) or a local directory laid out in the same format.
-  --extra-index-url <url>     Extra URLs of package indexes to use in addition to --index-url. Should follow the same rules as --index-url.
-  --no-index                  Ignore package index (only looking at --find-links URLs instead).
-  -f, --find-links <url>      If a URL or path to an html file, then parse for links to archives such as sdist (.tar.gz) or wheel (.whl) files. If a local path or file:// URL that's a directory, then look for archives in the directory
-                              listing. Links to VCS project URLs are not supported.
-
-General Options:
-  -h, --help                  Show help.
-  --debug                     Let unhandled exceptions propagate outside the main subroutine, instead of logging them to stderr.
-  --isolated                  Run pip in an isolated mode, ignoring environment variables and user configuration.
-  --require-virtualenv        Allow pip to only run in a virtual environment; exit with an error otherwise.
-  --python <python>           Run pip with the specified Python interpreter.
-  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.
-  -V, --version               Show version and exit.
-  -q, --quiet                 Give less output. Option is additive, and can be used up to 3 times (corresponding to WARNING, ERROR, and CRITICAL logging levels).
-  --log <path>                Path to a verbose appending log.
-  --no-input                  Disable prompting for input.
-  --keyring-provider <keyring_provider>
-                              Enable the credential lookup via the keyring library if user input is allowed. Specify which mechanism to use [disabled, import, subprocess]. (default: disabled)
-  --proxy <proxy>             Specify a proxy in the form scheme://[user:passwd@]proxy.server:port.
-  --retries <retries>         Maximum number of retries each connection should attempt (default 5 times).
-  --timeout <sec>             Set the socket timeout (default 15 seconds).
-  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
-  --trusted-host <hostname>   Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.
-  --cert <path>               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL Certificate Verification' in pip documentation for more information.
-  --client-cert <path>        Path to SSL client certificate, a single file containing the private key and the certificate in PEM format.
-  --cache-dir <dir>           Store the cache data in <dir>.
-  --no-cache-dir              Disable the cache.
-  --disable-pip-version-check
-                              Don't periodically check PyPI to determine whether a new version of pip is available for download. Implied with --no-index.
-  --no-color                  Suppress colored output.
-  --no-python-version-warning
-                              Silence deprecation warnings for upcoming unsupported Pythons.
-  --use-feature <feature>     Enable new functionality, that may be backward incompatible.
-  --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make run
-make: *** No rule to make target `run'.  Stop.
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install requests --no-cache-dir
-Collecting requests
-  Downloading requests-2.31.0-py3-none-any.whl.metadata (4.6 kB)
-Collecting charset-normalizer<4,>=2 (from requests)
-  Downloading charset_normalizer-3.3.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (33 kB)
-Collecting idna<4,>=2.5 (from requests)
-  Downloading idna-3.6-py3-none-any.whl.metadata (9.9 kB)
-Collecting urllib3<3,>=1.21.1 (from requests)
-  Downloading urllib3-2.0.7-py3-none-any.whl.metadata (6.6 kB)
-Collecting certifi>=2017.4.17 (from requests)
-  Downloading certifi-2023.11.17-py3-none-any.whl.metadata (2.2 kB)
-Downloading requests-2.31.0-py3-none-any.whl (62 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 13.3 MB/s eta 0:00:00
-Downloading certifi-2023.11.17-py3-none-any.whl (162 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.5/162.5 kB 13.0 MB/s eta 0:00:00
-Downloading charset_normalizer-3.3.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (136 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 136.8/136.8 kB 165.2 MB/s eta 0:00:00
-Downloading idna-3.6-py3-none-any.whl (61 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.6/61.6 kB 103.5 MB/s eta 0:00:00
-Downloading urllib3-2.0.7-py3-none-any.whl (124 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.2/124.2 kB 182.0 MB/s eta 0:00:00
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests
-Successfully installed certifi-2023.11.17 charset-normalizer-3.3.2 idna-3.6 requests-2.31.0 urllib3-2.0.7
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install --no-cache-dir
-ERROR: You must give at least one requirement to install (see "pip help install")
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install pip --no-cache-dir
-Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.7/site-packages (23.3.1)
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install --no-cache-dir pip
-Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.7/site-packages (23.3.1)
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install --upgrade --no-cache-dir pip                                                                                               
-Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.7/site-packages (23.3.1)
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install --upgrade pip
-Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.7/site-packages (23.3.1)
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make install
-# This should be run from inside a virtualenv
-pip install --upgrade pip &&\
-        pip install -r requirements.txt
-Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.7/site-packages (23.3.1)
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-Requirement already satisfied: Click==7.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 1)) (7.0)
-Requirement already satisfied: Flask==1.0.2 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 2)) (1.0.2)
-Requirement already satisfied: itsdangerous==1.1.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 3)) (1.1.0)
-Requirement already satisfied: Jinja2==2.10.3 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 4)) (2.10.3)
-Requirement already satisfied: MarkupSafe==1.1.1 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 5)) (1.1.1)
-Requirement already satisfied: numpy==1.17.2 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 6)) (1.17.2)
-Requirement already satisfied: pandas==0.24.2 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 7)) (0.24.2)
-Requirement already satisfied: python-dateutil==2.8.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 8)) (2.8.0)
-Requirement already satisfied: pytz==2019.3 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 9)) (2019.3)
-Requirement already satisfied: scikit-learn==0.20.3 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 10)) (0.20.3)
-Requirement already satisfied: scipy==1.3.1 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 11)) (1.3.1)
-Requirement already satisfied: six==1.12.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 12)) (1.12.0)
-Requirement already satisfied: Werkzeug==0.16.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 13)) (0.16.0)
-Requirement already satisfied: pylint==2.4.4 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 14)) (2.4.4)
-Requirement already satisfied: astroid<2.4,>=2.3.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (2.3.3)
-Requirement already satisfied: isort<5,>=4.2.5 in /home/ec2-user/.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (4.3.21)
-Requirement already satisfied: mccabe<0.7,>=0.6 in /home/ec2-user/.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (0.6.1)
-Requirement already satisfied: lazy-object-proxy==1.4.* in /home/ec2-user/.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.4.3)
-Requirement already satisfied: wrapt==1.11.* in /home/ec2-user/.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.11.2)
-Requirement already satisfied: typed-ast<1.5,>=1.4.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.4.3)
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install --h
-
-Usage:   
-  pip3 install [options] <requirement specifier> [package-index-options] ...
-  pip3 install [options] -r <requirements file> [package-index-options] ...
-  pip3 install [options] [-e] <vcs project url> ...
-  pip3 install [options] [-e] <local project path> ...
-  pip3 install [options] <archive url/path> ...
-
-Description:
-  Install packages from:
-  
-  - PyPI (and other indexes) using requirement specifiers.
-  - VCS project urls.
-  - Local project directories.
-  - Local or remote source archives.
-  
-  pip also supports installing from "requirements files", which provide
-  an easy way to specify a whole environment to be installed.
-
-Install Options:
-  -r, --requirement <file>    Install from the given requirements file. This option can be used multiple times.
-  -c, --constraint <file>     Constrain versions using the given constraints file. This option can be used multiple times.
-  --no-deps                   Don't install package dependencies.
-  --pre                       Include pre-release and development versions. By default, pip only finds stable versions.
-  -e, --editable <path/url>   Install a project in editable mode (i.e. setuptools "develop mode") from a local project path or a VCS url.
-  --dry-run                   Don't actually install anything, just print what would be. Can be used in combination with --ignore-installed to 'resolve' the requirements.
-  -t, --target <dir>          Install packages into <dir>. By default this will not replace existing files/folders in <dir>. Use --upgrade to replace existing packages in <dir> with new versions.
-  --platform <platform>       Only use wheels compatible with <platform>. Defaults to the platform of the running system. Use this option multiple times to specify multiple platforms supported by the target interpreter.
-  --python-version <python_version>
-                              The Python interpreter version to use for wheel and "Requires-Python" compatibility checks. Defaults to a version derived from the running interpreter. The version can be specified using up to three dot-separated
-                              integers (e.g. "3" for 3.0.0, "3.7" for 3.7.0, or "3.7.3"). A major-minor version can also be given as a string without dots (e.g. "37" for 3.7.0).
-  --implementation <implementation>
-                              Only use wheels compatible with Python implementation <implementation>, e.g. 'pp', 'jy', 'cp',  or 'ip'. If not specified, then the current interpreter implementation is used.  Use 'py' to force implementation-
-                              agnostic wheels.
-  --abi <abi>                 Only use wheels compatible with Python abi <abi>, e.g. 'pypy_41'. If not specified, then the current interpreter abi tag is used. Use this option multiple times to specify multiple abis supported by the target
-                              interpreter. Generally you will need to specify --implementation, --platform, and --python-version when using this option.
-  --user                      Install to the Python user install directory for your platform. Typically ~/.local/, or %APPDATA%\Python on Windows. (See the Python documentation for site.USER_BASE for full details.)
-  --root <dir>                Install everything relative to this alternate root directory.
-  --prefix <dir>              Installation prefix where lib, bin and other top-level folders are placed. Note that the resulting installation may contain scripts and other resources which reference the Python interpreter of pip, and not that
-                              of ``--prefix``. See also the ``--python`` option if the intention is to install packages into another (possibly pip-free) environment.
-  --src <dir>                 Directory to check out editable projects into. The default in a virtualenv is "<venv path>/src". The default for global installs is "<current dir>/src".
-  -U, --upgrade               Upgrade all specified packages to the newest available version. The handling of dependencies depends on the upgrade-strategy used.
-  --upgrade-strategy <upgrade_strategy>
-                              Determines how dependency upgrading should be handled [default: only-if-needed]. "eager" - dependencies are upgraded regardless of whether the currently installed version satisfies the requirements of the
-                              upgraded package(s). "only-if-needed" -  are upgraded only when they do not satisfy the requirements of the upgraded package(s).
-  --force-reinstall           Reinstall all packages even if they are already up-to-date.
-  -I, --ignore-installed      Ignore the installed packages, overwriting them. This can break your system if the existing package is of a different version or was installed with a different package manager!
-  --ignore-requires-python    Ignore the Requires-Python information.
-  --no-build-isolation        Disable isolation when building a modern source distribution. Build dependencies specified by PEP 518 must be already installed if this option is used.
-  --use-pep517                Use PEP 517 for building source distributions (use --no-use-pep517 to force legacy behaviour).
-  --check-build-dependencies  Check the build dependencies when PEP517 is used.
-  --break-system-packages     Allow pip to modify an EXTERNALLY-MANAGED Python installation
-  -C, --config-settings <settings>
-                              Configuration settings to be passed to the PEP 517 build backend. Settings take the form KEY=VALUE. Use multiple --config-settings options to pass multiple keys to the backend.
-  --global-option <options>   Extra global options to be supplied to the setup.py call before the install or bdist_wheel command.
-  --compile                   Compile Python source files to bytecode
-  --no-compile                Do not compile Python source files to bytecode
-  --no-warn-script-location   Do not warn when installing scripts outside PATH
-  --no-warn-conflicts         Do not warn about broken dependencies
-  --no-binary <format_control>
-                              Do not use binary packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either ":all:" to disable all binary packages, ":none:" to empty the set (notice the colons), or one
-                              or more package names with commas between them (no colons). Note that some packages are tricky to compile and may fail to install when this option is used on them.
-  --only-binary <format_control>
-                              Do not use source packages. Can be supplied multiple times, and each time adds to the existing value. Accepts either ":all:" to disable all source packages, ":none:" to empty the set, or one or more package names
-                              with commas between them. Packages without binary distributions will fail to install when this option is used on them.
-  --prefer-binary             Prefer binary packages over source packages, even if the source packages are newer.
-  --require-hashes            Require a hash to check each requirement against, for repeatable installs. This option is implied when any package in a requirements file has a --hash option.
-  --progress-bar <progress_bar>
-                              Specify whether the progress bar should be used [on, off] (default: on)
-  --root-user-action <root_user_action>
-                              Action if pip is run as a root user. By default, a warning message is shown.
-  --report <file>             Generate a JSON file describing what pip did to install the provided requirements. Can be used in combination with --dry-run and --ignore-installed to 'resolve' the requirements. When - is used as file name it
-                              writes to stdout. When writing to stdout, please combine with the --quiet option to avoid mixing pip logging output with JSON output.
-  --no-clean                  Don't clean up build directories.
-
-Package Index Options:
-  -i, --index-url <url>       Base URL of the Python Package Index (default https://pypi.org/simple). This should point to a repository compliant with PEP 503 (the simple repository API) or a local directory laid out in the same format.
-  --extra-index-url <url>     Extra URLs of package indexes to use in addition to --index-url. Should follow the same rules as --index-url.
-  --no-index                  Ignore package index (only looking at --find-links URLs instead).
-  -f, --find-links <url>      If a URL or path to an html file, then parse for links to archives such as sdist (.tar.gz) or wheel (.whl) files. If a local path or file:// URL that's a directory, then look for archives in the directory
-                              listing. Links to VCS project URLs are not supported.
-
-General Options:
-  -h, --help                  Show help.
-  --debug                     Let unhandled exceptions propagate outside the main subroutine, instead of logging them to stderr.
-  --isolated                  Run pip in an isolated mode, ignoring environment variables and user configuration.
-  --require-virtualenv        Allow pip to only run in a virtual environment; exit with an error otherwise.
-  --python <python>           Run pip with the specified Python interpreter.
-  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.
-  -V, --version               Show version and exit.
-  -q, --quiet                 Give less output. Option is additive, and can be used up to 3 times (corresponding to WARNING, ERROR, and CRITICAL logging levels).
-  --log <path>                Path to a verbose appending log.
-  --no-input                  Disable prompting for input.
-  --keyring-provider <keyring_provider>
-                              Enable the credential lookup via the keyring library if user input is allowed. Specify which mechanism to use [disabled, import, subprocess]. (default: disabled)
-  --proxy <proxy>             Specify a proxy in the form scheme://[user:passwd@]proxy.server:port.
-  --retries <retries>         Maximum number of retries each connection should attempt (default 5 times).
-  --timeout <sec>             Set the socket timeout (default 15 seconds).
-  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
-  --trusted-host <hostname>   Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.
-  --cert <path>               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL Certificate Verification' in pip documentation for more information.
-  --client-cert <path>        Path to SSL client certificate, a single file containing the private key and the certificate in PEM format.
-  --cache-dir <dir>           Store the cache data in <dir>.
-  --no-cache-dir              Disable the cache.
-  --disable-pip-version-check
-                              Don't periodically check PyPI to determine whether a new version of pip is available for download. Implied with --no-index.
-  --no-color                  Suppress colored output.
-  --no-python-version-warning
-                              Silence deprecation warnings for upcoming unsupported Pythons.
-  --use-feature <feature>     Enable new functionality, that may be backward incompatible.
-  --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install --no-cache-dir &&\
->     pip install --trusted-host pypi.python.org -r requirements.txt
-ERROR: You must give at least one requirement to install (see "pip help install")
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install --no-cache-dir && pip install --trusted-host pypi.python.org -r requirements.txt
-ERROR: You must give at least one requirement to install (see "pip help install")
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ pip install --trusted-host pypi.python.org -r requirements.txt
-Requirement already satisfied: Click==7.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 1)) (7.0)
-Requirement already satisfied: Flask==1.0.2 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 2)) (1.0.2)
-Requirement already satisfied: itsdangerous==1.1.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 3)) (1.1.0)
-Requirement already satisfied: Jinja2==2.10.3 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 4)) (2.10.3)
-Requirement already satisfied: MarkupSafe==1.1.1 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 5)) (1.1.1)
-Requirement already satisfied: numpy==1.17.2 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 6)) (1.17.2)
-Requirement already satisfied: pandas==0.24.2 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 7)) (0.24.2)
-Requirement already satisfied: python-dateutil==2.8.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 8)) (2.8.0)
-Requirement already satisfied: pytz==2019.3 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 9)) (2019.3)
-Requirement already satisfied: scikit-learn==0.20.3 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 10)) (0.20.3)
-Requirement already satisfied: scipy==1.3.1 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 11)) (1.3.1)
-Requirement already satisfied: six==1.12.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 12)) (1.12.0)
-Requirement already satisfied: Werkzeug==0.16.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 13)) (0.16.0)
-Requirement already satisfied: pylint==2.4.4 in /home/ec2-user/.devops/lib/python3.7/site-packages (from -r requirements.txt (line 14)) (2.4.4)
-Requirement already satisfied: astroid<2.4,>=2.3.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (2.3.3)
-Requirement already satisfied: isort<5,>=4.2.5 in /home/ec2-user/.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (4.3.21)
-Requirement already satisfied: mccabe<0.7,>=0.6 in /home/ec2-user/.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (0.6.1)
-Requirement already satisfied: lazy-object-proxy==1.4.* in /home/ec2-user/.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.4.3)
-Requirement already satisfied: wrapt==1.11.* in /home/ec2-user/.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.11.2)
-Requirement already satisfied: typed-ast<1.5,>=1.4.0 in /home/ec2-user/.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.4.3)
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ deactivate
-ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make install
-# This should be run from inside a virtualenv
-pip install --upgrade pip &&\
-        pip install -r requirements.txt
-Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: pip in /usr/lib/python3.8/site-packages (21.0.1)
-Collecting pip
-  Using cached pip-23.3.1-py3-none-any.whl (2.1 MB)
-Installing collected packages: pip
-Successfully installed pip-23.3.1
-Defaulting to user installation because normal site-packages is not writeable
-Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Using cached Click-7.0-py2.py3-none-any.whl (81 kB)
-Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Using cached Flask-1.0.2-py2.py3-none-any.whl (91 kB)
-Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Using cached itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
-Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Using cached Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
-Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp38-cp38-manylinux2010_x86_64.whl (32 kB)
-Collecting numpy==1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.17.2.zip (6.5 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.5/6.5 MB 48.0 MB/s eta 0:00:00
-  Installing build dependencies ... done
-  Getting requirements to build wheel ... done
-  Preparing metadata (pyproject.toml) ... done
-Collecting pandas==0.24.2 (from -r requirements.txt (line 7))
-  Downloading pandas-0.24.2.tar.gz (11.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.8/11.8 MB 64.9 MB/s eta 0:00:00
-  Installing build dependencies ... done
-  Getting requirements to build wheel ... done
-  Installing backend dependencies ... done
-  Preparing metadata (pyproject.toml) ... error
-  error: subprocess-exited-with-error
-  
-  × Preparing metadata (pyproject.toml) did not run successfully.
-  │ exit code: 1
-  ╰─> [4 lines of output]
-      <string>:12: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
-      error in pandas setup command: 'install_requires' must be a string or list of strings containing valid project/version requirement specifiers; Expected end or semicolon (after version specifier)
-          pytz >= 2011k
-               ~~~~~~~^
-      [end of output]
-  
-  note: This error originates from a subprocess, and is likely not a problem with pip.
-error: metadata-generation-failed
-
-× Encountered error while generating package metadata.
-╰─> See above for output.
-
-note: This is an issue with the package mentioned above, not pip.
-hint: See above for details.
-make: *** [install] Error 1
-ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ python3.7 -m venv ~/.devops
-ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ source ~/.devops/bin/activate
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-Dockerfile:14 DL3042 warning: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
-make: *** [lint] Error 1
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-# This is a linter for Python source code linter: https://www.pylint.org/
-# This should be run from inside a virtualenv
-pylint --disable=R,C,W1203,W1202 app.py
-
-------------------------------------
-Your code has been rated at 10.00/10
-
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make lint
-# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-# This is a linter for Python source code linter: https://www.pylint.org/
-# This should be run from inside a virtualenv
-pylint --disable=R,C,W1203,W1202 app.py
-
---------------------------------------------------------------------
-Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
-
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ minikube version
-bash: minikube: command not found
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ minikube start
-bash: minikube: command not found
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 89.3M  100 89.3M    0     0  82.4M      0  0:00:01  0:00:01 --:--:-- 82.5M
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ sudo install minikube-linux-amd64 /usr/local/bin/minikube
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ minikube start
-* minikube v1.32.0 on Amazon 2
-* Automatically selected the docker driver. Other choices: none, ssh
-
-X The requested memory allocation of 1924MiB does not leave room for system overhead (total system memory: 1924MiB). You may face stability issues.
-* Suggestion: Start minikube with less memory allocated: 'minikube start --memory=1924mb'
-
-* Using Docker driver with root privileges
-* Starting control plane node minikube in cluster minikube
-* Pulling base image ...
-* Downloading Kubernetes v1.28.3 preload ...
-    > gcr.io/k8s-minikube/kicbase...:  453.59 MiB / 453.90 MiB  99.93% 109.24 M
-    > preloaded-images-k8s-v18-v1...:  403.35 MiB / 403.35 MiB  100.00% 43.92 M
-* Creating docker container (CPUs=2, Memory=1924MB) ...
-* Preparing Kubernetes v1.28.3 on Docker 24.0.7 ...
-  - Generating certificates and keys ...
-  - Booting up control plane ...
-  - Configuring RBAC rules ...
-* Configuring bridge CNI (Container Networking Interface) ...
-* Verifying Kubernetes components...
-  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
-* Enabled addons: storage-provisioner, default-storageclass
-* kubectl not found. If you need it, try: 'minikube kubectl -- get pods -A'
-* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ kubectl get po -A
-bash: kubectl: command not found
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ minikube kubectl -- get po -A
-    > kubectl.sha256:  64 B / 64 B [-------------------------] 100.00% ? p/s 0s
-    > kubectl:  47.56 MiB / 47.56 MiB [----------] 100.00% 422.66 MiB p/s 300ms
-NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
-kube-system   coredns-5dd5756b68-pwtjb           1/1     Running   0             46s
-kube-system   etcd-minikube                      1/1     Running   0             58s
-kube-system   kube-apiserver-minikube            1/1     Running   0             60s
-kube-system   kube-controller-manager-minikube   1/1     Running   0             58s
-kube-system   kube-proxy-bbhn9                   1/1     Running   0             46s
-kube-system   kube-scheduler-minikube            1/1     Running   0             58s
-kube-system   storage-provisioner                1/1     Running   1 (15s ago)   56s
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ alias kubectl="minikube kubectl --"
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ minikube start --driver=virtualbox
-* minikube v1.32.0 on Amazon 2
-
-! Exiting due to GUEST_DRIVER_MISMATCH: The existing "minikube" cluster was created using the "docker" driver, which is incompatible with requested "virtualbox" driver.
-* Suggestion: Delete the existing 'minikube' cluster using: 'minikube delete', or start the existing 'minikube' cluster using: 'minikube start --driver=docker'
-
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ kubectl version
-Client Version: v1.28.3
-Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
-Server Version: v1.28.3
-(.devops) ec2-user:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
-Sending build context to Docker daemon  94.44MB
-Step 1/6 : FROM python:3.7.3-stretch
-3.7.3-stretch: Pulling from library/python
-6f2f362378c5: Pull complete 
-494c27a8a6b8: Pull complete 
-7596bb83081b: Pull complete 
-372744b62d49: Pull complete 
-615db220d76c: Pull complete 
-39aa0c89bda1: Pull complete 
-ac275157d894: Pull complete 
-98d16dec829a: Pull complete 
-c8514b1c6524: Pull complete 
-Digest: sha256:205cafadbb7f0c48f2a6d655eb100a9675aa85e6e73958860f488406cce09779
-Status: Downloaded newer image for python:3.7.3-stretch
- ---> 34a518642c76
+Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED          SIZE
+<none>                                                                                                      <none>                                         6d1bcd63bb41   8 seconds ago    1.09GB
+<none>                                                                                                      <none>                                         1575e24e9624   5 minutes ago    1.02GB
+<none>                                                                                                      <none>                                         df308b28d926   20 minutes ago   1.02GB
+helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   2 hours ago      595MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   2 hours ago      577MB
+helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   2 hours ago      577MB
+<none>                                                                                                      <none>                                         5d66c6c24f3f   4 hours ago      595MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago      577MB
+public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   32 hours ago     574MB
+python                                                                                                      3.7                                            16d93ae3411b   9 months ago     994MB
+python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago      929MB
+Unable to find image 'myapp_prod:latest' locally
+docker: Error response from daemon: pull access denied for myapp_prod, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
+Sending build context to Docker daemon  94.52MB
+Step 1/6 : FROM python:3.7
+ ---> 16d93ae3411b
 Step 2/6 : WORKDIR /app
- ---> Running in de0c4c233d64
-Removing intermediate container de0c4c233d64
- ---> ebe4df97ac04
+ ---> Using cache
+ ---> 5a2142bb8ede
 Step 3/6 : COPY . app.py /app/
- ---> 7fc62db9a08e
+ ---> 2dd75d600f7d
 Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
- ---> Running in e07bc002eb1f
+ ---> Running in 976c39219a57
+Requirement already satisfied: pip in /usr/local/lib/python3.7/site-packages (23.0.1)
 Collecting pip
-  Downloading https://files.pythonhosted.org/packages/47/6a/453160888fab7c6a432a6e25f8afe6256d0d9f2cbd25971021da6491d899/pip-23.3.1-py3-none-any.whl (2.1MB)
+  Downloading pip-24.0-py3-none-any.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 43.5 MB/s eta 0:00:00
 Installing collected packages: pip
-  Found existing installation: pip 19.1.1
-    Uninstalling pip-19.1.1:
-      Successfully uninstalled pip-19.1.1
-Successfully installed pip-23.3.1
+  Attempting uninstall: pip
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+Successfully installed pip-24.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
 Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 kB 5.2 MB/s eta 0:00:00
+  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
 Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.4/91.4 kB 119.1 MB/s eta 0:00:00
+  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
 Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
 Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 208.4 MB/s eta 0:00:00
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
 Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl (33 kB)
-Collecting numpy==1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.3/20.3 MB 136.5 MB/s eta 0:00:00
-Collecting pandas==0.24.2 (from -r requirements.txt (line 7))
-  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.1/10.1 MB 98.4 MB/s eta 0:00:00
-Collecting python-dateutil==2.8.0 (from -r requirements.txt (line 8))
-  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.8/226.8 kB 203.5 MB/s eta 0:00:00
-Collecting pytz==2019.3 (from -r requirements.txt (line 9))
-  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 206.8 MB/s eta 0:00:00
-Collecting scikit-learn==0.20.3 (from -r requirements.txt (line 10))
-  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 189.4 MB/s eta 0:00:00
-Collecting scipy==1.3.1 (from -r requirements.txt (line 11))
-  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.2/25.2 MB 192.8 MB/s eta 0:00:00
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl.metadata (3.2 kB)
+Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
+  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.1 kB)
+ERROR: Ignored the following versions that require a different python version: 1.22.0 Requires-Python >=3.8; 1.22.1 Requires-Python >=3.8; 1.22.2 Requires-Python >=3.8; 1.22.3 Requires-Python >=3.8; 1.22.4 Requires-Python >=3.8; 1.23.0 Requires-Python >=3.8; 1.23.0rc1 Requires-Python >=3.8; 1.23.0rc2 Requires-Python >=3.8; 1.23.0rc3 Requires-Python >=3.8; 1.23.1 Requires-Python >=3.8; 1.23.2 Requires-Python >=3.8; 1.23.3 Requires-Python >=3.8; 1.23.4 Requires-Python >=3.8; 1.23.5 Requires-Python >=3.8; 1.24.0 Requires-Python >=3.8; 1.24.0rc1 Requires-Python >=3.8; 1.24.0rc2 Requires-Python >=3.8; 1.24.1 Requires-Python >=3.8; 1.24.2 Requires-Python >=3.8; 1.24.3 Requires-Python >=3.8; 1.24.4 Requires-Python >=3.8; 1.25.0 Requires-Python >=3.9; 1.25.0rc1 Requires-Python >=3.9; 1.25.1 Requires-Python >=3.9; 1.25.2 Requires-Python >=3.9; 1.26.0 Requires-Python <3.13,>=3.9; 1.26.0b1 Requires-Python <3.13,>=3.9; 1.26.0rc1 Requires-Python <3.13,>=3.9; 1.26.1 Requires-Python <3.13,>=3.9; 1.26.2 Requires-Python >=3.9; 1.26.3 Requires-Python >=3.9; 1.26.4 Requires-Python >=3.9; 1.4.0 Requires-Python >=3.8; 1.4.0rc0 Requires-Python >=3.8; 1.4.1 Requires-Python >=3.8; 1.4.2 Requires-Python >=3.8; 1.4.3 Requires-Python >=3.8; 1.4.4 Requires-Python >=3.8; 1.5.0 Requires-Python >=3.8; 1.5.0rc0 Requires-Python >=3.8; 1.5.1 Requires-Python >=3.8; 1.5.2 Requires-Python >=3.8; 1.5.3 Requires-Python >=3.8; 2.0.0 Requires-Python >=3.8; 2.0.0b1 Requires-Python >=3.9; 2.0.0rc0 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.9; 2.0.1 Requires-Python >=3.8; 2.0.2 Requires-Python >=3.8; 2.0.3 Requires-Python >=3.8; 2.1.0 Requires-Python >=3.9; 2.1.0rc0 Requires-Python >=3.9; 2.1.1 Requires-Python >=3.9; 2.1.2 Requires-Python >=3.9; 2.1.3 Requires-Python >=3.9; 2.1.4 Requires-Python >=3.9; 2.2.0 Requires-Python >=3.8; 2.2.0 Requires-Python >=3.9; 2.2.0rc0 Requires-Python >=3.9; 2.2.1 Requires-Python >=3.9; 2.2.2 Requires-Python >=3.9; 2.3.0 Requires-Python >=3.8; 2.3.1 Requires-Python >=3.8; 2.3.2 Requires-Python >=3.8; 2.3.3 Requires-Python >=3.8; 3.0.0 Requires-Python >=3.8; 3.0.1 Requires-Python >=3.8; 3.0.2 Requires-Python >=3.8; 3.0.3 Requires-Python >=3.8
+ERROR: Could not find a version that satisfies the requirement pandas>=2.0.3 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)
+ERROR: No matching distribution found for pandas>=2.0.3
+The command '/bin/sh -c pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt' returned a non-zero code: 1
+Error response from daemon: No such image: myapp_prod:latest
+REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED          SIZE
+<none>                                                                                                      <none>                                         2dd75d600f7d   8 seconds ago    1.09GB
+<none>                                                                                                      <none>                                         6d1bcd63bb41   4 minutes ago    1.09GB
+<none>                                                                                                      <none>                                         1575e24e9624   10 minutes ago   1.02GB
+<none>                                                                                                      <none>                                         df308b28d926   25 minutes ago   1.02GB
+helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   2 hours ago      595MB
+helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   2 hours ago      577MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   2 hours ago      577MB
+<none>                                                                                                      <none>                                         5d66c6c24f3f   4 hours ago      595MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago      577MB
+public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   32 hours ago     574MB
+python                                                                                                      3.7                                            16d93ae3411b   9 months ago     994MB
+python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago      929MB
+Unable to find image 'myapp_prod:latest' locally
+docker: Error response from daemon: pull access denied for myapp_prod, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
+Sending build context to Docker daemon  94.52MB
+Step 1/6 : FROM python:3.8
+3.8: Pulling from library/python
+609c73876867: Pull complete 
+7247ea8d81e6: Pull complete 
+be374d06f382: Pull complete 
+b4580645a8e5: Pull complete 
+aa7e0aca67dd: Pull complete 
+32120056a9fe: Pull complete 
+19107d8e07f6: Pull complete 
+2fd0a626ceb4: Pull complete 
+Digest: sha256:e31986c72ec7f2a4e1c4d7a4e6034b5db537293b01df9192934ec028f762279e
+Status: Downloaded newer image for python:3.8
+ ---> b22191dc7e28
+Step 2/6 : WORKDIR /app
+ ---> Running in a86c8a3f2b25
+Removing intermediate container a86c8a3f2b25
+ ---> 685453975391
+Step 3/6 : COPY . app.py /app/
+ ---> 345c6f201b5b
+Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+ ---> Running in f6593e8b0e3c
+Requirement already satisfied: pip in /usr/local/lib/python3.8/site-packages (23.0.1)
+Collecting pip
+  Downloading pip-24.0-py3-none-any.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 43.5 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+Successfully installed pip-24.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Collecting Click==7.0 (from -r requirements.txt (line 1))
+  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
+  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
+Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
+Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
+Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
+  Downloading MarkupSafe-1.1.1-cp38-cp38-manylinux2010_x86_64.whl.metadata (3.2 kB)
+Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
+  Downloading numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+Collecting pandas>=2.0.3 (from -r requirements.txt (line 7))
+  Downloading pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting python-dateutil>=2.8.0 (from -r requirements.txt (line 8))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from -r requirements.txt (line 9))
+  Downloading pytz-2024.1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting scikit-learn==1.3.2 (from -r requirements.txt (line 10))
+  Downloading scikit_learn-1.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting scipy==1.7.0 (from -r requirements.txt (line 11))
+  Downloading scipy-1.7.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (2.2 kB)
 Collecting six==1.12.0 (from -r requirements.txt (line 12))
-  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
+  Downloading six-1.12.0-py2.py3-none-any.whl.metadata (1.9 kB)
 Collecting Werkzeug==0.16.0 (from -r requirements.txt (line 13))
-  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 327.3/327.3 kB 171.6 MB/s eta 0:00:00
+  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl.metadata (4.7 kB)
 Collecting pylint==2.4.4 (from -r requirements.txt (line 14))
-  Downloading pylint-2.4.4-py3-none-any.whl (302 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.0/303.0 kB 172.3 MB/s eta 0:00:00
+  Downloading pylint-2.4.4-py3-none-any.whl.metadata (6.5 kB)
+Collecting joblib>=1.1.1 (from scikit-learn==1.3.2->-r requirements.txt (line 10))
+  Downloading joblib-1.4.0-py3-none-any.whl.metadata (5.4 kB)
+Collecting threadpoolctl>=2.0.0 (from scikit-learn==1.3.2->-r requirements.txt (line 10))
+  Downloading threadpoolctl-3.4.0-py3-none-any.whl.metadata (13 kB)
+Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
+  Downloading numpy-1.22.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.0 kB)
 Collecting astroid<2.4,>=2.3.0 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading astroid-2.3.3-py3-none-any.whl (205 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 205.7/205.7 kB 115.2 MB/s eta 0:00:00
+  Downloading astroid-2.3.3-py3-none-any.whl.metadata (3.9 kB)
 Collecting isort<5,>=4.2.5 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 114.0 MB/s eta 0:00:00
+  Downloading isort-4.3.21-py2.py3-none-any.whl.metadata (19 kB)
 Collecting mccabe<0.7,>=0.6 (from pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl.metadata (4.3 kB)
+Collecting tzdata>=2022.1 (from pandas>=2.0.3->-r requirements.txt (line 7))
+  Downloading tzdata-2024.1-py2.py3-none-any.whl.metadata (1.4 kB)
 Collecting lazy-object-proxy==1.4.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 160.4 MB/s eta 0:00:00
+  Downloading lazy_object_proxy-1.4.3-cp38-cp38-manylinux1_x86_64.whl.metadata (5.1 kB)
 Collecting wrapt==1.11.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
   Downloading wrapt-1.11.2.tar.gz (27 kB)
   Preparing metadata (setup.py): started
   Preparing metadata (setup.py): finished with status 'done'
-Collecting typed-ast<1.5,>=1.4.0 (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading typed_ast-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (743 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 743.4/743.4 kB 261.9 MB/s eta 0:00:00
+Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 kB 61.8 MB/s eta 0:00:00
+Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.4/91.4 kB 143.1 MB/s eta 0:00:00
+Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 148.3 MB/s eta 0:00:00
+Downloading MarkupSafe-1.1.1-cp38-cp38-manylinux2010_x86_64.whl (32 kB)
+Downloading scikit_learn-1.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 114.9 MB/s eta 0:00:00
+Downloading scipy-1.7.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (28.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28.4/28.4 MB 103.2 MB/s eta 0:00:00
+Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
+Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 327.3/327.3 kB 171.4 MB/s eta 0:00:00
+Downloading pylint-2.4.4-py3-none-any.whl (302 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.0/303.0 kB 164.8 MB/s eta 0:00:00
+Downloading numpy-1.22.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 70.9 MB/s eta 0:00:00
+Downloading pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 92.1 MB/s eta 0:00:00
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 167.2 MB/s eta 0:00:00
+Downloading pytz-2024.1-py2.py3-none-any.whl (505 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 505.5/505.5 kB 174.4 MB/s eta 0:00:00
+Downloading astroid-2.3.3-py3-none-any.whl (205 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 205.7/205.7 kB 157.4 MB/s eta 0:00:00
+Downloading lazy_object_proxy-1.4.3-cp38-cp38-manylinux1_x86_64.whl (58 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.6/58.6 kB 138.3 MB/s eta 0:00:00
+Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 123.3 MB/s eta 0:00:00
+Downloading joblib-1.4.0-py3-none-any.whl (301 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 301.2/301.2 kB 170.3 MB/s eta 0:00:00
+Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Downloading threadpoolctl-3.4.0-py3-none-any.whl (17 kB)
+Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 kB 137.1 MB/s eta 0:00:00
 Building wheels for collected packages: wrapt
   Building wheel for wrapt (setup.py): started
   Building wheel for wrapt (setup.py): finished with status 'done'
-  Created wheel for wrapt: filename=wrapt-1.11.2-cp37-cp37m-linux_x86_64.whl size=71327 sha256=f17f6353aeaeb6dfb1698d0abca5c5b991254dbcdc03ee5d86953dc4db2125a3
-  Stored in directory: /tmp/pip-ephem-wheel-cache-zjw8xiub/wheels/23/5f/62/304b411f20be41821465a82bc98baabc5e68c3cdd1eb99db71
+  Created wheel for wrapt: filename=wrapt-1.11.2-cp38-cp38-linux_x86_64.whl size=74209 sha256=b83f491a0aebd7539b84652b32186148a6a1e521f8e1a4cace696bcfa045b2c5
+  Stored in directory: /tmp/pip-ephem-wheel-cache-hnjr3ixb/wheels/52/25/16/7e228f52ee876e9c9c66dfd6eaf6fb2f73f18629a74dcf7045
 Successfully built wrapt
-DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
-Installing collected packages: wrapt, typed-ast, pytz, mccabe, Werkzeug, six, numpy, MarkupSafe, lazy-object-proxy, itsdangerous, isort, Click, scipy, python-dateutil, Jinja2, astroid, scikit-learn, pylint, pandas, Flask
-Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.17.2 pandas-0.24.2 pylint-2.4.4 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0 typed-ast-1.4.3 wrapt-1.11.2
+Installing collected packages: wrapt, pytz, mccabe, Werkzeug, tzdata, threadpoolctl, six, numpy, MarkupSafe, lazy-object-proxy, joblib, itsdangerous, isort, Click, scipy, python-dateutil, Jinja2, astroid, scikit-learn, pylint, pandas, Flask
+Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 isort-4.3.21 itsdangerous-1.1.0 joblib-1.4.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.22.4 pandas-2.0.3 pylint-2.4.4 python-dateutil-2.9.0.post0 pytz-2024.1 scikit-learn-1.3.2 scipy-1.7.0 six-1.12.0 threadpoolctl-3.4.0 tzdata-2024.1 wrapt-1.11.2
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-Removing intermediate container e07bc002eb1f
- ---> f4a53af34be8
+Removing intermediate container f6593e8b0e3c
+ ---> eff1c9e8487e
 Step 5/6 : EXPOSE 80
- ---> Running in 5787feee9171
-Removing intermediate container 5787feee9171
- ---> 923eb31f7700
+ ---> Running in 13fb7d2d6e69
+Removing intermediate container 13fb7d2d6e69
+ ---> 63c7b5d82a34
 Step 6/6 : CMD ["python", "app.py"]
- ---> Running in 3654ec8565f4
-Removing intermediate container 3654ec8565f4
- ---> 3cacfa4a8bd4
-Successfully built 3cacfa4a8bd4
-Successfully tagged myapp_prodsu:latest
-REPOSITORY                    TAG             IMAGE ID       CREATED        SIZE
-myapp_prodsu                  latest          3cacfa4a8bd4   1 second ago   1.28GB
-gcr.io/k8s-minikube/kicbase   v0.0.42         dbc648475405   4 weeks ago    1.2GB
-python                        3.7.3-stretch   34a518642c76   4 years ago    929MB
- * Serving Flask app "app" (lazy loading)
- * Environment: production
-   WARNING: Do not use the development server in a production environment.
-   Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 161-199-506
-[2023-12-08 23:00:07,383] INFO in app: JSON payload: 
-{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2023-12-08 23:00:07,403] INFO in app: Inference payload DataFrame: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2023-12-08 23:00:07,419] INFO in app: Scaling Payload: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2023-12-08 23:00:07,424] INFO in app: prediction: 
-[20.35373177134412]
-172.17.0.1 - - [08/Dec/2023 23:00:07] "POST /predict HTTP/1.1" 200 -
+ ---> Running in 96abb95d4c4c
+Removing intermediate container 96abb95d4c4c
+ ---> 9cd7fa1e83d5
+Successfully built 9cd7fa1e83d5
+Successfully tagged myapp_prod:latest
+REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED          SIZE
+myapp_prod                                                                                                  latest                                         9cd7fa1e83d5   1 second ago     1.38GB
+<none>                                                                                                      <none>                                         2dd75d600f7d   2 minutes ago    1.09GB
+<none>                                                                                                      <none>                                         6d1bcd63bb41   7 minutes ago    1.09GB
+<none>                                                                                                      <none>                                         1575e24e9624   13 minutes ago   1.02GB
+<none>                                                                                                      <none>                                         df308b28d926   27 minutes ago   1.02GB
+helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   3 hours ago      595MB
+helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   3 hours ago      577MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   3 hours ago      577MB
+<none>                                                                                                      <none>                                         5d66c6c24f3f   4 hours ago      595MB
+729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago      577MB
+public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   32 hours ago     574MB
+python                                                                                                      3.8                                            b22191dc7e28   4 weeks ago      996MB
+python                                                                                                      3.7                                            16d93ae3411b   9 months ago     994MB
+python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago      929MB
+Traceback (most recent call last):
+  File "app.py", line 72, in <module>
+    clf = joblib.load("./model_data/boston_housing_prediction.joblib")
+  File "/usr/local/lib/python3.8/site-packages/joblib/numpy_pickle.py", line 658, in load
+    obj = _unpickle(fobj, filename, mmap_mode)
+  File "/usr/local/lib/python3.8/site-packages/joblib/numpy_pickle.py", line 577, in _unpickle
+    obj = unpickler.load()
+  File "/usr/local/lib/python3.8/pickle.py", line 1212, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.8/pickle.py", line 1528, in load_global
+    klass = self.find_class(module, name)
+  File "/usr/local/lib/python3.8/pickle.py", line 1579, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'sklearn.ensemble.gradient_boosting'
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
+Docker ID and Image: olaninnovator/myapp_prod:latest
+Error response from daemon: No such image: myapp_prodsu:latest
+Authenticating with existing credentials...
+WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+The push refers to repository [docker.io/olaninnovator/myapp_prod]
+An image does not exist locally with the tag: olaninnovator/myapp_prod
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
+Docker ID and Image: olaninnovator/myapp_prod:latest
+Error response from daemon: No such image: myapp_prodsu:latest
+Authenticating with existing credentials...
+WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+The push refers to repository [docker.io/olaninnovator/myapp_prod]
+An image does not exist locally with the tag: olaninnovator/myapp_prod
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ls image
+ls: cannot access image: No such file or directory
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ image
+bash: image: command not found
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
+Docker ID and Image: olaninnovator/myapp_prod:latest
+Authenticating with existing credentials...
+WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+The push refers to repository [docker.io/olaninnovator/myapp_prod]
+506f19dabdc4: Pushed 
+b5cf6680791e: Pushed 
+d4b80a87c2e3: Pushed 
+ea687aec481f: Mounted from library/python 
+18711dbcc640: Mounted from library/python 
+89068aa9d56c: Mounted from library/python 
+86388e04a96b: Mounted from library/python 
+893507f6057f: Mounted from library/python 
+2353f7120e0e: Mounted from library/python 
+51a9318e6edf: Mounted from library/python 
+c5bb35826823: Mounted from library/python 
+latest: digest: sha256:1a91c792ed1e3312f8735eb9e91b8115d4e81ef32c637079db8ddfcb2f62ee65 size: 2638
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 

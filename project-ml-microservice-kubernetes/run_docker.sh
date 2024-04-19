@@ -5,7 +5,7 @@
 # Step 1:
 # Build image and add a descriptive tag
 docker build -t myapp_prod .
-docker tag myapp_prod:latest
+docker tag myapp_prod myapp_prod:latest
 
 # Step 2: 
 # List docker  images

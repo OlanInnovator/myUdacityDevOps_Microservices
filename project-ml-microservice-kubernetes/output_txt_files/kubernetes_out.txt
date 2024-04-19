@@ -1,1 +1,215 @@
-<paste log output from Kubernetes-mediated prediction, here>
+voclabs:~/environment $ kubectl get svc
+E0419 04:49:11.886761    5454 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 04:49:12.796249    5454 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 04:49:13.700621    5454 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 04:49:14.472391    5454 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 04:49:15.264995    5454 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+error: You must be logged in to the server (the server has asked for the client to provide credentials)
+voclabs:~/environment $ kubectl config current-context
+arn:aws:eks:us-east-1:729756511133:cluster/mykubenetes
+voclabs:~/environment $ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/eks-connector/manifests/eks-connector-console-roles/eks-connector-clusterrole.yaml
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   574  100   574    0     0   1769      0 --:--:-- --:--:-- --:--:--  1771
+voclabs:~/environment $ kubectl apply -f eks-connector-clusterrole.yam
+error: the path "eks-connector-clusterrole.yam" does not exist
+voclabs:~/environment $ kubectl apply -f eks-connector-clusterrole.yaml
+error: error validating "eks-connector-clusterrole.yaml": error validating data: failed to download openapi: the server has asked for the client to provide credentials; if you choose to ignore these errors, turn validation off with --validate=false
+voclabs:~/environment $ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/eks-connector/manifests/eks-connector-console-roles/eks-connector-console-dashboard-full-access-group.yaml
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1810  100  1810    0     0   5707      0 --:--:-- --:--:-- --:--:--  5727
+voclabs:~/environment $ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/eks-connector/manifests/eks-connector-console-roles/eks-connector-console-dashboard-restricted-access-group.yaml
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2378  100  2378    0     0   7314      0 --:--:-- --:--:-- --:--:--  7316
+voclabs:~/environment $ kubectl apply -f eks-connector-console-dashboard-full-access-group.yaml
+error: error validating "eks-connector-console-dashboard-full-access-group.yaml": error validating data: failed to download openapi: the server has asked for the client to provide credentials; if you choose to ignore these errors, turn validation off with --validate=false
+voclabs:~/environment $ kubectl apply -f --validate=false eks-connector-console-dashboard-full-access-group.yaml                                                                                                             
+error: Unexpected args: [eks-connector-console-dashboard-full-access-group.yaml]
+See 'kubectl apply -h' for help and examples
+voclabs:~/environment $ ubectl apply -h
+bash: ubectl: command not found
+voclabs:~/environment $ kubectl apply -h                                                                                                                                                                                      
+Apply a configuration to a resource by file name or stdin. The resource name must be specified. This resource will be
+created if it doesn't exist yet. To use 'apply', always create the resource initially with either 'apply' or 'create
+--save-config'.
+
+ JSON and YAML formats are accepted.
+
+ Alpha Disclaimer: the --prune functionality is not yet complete. Do not use unless you are aware of what the current
+state is. See https://issues.k8s.io/34274.
+
+Examples:
+  # Apply the configuration in pod.json to a pod
+  kubectl apply -f ./pod.json
+  
+  # Apply resources from a directory containing kustomization.yaml - e.g. dir/kustomization.yaml
+  kubectl apply -k dir/
+  
+  # Apply the JSON passed into stdin to a pod
+  cat pod.json | kubectl apply -f -
+  
+  # Apply the configuration from all files that end with '.json'
+  kubectl apply -f '*.json'
+  
+  # Note: --prune is still in Alpha
+  # Apply the configuration in manifest.yaml that matches label app=nginx and delete all other resources that are not in
+the file and match label app=nginx
+  kubectl apply --prune -f manifest.yaml -l app=nginx
+  
+  # Apply the configuration in manifest.yaml and delete all the other config maps that are not in the file
+  kubectl apply --prune -f manifest.yaml --all --prune-allowlist=core/v1/ConfigMap
+
+Available Commands:
+  edit-last-applied   Edit latest last-applied-configuration annotations of a resource/object
+  set-last-applied    Set the last-applied-configuration annotation on a live object to match the contents of a file
+  view-last-applied   View the latest last-applied-configuration annotations of a resource/object
+
+Options:
+    --all=false:
+        Select all resources in the namespace of the specified resource types.
+
+    --allow-missing-template-keys=true:
+        If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to
+        golang and jsonpath output formats.
+
+    --cascade='background':
+        Must be "background", "orphan", or "foreground". Selects the deletion cascading strategy for the dependents
+        (e.g. Pods created by a ReplicationController). Defaults to background.
+
+    --dry-run='none':
+        Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without
+        sending it. If server strategy, submit server-side request without persisting the resource.
+
+    --field-manager='kubectl-client-side-apply':
+        Name of the manager used to track field ownership.
+
+    -f, --filename=[]:
+        The files that contain the configurations to apply.
+
+    --force=false:
+        If true, immediately remove resources from API and bypass graceful deletion. Note that immediate deletion of
+        some resources may result in inconsistency or data loss and requires confirmation.
+
+    --force-conflicts=false:
+        If true, server-side apply will force the changes against conflicts.
+
+    --grace-period=-1:
+        Period of time in seconds given to the resource to terminate gracefully. Ignored if negative. Set to 1 for
+        immediate shutdown. Can only be set to 0 when --force is true (force deletion).
+
+    -k, --kustomize='':
+        Process a kustomization directory. This flag can't be used together with -f or -R.
+
+    --openapi-patch=true:
+        If true, use openapi to calculate diff when the openapi presents and the resource can be found in the openapi
+        spec. Otherwise, fall back to use baked-in types.
+
+    -o, --output='':
+        Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath,
+        jsonpath-as-json, jsonpath-file).
+
+    --overwrite=true:
+        Automatically resolve conflicts between the modified and live configuration by using values from the modified
+        configuration
+
+    --prune=false:
+        Automatically delete resource objects, that do not appear in the configs and are created by either apply or
+        create --save-config. Should be used with either -l or --all.
+
+    --prune-allowlist=[]:
+        Overwrite the default allowlist with <group/version/kind> for --prune
+
+    -R, --recursive=false:
+        Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests
+        organized within the same directory.
+
+    -l, --selector='':
+        Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2). Matching
+        objects must satisfy all of the specified label constraints.
+
+    --server-side=false:
+        If true, apply runs in the server instead of the client.
+
+    --show-managed-fields=false:
+        If true, keep the managedFields when printing objects in JSON or YAML format.
+
+    --template='':
+        Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format
+        is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+
+    --timeout=0s:
+        The length of time to wait before giving up on a delete, zero means determine a timeout from the size of the
+        object
+
+    --validate='strict':
+        Must be one of: strict (or true), warn, ignore (or false).              "true" or "strict" will use a schema to validate
+        the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation
+        is enabled on the api-server, but will fall back to less reliable client-side validation if not.                "warn" will
+        warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled
+        on the API server, and behave as "ignore" otherwise.            "false" or "ignore" will not perform any schema
+        validation, silently dropping any unknown or duplicate fields.
+
+    --wait=false:
+        If true, wait for resources to be gone before returning. This waits for finalizers.
+
+Usage:
+  kubectl apply (-f FILENAME | -k DIRECTORY) [options]
+
+Use "kubectl apply <command> --help" for more information about a given command.
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+voclabs:~/environment $ kubectl apply -f eks-connector-console-dashboard-full-access-group.yaml --validate=false
+E0419 05:07:13.993579   12829 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:07:14.786530   12829 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+unable to recognize "eks-connector-console-dashboard-full-access-group.yaml": the server has asked for the client to provide credentials
+unable to recognize "eks-connector-console-dashboard-full-access-group.yaml": the server has asked for the client to provide credentials
+voclabs:~/environment $ python3.8 -m venv ~/.devops
+voclabs:~/environment $ source ~/.devops/bin/activate
+(.devops) voclabs:~/environment $ ./run_kubernetes.sh
+bash: ./run_kubernetes.sh: No such file or directory
+(.devops) voclabs:~/environment $ deactivate
+voclabs:~/environment $ cd myUdacityDevOps_Microservices
+voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cd myUdacityDevOps_Microservices
+bash: cd: myUdacityDevOps_Microservices: No such file or directory
+voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cd project-ml-microservice-kubernetes
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ python3.8 -m venv ~/.devops
+voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ source ~/.devops/bin/activate
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_kubernetes.sh
+olaninnovator/myapp_prod:latest
+error: failed to create deployment: Unauthorized
+olaninnovator/myapp_prod:latest
+E0419 05:10:56.161297   14437 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:10:56.921095   14437 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:10:57.672840   14437 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:10:58.431230   14437 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:10:59.193290   14437 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:10:59.968512   14437 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:00.723428   14437 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:01.507889   14437 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+error: You must be logged in to the server (the server has asked for the client to provide credentials)
+E0419 05:11:03.090720   14519 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:03.849509   14519 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:04.598198   14519 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:05.384616   14519 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:06.150981   14519 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+error: You must be logged in to the server (the server has asked for the client to provide credentials)
+E0419 05:11:07.710435   14591 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:08.473285   14591 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:09.227177   14591 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0419 05:11:09.975070   14591 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+error: You must be logged in to the server (the server has asked for the client to provide credentials)
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ eksctl create cluster --name mykubenetes --profile vocalabs --region=us-east-1 --version 1.28 --without-nodegroup Error: failed to get shared config profile, vocalabs
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ kubectl config current-contextarn:aws:eks:us-east-1:729756511133:cluster/mykubenetes
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ aws sts get-caller-identity
+{
+    "UserId": "AROA2T2HAVOOTIVZAL76O:user2399376=4c608846-8dbc-11ed-ae98-4b060571af01",
+    "Account": "729756511133",
+    "Arn": "arn:aws:sts::729756511133:assumed-role/voclabs/user2399376=4c608846-8dbc-11ed-ae98-4b060571af01"
+}
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ eksctl create cluster --name mykubenetes --profile vocalabs --region=us-east-1 --version 1.28 --without-nodegroup
+Error: failed to get shared config profile, vocalabs
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ eksctl create cluster --name mykubenetes --profile AROA2T2HAVOOTIVZAL76O:user2399376=4c608846-8dbc-11ed-ae98-4b060571af01 --region=us-east-1 --version 1.28 --without-nodegroup                                                                                                                                                                 
+Error: failed to get shared config profile, AROA2T2HAVOOTIVZAL76O:user2399376=4c608846-8dbc-11ed-ae98-4b060571af01
+(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 

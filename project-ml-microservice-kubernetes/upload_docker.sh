@@ -11,7 +11,7 @@ dockerpath="olaninnovator/myapp_prod:latest"
 # Step 2:  
 # Authenticate & Tag
 echo "Docker ID and Image: $dockerpath"
-docker tag myapp_prodsu $dockerpath
+docker tag myapp_prod $dockerpath
 docker login
 
 # Step 3:cat 
