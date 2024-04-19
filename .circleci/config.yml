@@ -5,6 +5,7 @@
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
 version: 2.1
+import pytest
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/orb-intro/
 orbs:
