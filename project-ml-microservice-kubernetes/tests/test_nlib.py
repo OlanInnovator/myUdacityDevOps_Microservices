@@ -2,8 +2,6 @@
 
 import pytest
 import sys
-sys.path.append("..")
-from nlib import csvops
 
 def func(x):
     return x + 1
