@@ -4,8 +4,8 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-docker build -t myapp_prod .
-docker tag myapp_prod myapp_prod:latest
+docker build -t myapp_prod1 .
+docker tag myapp_prod1 myapp_prod1:latest
 
 # Step 2: 
 # List docker  images
@@ -15,4 +15,4 @@ docker image ls
 # Run flask app
 #docker run -p 8000:5001 myapp_prodsu
 #docker run -it myapp_prodsu bash
-docker run -it --rm --name mydocker myapp_prod
+docker run -it --rm --name mydocker myapp_prod1
