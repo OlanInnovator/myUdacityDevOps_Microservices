@@ -24,6 +24,7 @@ def home():
     html = f"<h3>Sklearn Prediction Home</h3>"
     return html.format(format)
 
+global clf
 @app.route("/predict", methods=['POST'])
 def predict():
     """Performs an sklearn prediction
@@ -53,7 +54,7 @@ def predict():
         { "prediction": [ <val> ] }
         
         """
-        
+    
     # Logging the input payload
     json_payload = request.json
     LOG.info(f"JSON payload: \n{json_payload}")
@@ -62,7 +63,7 @@ def predict():
     # scale the input
     scaled_payload = scale(inference_payload)
     # get an output prediction from the pretrained model, clf
-    prediction = list(clf.predict(scaled_payload))
+    prediction = list(joblib.load("./model_data/boston_housing_prediction.joblib").predict(scaled_payload))
     # TO DO:  Log the output prediction value
     LOG.info(f"prediction: \n{prediction}")
     return jsonify({'prediction': prediction})
@@ -70,5 +71,5 @@ def predict():
 if __name__ == "__main__":
     os.environ.setdefault('F__name__', 'development')
     # load pretrained model as    clf
-    clf = joblib.load("./model_data/boston_housing_prediction.joblib")
-    app.run(host='0.0.0.0', port=80, debug=True) # specify port=80
+    #clf = joblib.load("./model_data/boston_housing_prediction.joblib")
+    app.run(host='127.0.0.1', port=5000, debug=True) # specify port=80

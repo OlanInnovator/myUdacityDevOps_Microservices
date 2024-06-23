@@ -10,9 +10,8 @@ docker tag myapp_prod1 myapp_prod1:latest
 # Step 2: 
 # List docker  images
 docker image ls
+docker rmi $(docker images -f "dangling=true" -q)
 
 # Step 3: 
 # Run flask app
-#docker run -p 8000:5001 myapp_prodsu
-#docker run -it myapp_prodsu bash
-docker run -it --rm --name mydocker myapp_prod1
+python3 -m flask run

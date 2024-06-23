@@ -21,4 +21,3 @@ EXPOSE 80
 ## Step 5:
 # Run app.py at container launch
 CMD ["python", "app.py"]
-#docker run -p 8000:8000
