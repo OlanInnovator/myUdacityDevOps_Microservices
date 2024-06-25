@@ -4,7 +4,7 @@
 
 # Step 1:
 # This is your Docker ID/path
-dockerpath="olaninnovator/myapp_prod:latest"
+dockerpath="olaninnovator/myapp_prod3:latest"
 
 echo $dockerpath
 # Step 2
@@ -21,4 +21,4 @@ kubectl get nodes
 
 # Step 4:
 # Forward the container port to a host
-kubectl port-forward pod/aws-node-6l4pg --address 0.0.0.0 80:80 
+kubectl port-forward pod/python-mykubemetes-875cf76fd-9tfdv --address 127.0.0.1 8888:5000

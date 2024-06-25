@@ -14,4 +14,4 @@ docker rmi $(docker images -f "dangling=true" -q)
 
 # Step 3: 
 # Run flask app
-python3 -m flask run
+python3.7 -m flask run

@@ -1,61 +1,40 @@
-voclabs:~/environment $ cd myUdacityDevOps_Microservices
-voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cat Dockerfilecd ..
-cat: Dockerfilecd: No such file or directory
-cat: ..: Is a directory
-voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cd ..
-voclabs:~/environment $ sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
---2024-04-19 00:37:13--  https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
-Resolving github.com (github.com)... 140.82.113.4
-Connecting to github.com (github.com)|140.82.113.4|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/46234189/497d2080-54bd-11e9-94e5-926d35bd3e53?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240419%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240419T003713Z&X-Amz-Expires=300&X-Amz-Signature=f1f79f2beae284e90fdcaf938af2de670afcd34805633a3a69e13e7afa8c1c46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=46234189&response-content-disposition=attachment%3B%20filename%3Dhadolint-Linux-x86_64&response-content-type=application%2Foctet-stream [following]
---2024-04-19 00:37:13--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/46234189/497d2080-54bd-11e9-94e5-926d35bd3e53?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240419%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240419T003713Z&X-Amz-Expires=300&X-Amz-Signature=f1f79f2beae284e90fdcaf938af2de670afcd34805633a3a69e13e7afa8c1c46&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=46234189&response-content-disposition=attachment%3B%20filename%3Dhadolint-Linux-x86_64&response-content-type=application%2Foctet-stream
-Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
-Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.109.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 3683832 (3.5M) [application/octet-stream]
-Saving to: ‘/bin/hadolint’
-
-100%[====================================================================================================================================================================================>] 3,683,832   --.-K/s   in 0.02s   
-
-2024-04-19 00:37:13 (182 MB/s) - ‘/bin/hadolint’ saved [3683832/3683832]
-
-voclabs:~/environment $ sudo chmod +x /bin/hadolint
-voclabs:~/environment $ /bin/hadolint Dockerfile
-hadolint: Dockerfile: openBinaryFile: does not exist (No such file or directory)
-voclabs:~/environment $ hadolint --version
-Haskell Dockerfile Linter v1.16.3-0-g6a8dd04
-voclabs:~/environment $ cd myUdacityDevOps_Microservices
-voclabs:~/environment/myUdacityDevOps_Microservices (master) $ cd project-ml-microservice-kubernetes
-voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ python3.7 -m venv ~/.devops
-voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ source ~/.devops/bin/activate
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make all
+olan-sys-ubuntu@olan-sys-ubuntu-Inspiron-16-Plus-7640:~/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes$ python3 -m venv .devops
+olan-sys-ubuntu@olan-sys-ubuntu-Inspiron-16-Plus-7640:~/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes$ source .devops/bin/activate
+(.devops) olan-sys-ubuntu@olan-sys-ubuntu-Inspiron-16-Plus-7640:~/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes$ make install
 # This should be run from inside a virtualenv
 pip install --upgrade pip &&\
         pip install -r requirements.txt
-Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.8/site-packages (24.0)
-Requirement already satisfied: Click==7.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (7.0)
-Requirement already satisfied: Flask==1.0.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (1.0.2)
-Requirement already satisfied: itsdangerous==1.1.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (1.1.0)
-Requirement already satisfied: Jinja2==2.10.3 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (2.10.3)
-Requirement already satisfied: MarkupSafe==1.1.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (1.1.1)
-Requirement already satisfied: numpy>=1.17.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (1.22.4)
-Requirement already satisfied: pandas>=2.0.3 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (2.0.3)
-Requirement already satisfied: python-dateutil>=2.8.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 8)) (2.9.0.post0)
-Requirement already satisfied: pytz>=2020.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 9)) (2024.1)
-Requirement already satisfied: scikit-learn==1.3.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 10)) (1.3.2)
-Requirement already satisfied: scipy==1.7.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 11)) (1.7.0)
-Requirement already satisfied: six==1.12.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 12)) (1.12.0)
-Requirement already satisfied: Werkzeug==0.16.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 13)) (0.16.0)
-Requirement already satisfied: pylint==2.4.4 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 14)) (2.4.4)
-Requirement already satisfied: joblib>=1.1.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from scikit-learn==1.3.2->-r requirements.txt (line 10)) (1.4.0)
-Requirement already satisfied: threadpoolctl>=2.0.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from scikit-learn==1.3.2->-r requirements.txt (line 10)) (3.4.0)
-Requirement already satisfied: astroid<2.4,>=2.3.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (2.3.3)
-Requirement already satisfied: isort<5,>=4.2.5 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (4.3.21)
-Requirement already satisfied: mccabe<0.7,>=0.6 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (0.6.1)
-Requirement already satisfied: tzdata>=2022.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pandas>=2.0.3->-r requirements.txt (line 7)) (2024.1)
-Requirement already satisfied: lazy-object-proxy==1.4.* in /home/ec2-user/.devops/lib/python3.8/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.4.3)
-Requirement already satisfied: wrapt==1.11.* in /home/ec2-user/.devops/lib/python3.8/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.11.2)
+Requirement already satisfied: pip in ./.devops/lib/python3.7/site-packages (24.0)
+DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.1 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
+Requirement already satisfied: Click==7.0 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 1)) (7.0)
+Requirement already satisfied: Flask==1.0.2 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 2)) (1.0.2)
+Requirement already satisfied: itsdangerous==1.1.0 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 3)) (1.1.0)
+Requirement already satisfied: Jinja2==2.10.3 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 4)) (2.10.3)
+Requirement already satisfied: MarkupSafe==1.1.1 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 5)) (1.1.1)
+Requirement already satisfied: numpy==1.17.2 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 6)) (1.17.2)
+Collecting gunicorn==20.0.4 (from -r requirements.txt (line 7))
+  Downloading gunicorn-20.0.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Requirement already satisfied: pandas==0.24.2 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 8)) (0.24.2)
+Requirement already satisfied: python-dateutil==2.8.0 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 9)) (2.8.0)
+Requirement already satisfied: pytz==2019.3 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 10)) (2019.3)
+Requirement already satisfied: scikit-learn==0.20.3 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 11)) (0.20.3)
+Requirement already satisfied: scipy==1.3.1 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 12)) (1.3.1)
+Requirement already satisfied: six==1.12.0 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 13)) (1.12.0)
+Requirement already satisfied: Werkzeug==0.16.0 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 14)) (0.16.0)
+Requirement already satisfied: pylint==2.4.4 in ./.devops/lib/python3.7/site-packages (from -r requirements.txt (line 15)) (2.4.4)
+Requirement already satisfied: setuptools>=3.0 in ./.devops/lib/python3.7/site-packages (from gunicorn==20.0.4->-r requirements.txt (line 7)) (47.1.0)
+Requirement already satisfied: astroid<2.4,>=2.3.0 in ./.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 15)) (2.3.3)
+Requirement already satisfied: isort<5,>=4.2.5 in ./.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 15)) (4.3.21)
+Requirement already satisfied: mccabe<0.7,>=0.6 in ./.devops/lib/python3.7/site-packages (from pylint==2.4.4->-r requirements.txt (line 15)) (0.6.1)
+Requirement already satisfied: lazy-object-proxy==1.4.* in ./.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 15)) (1.4.3)
+Requirement already satisfied: wrapt==1.11.* in ./.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 15)) (1.11.2)
+Requirement already satisfied: typed-ast<1.5,>=1.4.0 in ./.devops/lib/python3.7/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 15)) (1.4.3)
+Downloading gunicorn-20.0.4-py2.py3-none-any.whl (77 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.9/77.9 kB 2.7 MB/s eta 0:00:00
+DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.1 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
+Installing collected packages: gunicorn
+Successfully installed gunicorn-20.0.4
+(.devops) olan-sys-ubuntu@olan-sys-ubuntu-Inspiron-16-Plus-7640:~/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes$ make lint
 # See   local hadolint install instructions:   https://github.com/hadolint/hadolint
 # This is linter for Dockerfiles
 hadolint Dockerfile
@@ -63,387 +42,27 @@ hadolint Dockerfile
 # This should be run from inside a virtualenv
 pylint --disable=R,C,W1203,W1202 app.py
 ************* Module app
-app.py:6:0: E0611: No name 'joblib' in module 'sklearn.externals' (no-name-in-module)
-
------------------------------------
-Your code has been rated at 8.28/10
-
-make: *** [lint] Error 2
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ make all
-# This should be run from inside a virtualenv
-pip install --upgrade pip &&\
-        pip install -r requirements.txt
-Requirement already satisfied: pip in /home/ec2-user/.devops/lib/python3.8/site-packages (24.0)
-Requirement already satisfied: Click==7.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (7.0)
-Requirement already satisfied: Flask==1.0.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (1.0.2)
-Requirement already satisfied: itsdangerous==1.1.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (1.1.0)
-Requirement already satisfied: Jinja2==2.10.3 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (2.10.3)
-Requirement already satisfied: MarkupSafe==1.1.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (1.1.1)
-Requirement already satisfied: numpy>=1.17.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (1.22.4)
-Requirement already satisfied: pandas>=2.0.3 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (2.0.3)
-Requirement already satisfied: python-dateutil>=2.8.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 8)) (2.9.0.post0)
-Requirement already satisfied: pytz>=2020.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 9)) (2024.1)
-Requirement already satisfied: scikit-learn==1.3.2 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 10)) (1.3.2)
-Requirement already satisfied: scipy==1.7.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 11)) (1.7.0)
-Requirement already satisfied: six==1.12.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 12)) (1.12.0)
-Requirement already satisfied: Werkzeug==0.16.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 13)) (0.16.0)
-Requirement already satisfied: pylint==2.4.4 in /home/ec2-user/.devops/lib/python3.8/site-packages (from -r requirements.txt (line 14)) (2.4.4)
-Requirement already satisfied: joblib>=1.1.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from scikit-learn==1.3.2->-r requirements.txt (line 10)) (1.4.0)
-Requirement already satisfied: threadpoolctl>=2.0.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from scikit-learn==1.3.2->-r requirements.txt (line 10)) (3.4.0)
-Requirement already satisfied: astroid<2.4,>=2.3.0 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (2.3.3)
-Requirement already satisfied: isort<5,>=4.2.5 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (4.3.21)
-Requirement already satisfied: mccabe<0.7,>=0.6 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pylint==2.4.4->-r requirements.txt (line 14)) (0.6.1)
-Requirement already satisfied: tzdata>=2022.1 in /home/ec2-user/.devops/lib/python3.8/site-packages (from pandas>=2.0.3->-r requirements.txt (line 7)) (2024.1)
-Requirement already satisfied: lazy-object-proxy==1.4.* in /home/ec2-user/.devops/lib/python3.8/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.4.3)
-Requirement already satisfied: wrapt==1.11.* in /home/ec2-user/.devops/lib/python3.8/site-packages (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14)) (1.11.2)
-# See   local hadolint install instructions:   https://github.com/hadolint/hadolint
-# This is linter for Dockerfiles
-hadolint Dockerfile
-# This is a linter for Python source code linter: https://www.pylint.org/
-# This should be run from inside a virtualenv
-pylint --disable=R,C,W1203,W1202 app.py
+app.py:27:0: W0604: Using the global statement at the module level (global-at-module-level)
 
 -------------------------------------------------------------------
-Your code has been rated at 10.00/10 (previous run: 8.28/10, +1.72)
+Your code has been rated at 9.68/10 (previous run: 10.00/10, -0.32)
 
-# Additional, optional, tests could go here
-#python -m pytest -vv --cov=myrepolib tests/*.py
-#python -m pytest --nbval notebook.ipynb
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
-Sending build context to Docker daemon  94.52MB
-Step 1/6 : FROM python:3.7.3-stretch
-3.7.3-stretch: Pulling from library/python
-6f2f362378c5: Pull complete 
-494c27a8a6b8: Pull complete 
-7596bb83081b: Pull complete 
-372744b62d49: Pull complete 
-615db220d76c: Pull complete 
-39aa0c89bda1: Pull complete 
-ac275157d894: Pull complete 
-98d16dec829a: Pull complete 
-c8514b1c6524: Pull complete 
-Digest: sha256:205cafadbb7f0c48f2a6d655eb100a9675aa85e6e73958860f488406cce09779
-Status: Downloaded newer image for python:3.7.3-stretch
- ---> 34a518642c76
-Step 2/6 : WORKDIR /app
- ---> Running in e8f4d634bdf9
-Removing intermediate container e8f4d634bdf9
- ---> 1268c95ad635
-Step 3/6 : COPY . app.py /app/
- ---> df308b28d926
-Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
- ---> Running in edf7cfc71cd4
-Collecting pip
-  Downloading https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl (2.1MB)
-Installing collected packages: pip
-  Found existing installation: pip 19.1.1
-    Uninstalling pip-19.1.1:
-      Successfully uninstalled pip-19.1.1
-Successfully installed pip-24.0
-Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
-Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
-Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
-Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
-Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl.metadata (3.2 kB)
-Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.1 kB)
-ERROR: Ignored the following versions that require a different python version: 1.22.0 Requires-Python >=3.8; 1.22.1 Requires-Python >=3.8; 1.22.2 Requires-Python >=3.8; 1.22.3 Requires-Python >=3.8; 1.22.4 Requires-Python >=3.8; 1.23.0 Requires-Python >=3.8; 1.23.0rc1 Requires-Python >=3.8; 1.23.0rc2 Requires-Python >=3.8; 1.23.0rc3 Requires-Python >=3.8; 1.23.1 Requires-Python >=3.8; 1.23.2 Requires-Python >=3.8; 1.23.3 Requires-Python >=3.8; 1.23.4 Requires-Python >=3.8; 1.23.5 Requires-Python >=3.8; 1.24.0 Requires-Python >=3.8; 1.24.0rc1 Requires-Python >=3.8; 1.24.0rc2 Requires-Python >=3.8; 1.24.1 Requires-Python >=3.8; 1.24.2 Requires-Python >=3.8; 1.24.3 Requires-Python >=3.8; 1.24.4 Requires-Python >=3.8; 1.25.0 Requires-Python >=3.9; 1.25.0rc1 Requires-Python >=3.9; 1.25.1 Requires-Python >=3.9; 1.25.2 Requires-Python >=3.9; 1.26.0 Requires-Python <3.13,>=3.9; 1.26.0b1 Requires-Python <3.13,>=3.9; 1.26.0rc1 Requires-Python <3.13,>=3.9; 1.26.1 Requires-Python <3.13,>=3.9; 1.26.2 Requires-Python >=3.9; 1.26.3 Requires-Python >=3.9; 1.26.4 Requires-Python >=3.9; 1.4.0 Requires-Python >=3.8; 1.4.0rc0 Requires-Python >=3.8; 1.4.1 Requires-Python >=3.8; 1.4.2 Requires-Python >=3.8; 1.4.3 Requires-Python >=3.8; 1.4.4 Requires-Python >=3.8; 1.5.0 Requires-Python >=3.8; 1.5.0rc0 Requires-Python >=3.8; 1.5.1 Requires-Python >=3.8; 1.5.2 Requires-Python >=3.8; 1.5.3 Requires-Python >=3.8; 2.0.0 Requires-Python >=3.8; 2.0.0b1 Requires-Python >=3.9; 2.0.0rc0 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.9; 2.0.1 Requires-Python >=3.8; 2.0.2 Requires-Python >=3.8; 2.0.3 Requires-Python >=3.8; 2.1.0 Requires-Python >=3.9; 2.1.0rc0 Requires-Python >=3.9; 2.1.1 Requires-Python >=3.9; 2.1.2 Requires-Python >=3.9; 2.1.3 Requires-Python >=3.9; 2.1.4 Requires-Python >=3.9; 2.2.0 Requires-Python >=3.8; 2.2.0 Requires-Python >=3.9; 2.2.0rc0 Requires-Python >=3.9; 2.2.1 Requires-Python >=3.9; 2.2.2 Requires-Python >=3.9; 2.3.0 Requires-Python >=3.8; 2.3.1 Requires-Python >=3.8; 2.3.2 Requires-Python >=3.8; 2.3.3 Requires-Python >=3.8; 3.0.0 Requires-Python >=3.8; 3.0.1 Requires-Python >=3.8; 3.0.2 Requires-Python >=3.8; 3.0.3 Requires-Python >=3.8
-ERROR: Could not find a version that satisfies the requirement pandas>=2.0.3 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)
-ERROR: No matching distribution found for pandas>=2.0.3
-The command '/bin/sh -c pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt' returned a non-zero code: 1
-"docker tag" requires exactly 2 arguments.
-See 'docker tag --help'.
-
-Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
-
-Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
-REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED         SIZE
-<none>                                                                                                      <none>                                         df308b28d926   8 seconds ago   1.02GB
-helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   2 hours ago     595MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   2 hours ago     577MB
-helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   2 hours ago     577MB
-<none>                                                                                                      <none>                                         5d66c6c24f3f   3 hours ago     595MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago     577MB
-public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   31 hours ago    574MB
-python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago     929MB
-Unable to find image 'myapp_prod:latest' locally
-docker: Error response from daemon: pull access denied for myapp_prod, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
-See 'docker run --help'.
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 'docker run --help'
-bash: docker run --help: command not found
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ docker run --help
-
-Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
-
-Run a command in a new container
-
-Options:
-      --add-host list                  Add a custom host-to-IP mapping (host:ip)
-  -a, --attach list                    Attach to STDIN, STDOUT or STDERR
-      --blkio-weight uint16            Block IO (relative weight), between 10 and 1000, or 0 to disable (default 0)
-      --blkio-weight-device list       Block IO weight (relative device weight) (default [])
-      --cap-add list                   Add Linux capabilities
-      --cap-drop list                  Drop Linux capabilities
-      --cgroup-parent string           Optional parent cgroup for the container
-      --cgroupns string                Cgroup namespace to use (host|private)
-                                       'host':    Run the container in the Docker host's cgroup namespace
-                                       'private': Run the container in its own private cgroup namespace
-                                       '':        Use the cgroup namespace as configured by the
-                                                  default-cgroupns-mode option on the daemon (default)
-      --cidfile string                 Write the container ID to the file
-      --cpu-period int                 Limit CPU CFS (Completely Fair Scheduler) period
-      --cpu-quota int                  Limit CPU CFS (Completely Fair Scheduler) quota
-      --cpu-rt-period int              Limit CPU real-time period in microseconds
-      --cpu-rt-runtime int             Limit CPU real-time runtime in microseconds
-  -c, --cpu-shares int                 CPU shares (relative weight)
-      --cpus decimal                   Number of CPUs
-      --cpuset-cpus string             CPUs in which to allow execution (0-3, 0,1)
-      --cpuset-mems string             MEMs in which to allow execution (0-3, 0,1)
-  -d, --detach                         Run container in background and print container ID
-      --detach-keys string             Override the key sequence for detaching a container
-      --device list                    Add a host device to the container
-      --device-cgroup-rule list        Add a rule to the cgroup allowed devices list
-      --device-read-bps list           Limit read rate (bytes per second) from a device (default [])
-      --device-read-iops list          Limit read rate (IO per second) from a device (default [])
-      --device-write-bps list          Limit write rate (bytes per second) to a device (default [])
-      --device-write-iops list         Limit write rate (IO per second) to a device (default [])
-      --disable-content-trust          Skip image verification (default true)
-      --dns list                       Set custom DNS servers
-      --dns-option list                Set DNS options
-      --dns-search list                Set custom DNS search domains
-      --domainname string              Container NIS domain name
-      --entrypoint string              Overwrite the default ENTRYPOINT of the image
-  -e, --env list                       Set environment variables
-      --env-file list                  Read in a file of environment variables
-      --expose list                    Expose a port or a range of ports
-      --gpus gpu-request               GPU devices to add to the container ('all' to pass all GPUs)
-      --group-add list                 Add additional groups to join
-      --health-cmd string              Command to run to check health
-      --health-interval duration       Time between running the check (ms|s|m|h) (default 0s)
-      --health-retries int             Consecutive failures needed to report unhealthy
-      --health-start-period duration   Start period for the container to initialize before starting health-retries countdown (ms|s|m|h) (default 0s)
-      --health-timeout duration        Maximum time to allow one check to run (ms|s|m|h) (default 0s)
-      --help                           Print usage
-  -h, --hostname string                Container host name
-      --init                           Run an init inside the container that forwards signals and reaps processes
-  -i, --interactive                    Keep STDIN open even if not attached
-      --ip string                      IPv4 address (e.g., 172.30.100.104)
-      --ip6 string                     IPv6 address (e.g., 2001:db8::33)
-      --ipc string                     IPC mode to use
-      --isolation string               Container isolation technology
-      --kernel-memory bytes            Kernel memory limit
-  -l, --label list                     Set meta data on a container
-      --label-file list                Read in a line delimited file of labels
-      --link list                      Add link to another container
-      --link-local-ip list             Container IPv4/IPv6 link-local addresses
-      --log-driver string              Logging driver for the container
-      --log-opt list                   Log driver options
-      --mac-address string             Container MAC address (e.g., 92:d0:c6:0a:29:33)
-  -m, --memory bytes                   Memory limit
-      --memory-reservation bytes       Memory soft limit
-      --memory-swap bytes              Swap limit equal to memory plus swap: '-1' to enable unlimited swap
-      --memory-swappiness int          Tune container memory swappiness (0 to 100) (default -1)
-      --mount mount                    Attach a filesystem mount to the container
-      --name string                    Assign a name to the container
-      --network network                Connect a container to a network
-      --network-alias list             Add network-scoped alias for the container
-      --no-healthcheck                 Disable any container-specified HEALTHCHECK
-      --oom-kill-disable               Disable OOM Killer
-      --oom-score-adj int              Tune host's OOM preferences (-1000 to 1000)
-      --pid string                     PID namespace to use
-      --pids-limit int                 Tune container pids limit (set -1 for unlimited)
-      --platform string                Set platform if server is multi-platform capable
-      --privileged                     Give extended privileges to this container
-  -p, --publish list                   Publish a container's port(s) to the host
-  -P, --publish-all                    Publish all exposed ports to random ports
-      --pull string                    Pull image before running ("always"|"missing"|"never") (default "missing")
-      --read-only                      Mount the container's root filesystem as read only
-      --restart string                 Restart policy to apply when a container exits (default "no")
-      --rm                             Automatically remove the container when it exits
-      --runtime string                 Runtime to use for this container
-      --security-opt list              Security Options
-      --shm-size bytes                 Size of /dev/shm
-      --sig-proxy                      Proxy received signals to the process (default true)
-      --stop-signal string             Signal to stop a container (default "SIGTERM")
-      --stop-timeout int               Timeout (in seconds) to stop a container
-      --storage-opt list               Storage driver options for the container
-      --sysctl map                     Sysctl options (default map[])
-      --tmpfs list                     Mount a tmpfs directory
-  -t, --tty                            Allocate a pseudo-TTY
-      --ulimit ulimit                  Ulimit options (default [])
-  -u, --user string                    Username or UID (format: <name|uid>[:<group|gid>])
-      --userns string                  User namespace to use
-      --uts string                     UTS namespace to use
-  -v, --volume list                    Bind mount a volume
-      --volume-driver string           Optional volume driver for the container
-      --volumes-from list              Mount volumes from the specified container(s)
-  -w, --workdir string                 Working directory inside the container
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
-Docker ID and Image: olaninnovator/myapp_prod:latest
-Error response from daemon: No such image: myapp_prodsu:latest
-Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
-Username: olaninnovator
-Password: 
-Error response from daemon: Get "https://registry-1.docker.io/v2/": unauthorized: incorrect username or password
-The push refers to repository [docker.io/olaninnovator/myapp_prod]
-An image does not exist locally with the tag: olaninnovator/myapp_prod
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
-Docker ID and Image: olaninnovator/myapp_prod:latest
-Error response from daemon: No such image: myapp_prodsu:latest
-Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
-Username: olaninnovator
-Password: 
-WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-The push refers to repository [docker.io/olaninnovator/myapp_prod]
-An image does not exist locally with the tag: olaninnovator/myapp_prod
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
-Sending build context to Docker daemon  94.52MB
-Step 1/6 : FROM python:3.7.3-stretch
- ---> 34a518642c76
-Step 2/6 : WORKDIR /app
- ---> Using cache
- ---> 1268c95ad635
-Step 3/6 : COPY . app.py /app/
- ---> 1575e24e9624
-Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
- ---> Running in f8b2fb3c6a97
-Collecting pip
-  Downloading https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl (2.1MB)
-Installing collected packages: pip
-  Found existing installation: pip 19.1.1
-    Uninstalling pip-19.1.1:
-      Successfully uninstalled pip-19.1.1
-Successfully installed pip-24.0
-Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
-Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
-Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
-Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
-Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl.metadata (3.2 kB)
-Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.1 kB)
-ERROR: Ignored the following versions that require a different python version: 1.22.0 Requires-Python >=3.8; 1.22.1 Requires-Python >=3.8; 1.22.2 Requires-Python >=3.8; 1.22.3 Requires-Python >=3.8; 1.22.4 Requires-Python >=3.8; 1.23.0 Requires-Python >=3.8; 1.23.0rc1 Requires-Python >=3.8; 1.23.0rc2 Requires-Python >=3.8; 1.23.0rc3 Requires-Python >=3.8; 1.23.1 Requires-Python >=3.8; 1.23.2 Requires-Python >=3.8; 1.23.3 Requires-Python >=3.8; 1.23.4 Requires-Python >=3.8; 1.23.5 Requires-Python >=3.8; 1.24.0 Requires-Python >=3.8; 1.24.0rc1 Requires-Python >=3.8; 1.24.0rc2 Requires-Python >=3.8; 1.24.1 Requires-Python >=3.8; 1.24.2 Requires-Python >=3.8; 1.24.3 Requires-Python >=3.8; 1.24.4 Requires-Python >=3.8; 1.25.0 Requires-Python >=3.9; 1.25.0rc1 Requires-Python >=3.9; 1.25.1 Requires-Python >=3.9; 1.25.2 Requires-Python >=3.9; 1.26.0 Requires-Python <3.13,>=3.9; 1.26.0b1 Requires-Python <3.13,>=3.9; 1.26.0rc1 Requires-Python <3.13,>=3.9; 1.26.1 Requires-Python <3.13,>=3.9; 1.26.2 Requires-Python >=3.9; 1.26.3 Requires-Python >=3.9; 1.26.4 Requires-Python >=3.9; 1.4.0 Requires-Python >=3.8; 1.4.0rc0 Requires-Python >=3.8; 1.4.1 Requires-Python >=3.8; 1.4.2 Requires-Python >=3.8; 1.4.3 Requires-Python >=3.8; 1.4.4 Requires-Python >=3.8; 1.5.0 Requires-Python >=3.8; 1.5.0rc0 Requires-Python >=3.8; 1.5.1 Requires-Python >=3.8; 1.5.2 Requires-Python >=3.8; 1.5.3 Requires-Python >=3.8; 2.0.0 Requires-Python >=3.8; 2.0.0b1 Requires-Python >=3.9; 2.0.0rc0 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.9; 2.0.1 Requires-Python >=3.8; 2.0.2 Requires-Python >=3.8; 2.0.3 Requires-Python >=3.8; 2.1.0 Requires-Python >=3.9; 2.1.0rc0 Requires-Python >=3.9; 2.1.1 Requires-Python >=3.9; 2.1.2 Requires-Python >=3.9; 2.1.3 Requires-Python >=3.9; 2.1.4 Requires-Python >=3.9; 2.2.0 Requires-Python >=3.8; 2.2.0 Requires-Python >=3.9; 2.2.0rc0 Requires-Python >=3.9; 2.2.1 Requires-Python >=3.9; 2.2.2 Requires-Python >=3.9; 2.3.0 Requires-Python >=3.8; 2.3.1 Requires-Python >=3.8; 2.3.2 Requires-Python >=3.8; 2.3.3 Requires-Python >=3.8; 3.0.0 Requires-Python >=3.8; 3.0.1 Requires-Python >=3.8; 3.0.2 Requires-Python >=3.8; 3.0.3 Requires-Python >=3.8
-ERROR: Could not find a version that satisfies the requirement pandas>=2.0.3 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)
-ERROR: No matching distribution found for pandas>=2.0.3
-The command '/bin/sh -c pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt' returned a non-zero code: 1
-"docker tag" requires exactly 2 arguments.
-See 'docker tag --help'.
-
-Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
-
-Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
-REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED          SIZE
-<none>                                                                                                      <none>                                         1575e24e9624   7 seconds ago    1.02GB
-<none>                                                                                                      <none>                                         df308b28d926   15 minutes ago   1.02GB
-helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   2 hours ago      595MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   2 hours ago      577MB
-helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   2 hours ago      577MB
-<none>                                                                                                      <none>                                         5d66c6c24f3f   4 hours ago      595MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago      577MB
-public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   32 hours ago     574MB
-python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago      929MB
-Unable to find image 'myapp_prod:latest' locally
-docker: Error response from daemon: pull access denied for myapp_prod, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
-See 'docker run --help'.
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
-Sending build context to Docker daemon  94.52MB
-Step 1/6 : FROM python:3.7
-3.7: Pulling from library/python
-167b8a53ca45: Pull complete 
-b47a222d28fa: Pull complete 
-debce5f9f3a9: Pull complete 
-1d7ca7cd2e06: Pull complete 
-ff3119008f58: Pull complete 
-c2423a76a32b: Pull complete 
-e1c98ca4926a: Pull complete 
-3b62c8e1d79b: Pull complete 
-Digest: sha256:eedf63967cdb57d8214db38ce21f105003ed4e4d0358f02bedc057341bcf92a0
-Status: Downloaded newer image for python:3.7
- ---> 16d93ae3411b
-Step 2/6 : WORKDIR /app
- ---> Running in fd259965ef7f
-Removing intermediate container fd259965ef7f
- ---> 5a2142bb8ede
-Step 3/6 : COPY . app.py /app/
- ---> 6d1bcd63bb41
-Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
- ---> Running in 5e61b53c2b85
-Requirement already satisfied: pip in /usr/local/lib/python3.7/site-packages (23.0.1)
-Collecting pip
-  Downloading pip-24.0-py3-none-any.whl (2.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 41.2 MB/s eta 0:00:00
-Installing collected packages: pip
-  Attempting uninstall: pip
-    Found existing installation: pip 23.0.1
-    Uninstalling pip-23.0.1:
-      Successfully uninstalled pip-23.0.1
-Successfully installed pip-24.0
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
-Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
-Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
-Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
-Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl.metadata (3.2 kB)
-Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.1 kB)
-ERROR: Ignored the following versions that require a different python version: 1.22.0 Requires-Python >=3.8; 1.22.1 Requires-Python >=3.8; 1.22.2 Requires-Python >=3.8; 1.22.3 Requires-Python >=3.8; 1.22.4 Requires-Python >=3.8; 1.23.0 Requires-Python >=3.8; 1.23.0rc1 Requires-Python >=3.8; 1.23.0rc2 Requires-Python >=3.8; 1.23.0rc3 Requires-Python >=3.8; 1.23.1 Requires-Python >=3.8; 1.23.2 Requires-Python >=3.8; 1.23.3 Requires-Python >=3.8; 1.23.4 Requires-Python >=3.8; 1.23.5 Requires-Python >=3.8; 1.24.0 Requires-Python >=3.8; 1.24.0rc1 Requires-Python >=3.8; 1.24.0rc2 Requires-Python >=3.8; 1.24.1 Requires-Python >=3.8; 1.24.2 Requires-Python >=3.8; 1.24.3 Requires-Python >=3.8; 1.24.4 Requires-Python >=3.8; 1.25.0 Requires-Python >=3.9; 1.25.0rc1 Requires-Python >=3.9; 1.25.1 Requires-Python >=3.9; 1.25.2 Requires-Python >=3.9; 1.26.0 Requires-Python <3.13,>=3.9; 1.26.0b1 Requires-Python <3.13,>=3.9; 1.26.0rc1 Requires-Python <3.13,>=3.9; 1.26.1 Requires-Python <3.13,>=3.9; 1.26.2 Requires-Python >=3.9; 1.26.3 Requires-Python >=3.9; 1.26.4 Requires-Python >=3.9; 1.4.0 Requires-Python >=3.8; 1.4.0rc0 Requires-Python >=3.8; 1.4.1 Requires-Python >=3.8; 1.4.2 Requires-Python >=3.8; 1.4.3 Requires-Python >=3.8; 1.4.4 Requires-Python >=3.8; 1.5.0 Requires-Python >=3.8; 1.5.0rc0 Requires-Python >=3.8; 1.5.1 Requires-Python >=3.8; 1.5.2 Requires-Python >=3.8; 1.5.3 Requires-Python >=3.8; 2.0.0 Requires-Python >=3.8; 2.0.0b1 Requires-Python >=3.9; 2.0.0rc0 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.9; 2.0.1 Requires-Python >=3.8; 2.0.2 Requires-Python >=3.8; 2.0.3 Requires-Python >=3.8; 2.1.0 Requires-Python >=3.9; 2.1.0rc0 Requires-Python >=3.9; 2.1.1 Requires-Python >=3.9; 2.1.2 Requires-Python >=3.9; 2.1.3 Requires-Python >=3.9; 2.1.4 Requires-Python >=3.9; 2.2.0 Requires-Python >=3.8; 2.2.0 Requires-Python >=3.9; 2.2.0rc0 Requires-Python >=3.9; 2.2.1 Requires-Python >=3.9; 2.2.2 Requires-Python >=3.9; 2.3.0 Requires-Python >=3.8; 2.3.1 Requires-Python >=3.8; 2.3.2 Requires-Python >=3.8; 2.3.3 Requires-Python >=3.8; 3.0.0 Requires-Python >=3.8; 3.0.1 Requires-Python >=3.8; 3.0.2 Requires-Python >=3.8; 3.0.3 Requires-Python >=3.8
-ERROR: Could not find a version that satisfies the requirement pandas>=2.0.3 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)
-ERROR: No matching distribution found for pandas>=2.0.3
-The command '/bin/sh -c pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt' returned a non-zero code: 1
-"docker tag" requires exactly 2 arguments.
-See 'docker tag --help'.
-
-Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
-
-Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
-REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED          SIZE
-<none>                                                                                                      <none>                                         6d1bcd63bb41   8 seconds ago    1.09GB
-<none>                                                                                                      <none>                                         1575e24e9624   5 minutes ago    1.02GB
-<none>                                                                                                      <none>                                         df308b28d926   20 minutes ago   1.02GB
-helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   2 hours ago      595MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   2 hours ago      577MB
-helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   2 hours ago      577MB
-<none>                                                                                                      <none>                                         5d66c6c24f3f   4 hours ago      595MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago      577MB
-public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   32 hours ago     574MB
-python                                                                                                      3.7                                            16d93ae3411b   9 months ago     994MB
-python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago      929MB
-Unable to find image 'myapp_prod:latest' locally
-docker: Error response from daemon: pull access denied for myapp_prod, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
-See 'docker run --help'.
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
-Sending build context to Docker daemon  94.52MB
+make: *** [Makefile:30: lint] Error 4
+(.devops) olan-sys-ubuntu@olan-sys-ubuntu-Inspiron-16-Plus-7640:~/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes$ ./run_docker.sh
+Sending build context to Docker daemon  360.7MB
 Step 1/6 : FROM python:3.7
  ---> 16d93ae3411b
 Step 2/6 : WORKDIR /app
  ---> Using cache
- ---> 5a2142bb8ede
+ ---> 91462e3f1afd
 Step 3/6 : COPY . app.py /app/
- ---> 2dd75d600f7d
+ ---> d67245e34776
 Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
- ---> Running in 976c39219a57
+ ---> Running in 49c7b8cc9903
 Requirement already satisfied: pip in /usr/local/lib/python3.7/site-packages (23.0.1)
 Collecting pip
   Downloading pip-24.0-py3-none-any.whl (2.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 43.5 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 7.8 MB/s eta 0:00:00
 Installing collected packages: pip
   Attempting uninstall: pip
     Found existing installation: pip 23.0.1
@@ -461,243 +80,223 @@ Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
   Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
 Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
   Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl.metadata (3.2 kB)
-Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.21.6-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.1 kB)
-ERROR: Ignored the following versions that require a different python version: 1.22.0 Requires-Python >=3.8; 1.22.1 Requires-Python >=3.8; 1.22.2 Requires-Python >=3.8; 1.22.3 Requires-Python >=3.8; 1.22.4 Requires-Python >=3.8; 1.23.0 Requires-Python >=3.8; 1.23.0rc1 Requires-Python >=3.8; 1.23.0rc2 Requires-Python >=3.8; 1.23.0rc3 Requires-Python >=3.8; 1.23.1 Requires-Python >=3.8; 1.23.2 Requires-Python >=3.8; 1.23.3 Requires-Python >=3.8; 1.23.4 Requires-Python >=3.8; 1.23.5 Requires-Python >=3.8; 1.24.0 Requires-Python >=3.8; 1.24.0rc1 Requires-Python >=3.8; 1.24.0rc2 Requires-Python >=3.8; 1.24.1 Requires-Python >=3.8; 1.24.2 Requires-Python >=3.8; 1.24.3 Requires-Python >=3.8; 1.24.4 Requires-Python >=3.8; 1.25.0 Requires-Python >=3.9; 1.25.0rc1 Requires-Python >=3.9; 1.25.1 Requires-Python >=3.9; 1.25.2 Requires-Python >=3.9; 1.26.0 Requires-Python <3.13,>=3.9; 1.26.0b1 Requires-Python <3.13,>=3.9; 1.26.0rc1 Requires-Python <3.13,>=3.9; 1.26.1 Requires-Python <3.13,>=3.9; 1.26.2 Requires-Python >=3.9; 1.26.3 Requires-Python >=3.9; 1.26.4 Requires-Python >=3.9; 1.4.0 Requires-Python >=3.8; 1.4.0rc0 Requires-Python >=3.8; 1.4.1 Requires-Python >=3.8; 1.4.2 Requires-Python >=3.8; 1.4.3 Requires-Python >=3.8; 1.4.4 Requires-Python >=3.8; 1.5.0 Requires-Python >=3.8; 1.5.0rc0 Requires-Python >=3.8; 1.5.1 Requires-Python >=3.8; 1.5.2 Requires-Python >=3.8; 1.5.3 Requires-Python >=3.8; 2.0.0 Requires-Python >=3.8; 2.0.0b1 Requires-Python >=3.9; 2.0.0rc0 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.8; 2.0.0rc1 Requires-Python >=3.9; 2.0.1 Requires-Python >=3.8; 2.0.2 Requires-Python >=3.8; 2.0.3 Requires-Python >=3.8; 2.1.0 Requires-Python >=3.9; 2.1.0rc0 Requires-Python >=3.9; 2.1.1 Requires-Python >=3.9; 2.1.2 Requires-Python >=3.9; 2.1.3 Requires-Python >=3.9; 2.1.4 Requires-Python >=3.9; 2.2.0 Requires-Python >=3.8; 2.2.0 Requires-Python >=3.9; 2.2.0rc0 Requires-Python >=3.9; 2.2.1 Requires-Python >=3.9; 2.2.2 Requires-Python >=3.9; 2.3.0 Requires-Python >=3.8; 2.3.1 Requires-Python >=3.8; 2.3.2 Requires-Python >=3.8; 2.3.3 Requires-Python >=3.8; 3.0.0 Requires-Python >=3.8; 3.0.1 Requires-Python >=3.8; 3.0.2 Requires-Python >=3.8; 3.0.3 Requires-Python >=3.8
-ERROR: Could not find a version that satisfies the requirement pandas>=2.0.3 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)
-ERROR: No matching distribution found for pandas>=2.0.3
-The command '/bin/sh -c pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt' returned a non-zero code: 1
-Error response from daemon: No such image: myapp_prod:latest
-REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED          SIZE
-<none>                                                                                                      <none>                                         2dd75d600f7d   8 seconds ago    1.09GB
-<none>                                                                                                      <none>                                         6d1bcd63bb41   4 minutes ago    1.09GB
-<none>                                                                                                      <none>                                         1575e24e9624   10 minutes ago   1.02GB
-<none>                                                                                                      <none>                                         df308b28d926   25 minutes ago   1.02GB
-helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   2 hours ago      595MB
-helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   2 hours ago      577MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   2 hours ago      577MB
-<none>                                                                                                      <none>                                         5d66c6c24f3f   4 hours ago      595MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago      577MB
-public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   32 hours ago     574MB
-python                                                                                                      3.7                                            16d93ae3411b   9 months ago     994MB
-python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago      929MB
-Unable to find image 'myapp_prod:latest' locally
-docker: Error response from daemon: pull access denied for myapp_prod, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
-See 'docker run --help'.
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
-Sending build context to Docker daemon  94.52MB
-Step 1/6 : FROM python:3.8
-3.8: Pulling from library/python
-609c73876867: Pull complete 
-7247ea8d81e6: Pull complete 
-be374d06f382: Pull complete 
-b4580645a8e5: Pull complete 
-aa7e0aca67dd: Pull complete 
-32120056a9fe: Pull complete 
-19107d8e07f6: Pull complete 
-2fd0a626ceb4: Pull complete 
-Digest: sha256:e31986c72ec7f2a4e1c4d7a4e6034b5db537293b01df9192934ec028f762279e
-Status: Downloaded newer image for python:3.8
- ---> b22191dc7e28
-Step 2/6 : WORKDIR /app
- ---> Running in a86c8a3f2b25
-Removing intermediate container a86c8a3f2b25
- ---> 685453975391
-Step 3/6 : COPY . app.py /app/
- ---> 345c6f201b5b
-Step 4/6 : RUN pip install --no-cache-dir --upgrade pip &&    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
- ---> Running in f6593e8b0e3c
-Requirement already satisfied: pip in /usr/local/lib/python3.8/site-packages (23.0.1)
-Collecting pip
-  Downloading pip-24.0-py3-none-any.whl (2.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 43.5 MB/s eta 0:00:00
-Installing collected packages: pip
-  Attempting uninstall: pip
-    Found existing installation: pip 23.0.1
-    Uninstalling pip-23.0.1:
-      Successfully uninstalled pip-23.0.1
-Successfully installed pip-24.0
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-Collecting Click==7.0 (from -r requirements.txt (line 1))
-  Downloading Click-7.0-py2.py3-none-any.whl.metadata (3.5 kB)
-Collecting Flask==1.0.2 (from -r requirements.txt (line 2))
-  Downloading Flask-1.0.2-py2.py3-none-any.whl.metadata (4.2 kB)
-Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 3))
-  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
-Collecting Jinja2==2.10.3 (from -r requirements.txt (line 4))
-  Downloading Jinja2-2.10.3-py2.py3-none-any.whl.metadata (3.4 kB)
-Collecting MarkupSafe==1.1.1 (from -r requirements.txt (line 5))
-  Downloading MarkupSafe-1.1.1-cp38-cp38-manylinux2010_x86_64.whl.metadata (3.2 kB)
-Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
-Collecting pandas>=2.0.3 (from -r requirements.txt (line 7))
-  Downloading pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
-Collecting python-dateutil>=2.8.0 (from -r requirements.txt (line 8))
-  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
-Collecting pytz>=2020.1 (from -r requirements.txt (line 9))
-  Downloading pytz-2024.1-py2.py3-none-any.whl.metadata (22 kB)
-Collecting scikit-learn==1.3.2 (from -r requirements.txt (line 10))
-  Downloading scikit_learn-1.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
-Collecting scipy==1.7.0 (from -r requirements.txt (line 11))
-  Downloading scipy-1.7.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (2.2 kB)
-Collecting six==1.12.0 (from -r requirements.txt (line 12))
+Collecting numpy==1.17.2 (from -r requirements.txt (line 6))
+  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl.metadata (2.0 kB)
+Collecting gunicorn==20.0.4 (from -r requirements.txt (line 7))
+  Downloading gunicorn-20.0.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting pandas==0.24.2 (from -r requirements.txt (line 8))
+  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl.metadata (4.5 kB)
+Collecting python-dateutil==2.8.0 (from -r requirements.txt (line 9))
+  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl.metadata (7.6 kB)
+Collecting pytz==2019.3 (from -r requirements.txt (line 10))
+  Downloading pytz-2019.3-py2.py3-none-any.whl.metadata (20 kB)
+Collecting scikit-learn==0.20.3 (from -r requirements.txt (line 11))
+  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl.metadata (7.4 kB)
+Collecting scipy==1.3.1 (from -r requirements.txt (line 12))
+  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl.metadata (2.0 kB)
+Collecting six==1.12.0 (from -r requirements.txt (line 13))
   Downloading six-1.12.0-py2.py3-none-any.whl.metadata (1.9 kB)
-Collecting Werkzeug==0.16.0 (from -r requirements.txt (line 13))
+Collecting Werkzeug==0.16.0 (from -r requirements.txt (line 14))
   Downloading Werkzeug-0.16.0-py2.py3-none-any.whl.metadata (4.7 kB)
-Collecting pylint==2.4.4 (from -r requirements.txt (line 14))
+Collecting pylint==2.4.4 (from -r requirements.txt (line 15))
   Downloading pylint-2.4.4-py3-none-any.whl.metadata (6.5 kB)
-Collecting joblib>=1.1.1 (from scikit-learn==1.3.2->-r requirements.txt (line 10))
-  Downloading joblib-1.4.0-py3-none-any.whl.metadata (5.4 kB)
-Collecting threadpoolctl>=2.0.0 (from scikit-learn==1.3.2->-r requirements.txt (line 10))
-  Downloading threadpoolctl-3.4.0-py3-none-any.whl.metadata (13 kB)
-Collecting numpy>=1.17.2 (from -r requirements.txt (line 6))
-  Downloading numpy-1.22.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.0 kB)
-Collecting astroid<2.4,>=2.3.0 (from pylint==2.4.4->-r requirements.txt (line 14))
+Requirement already satisfied: setuptools>=3.0 in /usr/local/lib/python3.7/site-packages (from gunicorn==20.0.4->-r requirements.txt (line 7)) (57.5.0)
+Collecting astroid<2.4,>=2.3.0 (from pylint==2.4.4->-r requirements.txt (line 15))
   Downloading astroid-2.3.3-py3-none-any.whl.metadata (3.9 kB)
-Collecting isort<5,>=4.2.5 (from pylint==2.4.4->-r requirements.txt (line 14))
+Collecting isort<5,>=4.2.5 (from pylint==2.4.4->-r requirements.txt (line 15))
   Downloading isort-4.3.21-py2.py3-none-any.whl.metadata (19 kB)
-Collecting mccabe<0.7,>=0.6 (from pylint==2.4.4->-r requirements.txt (line 14))
+Collecting mccabe<0.7,>=0.6 (from pylint==2.4.4->-r requirements.txt (line 15))
   Downloading mccabe-0.6.1-py2.py3-none-any.whl.metadata (4.3 kB)
-Collecting tzdata>=2022.1 (from pandas>=2.0.3->-r requirements.txt (line 7))
-  Downloading tzdata-2024.1-py2.py3-none-any.whl.metadata (1.4 kB)
-Collecting lazy-object-proxy==1.4.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
-  Downloading lazy_object_proxy-1.4.3-cp38-cp38-manylinux1_x86_64.whl.metadata (5.1 kB)
-Collecting wrapt==1.11.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 14))
+Collecting lazy-object-proxy==1.4.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 15))
+  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl.metadata (5.1 kB)
+Collecting wrapt==1.11.* (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 15))
   Downloading wrapt-1.11.2.tar.gz (27 kB)
   Preparing metadata (setup.py): started
   Preparing metadata (setup.py): finished with status 'done'
+Collecting typed-ast<1.5,>=1.4.0 (from astroid<2.4,>=2.3.0->pylint==2.4.4->-r requirements.txt (line 15))
+  Downloading typed_ast-1.4.3-cp37-cp37m-manylinux1_x86_64.whl.metadata (1.3 kB)
 Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 kB 61.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 kB 8.2 MB/s eta 0:00:00
 Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.4/91.4 kB 143.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.4/91.4 kB 9.9 MB/s eta 0:00:00
 Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
 Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 148.3 MB/s eta 0:00:00
-Downloading MarkupSafe-1.1.1-cp38-cp38-manylinux2010_x86_64.whl (32 kB)
-Downloading scikit_learn-1.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 114.9 MB/s eta 0:00:00
-Downloading scipy-1.7.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl (28.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28.4/28.4 MB 103.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 9.1 MB/s eta 0:00:00
+Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl (33 kB)
+Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.3/20.3 MB 8.8 MB/s eta 0:00:00
+Downloading gunicorn-20.0.4-py2.py3-none-any.whl (77 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.9/77.9 kB 10.1 MB/s eta 0:00:00
+Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.1/10.1 MB 8.5 MB/s eta 0:00:00
+Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.8/226.8 kB 9.8 MB/s eta 0:00:00
+Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 8.9 MB/s eta 0:00:00
+Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 8.8 MB/s eta 0:00:00
+Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.2/25.2 MB 8.8 MB/s eta 0:00:00
 Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
 Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 327.3/327.3 kB 171.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 327.3/327.3 kB 9.2 MB/s eta 0:00:00
 Downloading pylint-2.4.4-py3-none-any.whl (302 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.0/303.0 kB 164.8 MB/s eta 0:00:00
-Downloading numpy-1.22.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 70.9 MB/s eta 0:00:00
-Downloading pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 92.1 MB/s eta 0:00:00
-Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 167.2 MB/s eta 0:00:00
-Downloading pytz-2024.1-py2.py3-none-any.whl (505 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 505.5/505.5 kB 174.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 303.0/303.0 kB 9.1 MB/s eta 0:00:00
 Downloading astroid-2.3.3-py3-none-any.whl (205 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 205.7/205.7 kB 157.4 MB/s eta 0:00:00
-Downloading lazy_object_proxy-1.4.3-cp38-cp38-manylinux1_x86_64.whl (58 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.6/58.6 kB 138.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 205.7/205.7 kB 9.2 MB/s eta 0:00:00
+Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 9.2 MB/s eta 0:00:00
 Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 123.3 MB/s eta 0:00:00
-Downloading joblib-1.4.0-py3-none-any.whl (301 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 301.2/301.2 kB 170.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 kB 9.2 MB/s eta 0:00:00
 Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
-Downloading threadpoolctl-3.4.0-py3-none-any.whl (17 kB)
-Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 kB 137.1 MB/s eta 0:00:00
+Downloading typed_ast-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (743 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 743.4/743.4 kB 8.9 MB/s eta 0:00:00
 Building wheels for collected packages: wrapt
   Building wheel for wrapt (setup.py): started
   Building wheel for wrapt (setup.py): finished with status 'done'
-  Created wheel for wrapt: filename=wrapt-1.11.2-cp38-cp38-linux_x86_64.whl size=74209 sha256=b83f491a0aebd7539b84652b32186148a6a1e521f8e1a4cace696bcfa045b2c5
-  Stored in directory: /tmp/pip-ephem-wheel-cache-hnjr3ixb/wheels/52/25/16/7e228f52ee876e9c9c66dfd6eaf6fb2f73f18629a74dcf7045
+  Created wheel for wrapt: filename=wrapt-1.11.2-cp37-cp37m-linux_x86_64.whl size=68631 sha256=ab4617a7ff01fb02f342a6db56fd39a46219fded1f354ee9e9a19711cec2ba3e
+  Stored in directory: /tmp/pip-ephem-wheel-cache-5h9y4ctd/wheels/23/5f/62/304b411f20be41821465a82bc98baabc5e68c3cdd1eb99db71
 Successfully built wrapt
-Installing collected packages: wrapt, pytz, mccabe, Werkzeug, tzdata, threadpoolctl, six, numpy, MarkupSafe, lazy-object-proxy, joblib, itsdangerous, isort, Click, scipy, python-dateutil, Jinja2, astroid, scikit-learn, pylint, pandas, Flask
-Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 isort-4.3.21 itsdangerous-1.1.0 joblib-1.4.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.22.4 pandas-2.0.3 pylint-2.4.4 python-dateutil-2.9.0.post0 pytz-2024.1 scikit-learn-1.3.2 scipy-1.7.0 six-1.12.0 threadpoolctl-3.4.0 tzdata-2024.1 wrapt-1.11.2
+DEPRECATION: pandas 0.24.2 has a non-standard dependency specifier pytz>=2011k. pip 24.1 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of pandas or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
+Installing collected packages: wrapt, typed-ast, pytz, mccabe, Werkzeug, six, numpy, MarkupSafe, lazy-object-proxy, itsdangerous, isort, gunicorn, Click, scipy, python-dateutil, Jinja2, astroid, scikit-learn, pylint, pandas, Flask
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-Removing intermediate container f6593e8b0e3c
- ---> eff1c9e8487e
+Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 gunicorn-20.0.4 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.17.2 pandas-0.24.2 pylint-2.4.4 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0 typed-ast-1.4.3 wrapt-1.11.2
+Removing intermediate container 49c7b8cc9903
+ ---> 36b388971a1c
 Step 5/6 : EXPOSE 80
- ---> Running in 13fb7d2d6e69
-Removing intermediate container 13fb7d2d6e69
- ---> 63c7b5d82a34
+ ---> Running in 0011302d72e6
+Removing intermediate container 0011302d72e6
+ ---> fd4dc64827d6
 Step 6/6 : CMD ["python", "app.py"]
- ---> Running in 96abb95d4c4c
-Removing intermediate container 96abb95d4c4c
- ---> 9cd7fa1e83d5
-Successfully built 9cd7fa1e83d5
-Successfully tagged myapp_prod:latest
-REPOSITORY                                                                                                  TAG                                            IMAGE ID       CREATED          SIZE
-myapp_prod                                                                                                  latest                                         9cd7fa1e83d5   1 second ago     1.38GB
-<none>                                                                                                      <none>                                         2dd75d600f7d   2 minutes ago    1.09GB
-<none>                                                                                                      <none>                                         6d1bcd63bb41   7 minutes ago    1.09GB
-<none>                                                                                                      <none>                                         1575e24e9624   13 minutes ago   1.02GB
-<none>                                                                                                      <none>                                         df308b28d926   27 minutes ago   1.02GB
-helloworldfunction                                                                                          rapid-x86_64                                   c6886f1a5fff   3 hours ago      595MB
-helloworldfunction                                                                                          python3.8-v1                                   1b3b5b0981df   3 hours ago      577MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-1b3b5b0981df-python3.8-v1   1b3b5b0981df   3 hours ago      577MB
-<none>                                                                                                      <none>                                         5d66c6c24f3f   4 hours ago      595MB
-729756511133.dkr.ecr.us-east-1.amazonaws.com/mycloudformationstack3ede8fe3/helloworldfunction19d43fc4repo   helloworldfunction-a4a28bba2e33-python3.8-v1   a4a28bba2e33   4 hours ago      577MB
-public.ecr.aws/lambda/python                                                                                3.8                                            3cd81ffec4d9   32 hours ago     574MB
-python                                                                                                      3.8                                            b22191dc7e28   4 weeks ago      996MB
-python                                                                                                      3.7                                            16d93ae3411b   9 months ago     994MB
-python                                                                                                      3.7.3-stretch                                  34a518642c76   4 years ago      929MB
-Traceback (most recent call last):
-  File "app.py", line 72, in <module>
-    clf = joblib.load("./model_data/boston_housing_prediction.joblib")
-  File "/usr/local/lib/python3.8/site-packages/joblib/numpy_pickle.py", line 658, in load
-    obj = _unpickle(fobj, filename, mmap_mode)
-  File "/usr/local/lib/python3.8/site-packages/joblib/numpy_pickle.py", line 577, in _unpickle
-    obj = unpickler.load()
-  File "/usr/local/lib/python3.8/pickle.py", line 1212, in load
-    dispatch[key[0]](self)
-  File "/usr/local/lib/python3.8/pickle.py", line 1528, in load_global
-    klass = self.find_class(module, name)
-  File "/usr/local/lib/python3.8/pickle.py", line 1579, in find_class
-    __import__(module, level=0)
-ModuleNotFoundError: No module named 'sklearn.ensemble.gradient_boosting'
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
-Docker ID and Image: olaninnovator/myapp_prod:latest
-Error response from daemon: No such image: myapp_prodsu:latest
-Authenticating with existing credentials...
-WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-The push refers to repository [docker.io/olaninnovator/myapp_prod]
-An image does not exist locally with the tag: olaninnovator/myapp_prod
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
-Docker ID and Image: olaninnovator/myapp_prod:latest
-Error response from daemon: No such image: myapp_prodsu:latest
-Authenticating with existing credentials...
-WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-The push refers to repository [docker.io/olaninnovator/myapp_prod]
-An image does not exist locally with the tag: olaninnovator/myapp_prod
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ls image
-ls: cannot access image: No such file or directory
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ image
-bash: image: command not found
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh
-Docker ID and Image: olaninnovator/myapp_prod:latest
-Authenticating with existing credentials...
-WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-The push refers to repository [docker.io/olaninnovator/myapp_prod]
-506f19dabdc4: Pushed 
-b5cf6680791e: Pushed 
-d4b80a87c2e3: Pushed 
-ea687aec481f: Mounted from library/python 
-18711dbcc640: Mounted from library/python 
-89068aa9d56c: Mounted from library/python 
-86388e04a96b: Mounted from library/python 
-893507f6057f: Mounted from library/python 
-2353f7120e0e: Mounted from library/python 
-51a9318e6edf: Mounted from library/python 
-c5bb35826823: Mounted from library/python 
-latest: digest: sha256:1a91c792ed1e3312f8735eb9e91b8115d4e81ef32c637079db8ddfcb2f62ee65 size: 2638
-(.devops) voclabs:~/environment/myUdacityDevOps_Microservices/project-ml-microservice-kubernetes (master) $ 
+ ---> Running in bc79643a6d39
+Removing intermediate container bc79643a6d39
+ ---> e426fa2bc989
+Successfully built e426fa2bc989
+Successfully tagged myapp_prod3:latest
+REPOSITORY          TAG       IMAGE ID       CREATED          SIZE
+myapp_prod3         latest    e426fa2bc989   1 second ago     1.61GB
+<none>              <none>    fb001fa93b3a   16 minutes ago   1.61GB
+<none>              <none>    6ccd8850afdb   21 minutes ago   1.61GB
+<none>              <none>    fce40939d688   23 minutes ago   1.61GB
+<none>              <none>    23d53df758d8   27 minutes ago   1.61GB
+<none>              <none>    7c823824d8ee   28 minutes ago   1.61GB
+<none>              <none>    ee1a1593da64   30 minutes ago   1.61GB
+<none>              <none>    f46b421c0c95   36 minutes ago   1.61GB
+<none>              <none>    8f60bc6a4280   2 hours ago      1.61GB
+<none>              <none>    a01fa8e1cf02   2 hours ago      1.61GB
+<none>              <none>    99d39d654619   2 hours ago      1.61GB
+<none>              <none>    53c3ba96730a   3 hours ago      1.61GB
+<none>              <none>    2b903c4d875d   3 hours ago      1.61GB
+<none>              <none>    17905837ba20   3 hours ago      1.61GB
+<none>              <none>    4cfca544ce59   3 hours ago      1.61GB
+<none>              <none>    c51d5d574a83   3 hours ago      1.61GB
+<none>              <none>    f2593d011e8c   3 hours ago      1.61GB
+python              3.7       16d93ae3411b   11 months ago    994MB
+hadolint/hadolint   latest    da13a5ec2e84   19 months ago    2.43MB
+Deleted: sha256:fb001fa93b3ad2fcb06d1a6825406b62663bae6494cf04821bb54f10e8245610
+Deleted: sha256:d3547cdca80bdd720263b5e3b74f7f362f4f65547ee58d500e14e333e710fa0a
+Deleted: sha256:d5e10c2ca1df4c0a7b81450ff5079e4f4e035e6159a4d304f25c4f599bf14a0f
+Deleted: sha256:7179b2b31eb7561590757e11c0cb86f6b181a92294d0c2ddb752bd813f1ddd34
+Deleted: sha256:ea53a92d5f276d08f5b705e2f74af4dc8096a02739ee7197f47e0cfdc5968109
+Deleted: sha256:4582dcbd95f7b0276b73ab6efb4237ccdf1aab11f9b06abe3ae65d54b2abc9a8
+Deleted: sha256:fce40939d688d81d58c320d37c7e81dcd52c02a56367ecebf6175dfb50d63333
+Deleted: sha256:981137c914cb2643527883998bf0617680fecc67d5a7f94aea3cb69d2d1f8220
+Deleted: sha256:9d12cd9931268efb3ba6e03c9344fdb616dff57b700544acd49b054baa24a320
+Deleted: sha256:d7c574db77afe9418dd7578183e71a12edd585cddaf54d6c6b1eddcf5e5dbdbd
+Deleted: sha256:d2e669aed90834c520390f1a742440253cecd013218378428b5331776ce7bb13
+Deleted: sha256:f9f371f8d9a4c9b1e9dfda2de18fe0dd6e431139734e73f7d8376b211aec601d
+Deleted: sha256:23d53df758d8b82b5007f004cfe3d2a40f96341a93e8cc2eea885676b9a83299
+Deleted: sha256:2af39f1a9bd33101ff0227be032bcd2a64dc4cb0f4e2b81446d43bfe0cb132cb
+Deleted: sha256:db4828272320a02c9ebca645b02d25ca7bbedc39f14e69e14df5fb005449d38d
+Deleted: sha256:a86c81c9a6480b971b6968090c7bebd66b35a15ab217a4b9f985d9d6279abd0d
+Deleted: sha256:33bc4b7e95944b3dc7755212fcf601aac14b30e8c764f056da96aabfa54ac761
+Deleted: sha256:49ea4789e5ef98b08e0ebb8aa6b052afab0ac1e774bf69e645162f232ca7453b
+Deleted: sha256:7c823824d8ee299f8135cb44d0d205c612806fea9f24a4a1e9542baa57309445
+Deleted: sha256:2896eaf1ec9e0a9c63a895233bc9607fc427289a21c17c8c4a91818663f6a596
+Deleted: sha256:677c3b80be1409cb98f381cccc4bd9204fee4d6e9c92f60056021e277f6da3d6
+Deleted: sha256:75723f45640837f17455cc517d4f5ff1c8b73c8dd2b9377d7999ae231486c39b
+Deleted: sha256:f8b1662894e70be2c9aaf1d8de87ab426de83b4dcab6afe79d05e396205b81b8
+Deleted: sha256:24ba58d96374d511db57d797fe43ea1c484ca6997f46199e0f88be03b01fa105
+Deleted: sha256:ee1a1593da647f6ba7e41fcdc4f2318c2b097caece18ae1ec3ba54779216b614
+Deleted: sha256:88f3a990eadf76bacd9fcbae240c80f53d314c3113c6f23553a9baa199d438ea
+Deleted: sha256:b1802c33a388501926db4e6920861cfe7bbd209936eb98c78cc173795deb1e6d
+Deleted: sha256:e3b693d6f140755fc1debeb07ddb527f359687f1d3d610fdf75e9083e0544c0d
+Deleted: sha256:1bb63cc965e20f1144d19d7f150d6b707394e876675fe0ce0152342c68c18a4b
+Deleted: sha256:cba3a00a44a261870cc86661c707551be071d562b4662a2ee904269f10b59d74
+Deleted: sha256:f46b421c0c9557c79360c21d69f9c41e9855d8b351a9631ace01ea81c20af2ce
+Deleted: sha256:91704ba30c374d264c11a3c87740d7a349123b0da2f4f1448f6d7cb7e7841068
+Deleted: sha256:8a161880449ca897cec6be0441ef5d15e5b777465f2e7f48cb6ca655305db459
+Deleted: sha256:6c373d2fe0b6e80df6194de85db1a2159db9276623d4c7a9d1f166822c4bf23c
+Deleted: sha256:b3dae1d706122c38fa96ae91bdc6d291bc9d140d3950942ff861c320b375d41a
+Deleted: sha256:fc8de36740f203f1139c8d9a970b8e811b32878f9909a24dad7c0253018ec779
+Deleted: sha256:8f60bc6a4280286e07d04fa218a8bc48225ab3d199fa7fd3582eb01ac36de7e4
+Deleted: sha256:022ebeb0dd815ae58b25697ef8f4db9d6eec9cf0159947bd3635a0a3d29e44e5
+Deleted: sha256:b865d3842184afdf7c8f1c876c34d134523c6069d5749e110b8cb163b3009de3
+Deleted: sha256:752d3938a94222f4e3299d4a8af8f83c5b0a7fba48e270e16a51f4c127297a2b
+Deleted: sha256:9089de427d4e40a9d5b2bf17584ba7b45e70858b66aa33c4c0a7dfeeab626f4d
+Deleted: sha256:e6e9e8e9716bd0a65a4e699d2d451252b671639e4443593c4f8c60b217f22e4f
+Deleted: sha256:a01fa8e1cf02493100729feb95d7bc7ed36749554c9478fe0e933e5950415188
+Deleted: sha256:6ac5ec63d88b1cff7554b9c9db9af957b4928593e9318812f9da1d44bba182f5
+Deleted: sha256:2cef3bfdcd75e5aab067c01f0041da9259d18c89ba1eb3f0c401f2b5117a2b87
+Deleted: sha256:c9dd6c67fdcf72814acbb286481cf4d2c57351adeb804dc09fe182d68cff697f
+Deleted: sha256:01b42383e7aae001a773404d5a5292ba4dff7f4f4d6f305818b24d29f02b914e
+Deleted: sha256:cc884e2b727fdee38c0d913eb2c0018c4bfd4c78797b5fbda25b87e754fc4559
+Deleted: sha256:99d39d6546193ac57af9e6e9c2d4781947a9aaa75ccf47d3d6dc432096329519
+Deleted: sha256:f897cac4129f2dcde767a8d8d9c727651db09d32ff97b35e6fe51c93091619a6
+Deleted: sha256:de8047203cfd662cd06363367a00ad66a219ff48b2f0b639c9d03b7af9bd66e6
+Deleted: sha256:b3a806ab8d30e559281468fa30667aae5fd50a1a72e575df5cfbd48ccd685a20
+Deleted: sha256:3588319ad0702f7ae965f957f9b4491d73597b1994c4688190992bb85213dd1e
+Deleted: sha256:e43bd10e288b75bcfac802c9a3561caf3c7e05dff969ac34c82d58830c802015
+Deleted: sha256:53c3ba96730a6385aaa6923a83fb41b775fd30784c30a490e1bb1e56c89681de
+Deleted: sha256:cb2f435d7938e15bd768ba5f07def4b11357589c86abac1f5eba3495929fa601
+Deleted: sha256:e73fc3366eb2f8d8d33b33eb06d14a183715c913398f13f56806a6e5699e9071
+Deleted: sha256:f6195ab0d695018ad28697f8d2b924b70e39849c74f071f43bf264f4c8355a0d
+Deleted: sha256:261db6caedb024d7cd64e6a1ff01b28251726e3362dd29eef6583d62aef6cc81
+Deleted: sha256:ba6dcee693e67a18190eb2c2fab8393cf625d42aa676f2a43f7fd1ab7a9c5917
+Deleted: sha256:2b903c4d875d4c272dbd43fd6670161902d8a765ae8012f73fb298910ca26811
+Deleted: sha256:82f809b8cf915e0aec29278a1f1ce88334c042084046c5a61afc5df166ee4581
+Deleted: sha256:df6a5ac8df3c3ac337822d839b247a3260570577e2c9c1cb15dbe73dbacb7123
+Deleted: sha256:fcc685ea9998253dcfd158d0662a6c2b243f5ea6590f6efd6ef54aadb9985333
+Deleted: sha256:b16176a4ccad10af31350682669ef5c2a39ebcc755aed4f647f2671ce6aa6943
+Deleted: sha256:f682188f0919c90a6b503bcd5f8cb35c5cc303b3817a91fab447400bbf577283
+Deleted: sha256:17905837ba2035a51162eeea019d49f1cf6ba8cfc8f41f296508bdfa79e9eaaa
+Deleted: sha256:6dcb7f207b3ece66c0e0c83152f940b759fe5b18990c91e0c8154b262d052cd6
+Deleted: sha256:4c093ddc983d0f0d3283f1c63b03efa14e4ae59bd7d3a9f7bb8c326cc6083e8b
+Deleted: sha256:f9e45c1a296da6e34ff6ad367f2a37d05efc1aebe7d6a3fbee18e219ba23d84b
+Deleted: sha256:d5e34887c714c5b69e52ef91cf53d34926b4d83c40200c8a449c9c6803e42d45
+Deleted: sha256:170e8bd10b0c6a1080ec028081492ab94a82e230e2cfa8f3c0b521790210fcf5
+Deleted: sha256:4cfca544ce59d2fe646f25e84d6530ea363afac90b1016ac3748bf9a8ffdd693
+Deleted: sha256:258a1213de31e7431cdd7ecb918c087062ecedd2242aaa32567a2f6421d59fe6
+Deleted: sha256:28f9b2fd1a2d825c84f588cff82d24505d91c83a2957e408e1f450fcc251a012
+Deleted: sha256:974ef8acf83c6a4e0ee044dda7bf37f926f38c8a083280fd7533d63aff7ab251
+Deleted: sha256:b0f2e4b784a552093361cea83544f436634d18fc9919e425fc65894f8001b763
+Deleted: sha256:ee846a3ea845899e41b25742f78d0ec7fbefacd316f1db504504cdc94eaa6315
+Deleted: sha256:c51d5d574a83aab2c6bd744f96a5b96a6554486e7cfe0a0b9b242918df44877e
+Deleted: sha256:f534ded5678d07f3b965152f1b079ccb28c56fdd0d37333e4e6c2dc0e63200d6
+Deleted: sha256:f88c54aac0fb1669606e731e275e4c410ef978faa6bda71c9ffc85016cf987c3
+Deleted: sha256:55dba8bb1665706a1facada6092c77d18bc9c3db4ab1c00bc0f1b831f8da94df
+Deleted: sha256:ee0146bc8f16b75f2f0d0bf83673d94e02b297421b49688853f223c2be060a24
+Deleted: sha256:84242430fd2ff5483c49e237440216d860db0afc2e9a9bbace30a9d671c16f28
+Deleted: sha256:f2593d011e8cb1b048890431b549caceb57c7952035319fc31b25504c1771764
+Deleted: sha256:06a68f5261076b5082b7f6a28a2dd02b4b10acecce72495dfd51da81dbb1bedd
+Deleted: sha256:598383008261a9224416b33a3cc7230d4210956ae10a931515b0ab7fd58596f2
+Deleted: sha256:a2b0f7268cc241c863ddfad2e30c86d7838f268c0b376a6425425e8cf4dc42aa
+Deleted: sha256:140d911647c141a873c808e890592d19cd7831fb1088544abc42951b14269219
+Deleted: sha256:8fd0c863f8d3b011ae3598dd6a8b3f3b5538c4ea4358c0d5f7d395028afa3258
+Error response from daemon: conflict: unable to delete 6ccd8850afdb (must be forced) - image is being used by stopped container 270db647028f
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2024-06-23 11:59:26,517] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2024-06-23 11:59:26,529] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2024-06-23 11:59:26,537] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2024-06-23 11:59:26,611] INFO in app: prediction: 
+[20.35373177134412]
+127.0.0.1 - - [23/Jun/2024 11:59:26] "POST /predict HTTP/1.1" 200 -

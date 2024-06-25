@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask.logging import create_logger
 import logging
-import os
 
 import pandas as pd
 from sklearn.externals import joblib
@@ -24,7 +23,7 @@ def home():
     html = f"<h3>Sklearn Prediction Home</h3>"
     return html.format(format)
 
-global clf
+#global clf
 @app.route("/predict", methods=['POST'])
 def predict():
     """Performs an sklearn prediction
@@ -69,7 +68,7 @@ def predict():
     return jsonify({'prediction': prediction})
 
 if __name__ == "__main__":
-    os.environ.setdefault('F__name__', 'development')
+    #os.environ.setdefault('F__name__', 'development')
     # load pretrained model as    clf
     #clf = joblib.load("./model_data/boston_housing_prediction.joblib")
     app.run(host='127.0.0.1', port=5000, debug=True) # specify port=80
