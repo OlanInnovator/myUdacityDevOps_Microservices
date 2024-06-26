@@ -23,7 +23,8 @@ test:
 
 lint:
 	# See   local hadolint install instructions:   https://github.com/hadolint/hadolint
-	scoop install hadolint
+	wget -O /bin/hadolint 
+	https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
 	# This is linter for Dockerfiles
 	hadolint Dockerfile
 	# This is a linter for Python source code linter: https://www.pylint.org/
