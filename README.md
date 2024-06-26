@@ -3,7 +3,7 @@
 
 [![CircleCI]([https://circleci.com/gh/OlanInnovator/myUdacityDevOps_Microservices/54](https://app.circleci.com/pipelines/github/OlanInnovator/myUdacityDevOps_Microservices/37/workflows/a293384f-8047-46f2-984b-db575a138ef9).svg?style=svg&circle-token=<YOUR_STATUS_API_TOKEN>)](<LINK>)
 
-!https://circleci.com/gh/OlanInnovator/myUdacityDevOps_Microservices.svg?style=svg!:https://circleci.com/gh/OlanInnovator/myUdacityDevOps_Microservices
+[![CircleCI](https://circleci.com/gh/OlanInnovator/myUdacityDevOps_Microservices.svg?style=svg)](https://circleci.com/gh/OlanInnovator/myUdacityDevOps_Microservices)
 
 
 ## Project Overview
