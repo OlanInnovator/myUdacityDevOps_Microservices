@@ -18,6 +18,32 @@ Docker: https://hub.docker.com/repository/docker/olaninnovator/myapp_prod3/gener
 
 Circle Ci: https://app.circleci.com/pipelines/github/OlanInnovator/myUdacityDevOps_Microservices/31/workflows/522f8eca-f8b6-41ab-ab91-9d991a57ca75/jobs/54
 
+**Commands In order of execution.**
+On Command line (CMD)
+git clone https://github.com/OlanInnovator/myUdacityDevOps_Microservices.git
+cd myUdacityDevOps_Microservices
+code . (to open vs-code ide)
+
+Open Terminal
+cd project-ml-microservice-kubernetes$
+python3.7 -m venv ~/.devops
+source ~/.devops/bin/activate
+make install
+make lint
+python3.7 -m flask run   (to test app.py directly)
+
+./run_docker.sh
+then run below on a split terminal 
+./make_prediction.sh
+
+./upload_docker.sh
+
+minikube start (to start containerization)
+./run_kubernetes.sh
+then run below on a split terminal 
+./make_prediction.sh
+
+
 ## Setup the Environment
 
 * Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
